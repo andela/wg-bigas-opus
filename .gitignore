@@ -58,7 +58,11 @@ target/
 
 # IDE
 .idea/
+.vscode/
 
 # External Libraries 
 wger/core/static/bower_components
 node_modules
+
+# env
+new-wger/

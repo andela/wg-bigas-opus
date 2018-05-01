@@ -399,6 +399,11 @@ def database_exists():
     else:
         return True
 
+def trial():
+    '''
+    trial task
+    '''
+    print("hello")
 
 def start_browser(url):
     '''
