@@ -59,7 +59,6 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
         have we access to the current user
         '''
         class StepForm(ModelForm, forms.Form):
-
             weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53))
 
             workout = ModelChoiceField(queryset=Workout.objects.filter
