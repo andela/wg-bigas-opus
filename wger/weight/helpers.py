@@ -101,8 +101,8 @@ def group_log_entries(user, year, month, day=None):
     else:
         log_hash = hash((user.pk, year, month))
 
-    # There can be workout sessions without any associated log entries, so it is
-    # not enough so simply iterate through the logs
+    # There can be workout sessions without any associated log entries,
+    # so it is not enough so simply iterate through the logs
     if day:
         filter_date = datetime.date(year, month, day)
         logs = WorkoutLog.objects.filter(user=user, date=filter_date)
@@ -190,7 +190,8 @@ def process_log_entries(logs):
         if (entry.date, entry.reps, entry.weight) in entry_list[entry.reps]['seen']:
             continue
 
-        entry_list[entry.reps]['seen'].append((entry.date, entry.reps, entry.weight))
+        entry_list[entry.reps]['seen'].append((entry.date, entry.reps,
+                                               entry.weight))
         entry_list[entry.reps]['list'].append({'date': entry.date,
                                                'weight': entry.weight,
                                                'reps': entry.reps})

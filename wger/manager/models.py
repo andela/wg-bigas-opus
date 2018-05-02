@@ -64,8 +64,10 @@ class Workout(models.Model):
     comment = models.CharField(verbose_name=_('Description'),
                                max_length=100,
                                blank=True,
-                               help_text=_("A short description or goal of the workout. For "
-                                           "example 'Focus on back' or 'Week 1 of program xy'."))
+                               help_text=_("A short description or goal \
+                                            of the workout. For "
+                                           "example 'Focus on back' or \
+                                           'Week 1 of program xy'."))
     user = models.ForeignKey(User, verbose_name=_('User'))
 
     def get_absolute_url(self):
@@ -109,10 +111,12 @@ class Workout(models.Model):
         Returns a canonical representation of the workout
 
         This form makes it easier to cache and use everywhere where all or part
-        of a workout structure is needed. As an additional benefit, the template
+        of a workout structure is needed. \
+        As an additional benefit, the template
         caches are not needed anymore.
         '''
-        workout_canonical_form = cache.get(cache_mapper.get_workout_canonical(self.pk))
+        workout_canonical_form = cache.get(cache_mapper
+                                           .get_workout_canonical(self.pk))
         if not workout_canonical_form:
             day_canonical_repr = []
             muscles_front = []
