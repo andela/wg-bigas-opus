@@ -147,7 +147,7 @@
     "pk": 19,
     "model": "exercises.muscle",
     "fields": {
-      "is_front": false,
+      "is_front": true,
       "name": "Forearms"
     }
   }
