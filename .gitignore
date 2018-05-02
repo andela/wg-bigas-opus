@@ -65,5 +65,8 @@ target/
 wger/core/static/bower_components
 node_modules
 
-# js
+
 package-lock.json
+
+# Virtual env
+venv-django/
