@@ -38,7 +38,8 @@ logger = logging.getLogger(__name__)
 
 class WgerMultiplePermissionRequiredMixin(PermissionRequiredMixin):
     '''
-    A PermissionRequiredMixin that checks that the user has at least one permission
+    A PermissionRequiredMixin that checks
+    that the user has at least one permission
     instead of all of them.
     '''
 
@@ -61,7 +62,8 @@ class WgerPermissionMixin(object):
     '''
     The name of the permission required to access this class.
 
-    This can be a string or a tuple, in the latter case having any of the permissions
+    This can be a string or a tuple, in the
+    latter case having any of the permissions
     listed is enough to access the resource
     '''
 
@@ -90,10 +92,12 @@ class WgerPermissionMixin(object):
                     has_permission = True
 
                 if not has_permission:
-                    return HttpResponseForbidden('You are not allowed to access this object')
+                    return HttpResponseForbidden('You are not allowed to access \
+                                                 this object')
 
         # Dispatch normally
-        return super(WgerPermissionMixin, self).dispatch(request, *args, **kwargs)
+        return super(WgerPermissionMixin, self).dispatch(request,
+                                                         *args, **kwargs)
 
 
 # , PermissionRequiredMixin
@@ -203,7 +207,8 @@ class WgerFormMixin(ModelFormMixin):
 
         # Nothing to see, please move along
         if owner_object and owner_object.user != self.request.user:
-            return HttpResponseForbidden('You are not allowed to access this object')
+            return HttpResponseForbidden('You are not allowed \
+                                         to access this object')
 
         # Dispatch normally
         return super(WgerFormMixin, self).dispatch(request, *args, **kwargs)
@@ -232,11 +237,12 @@ class WgerFormMixin(ModelFormMixin):
         '''
 
         for field in self.clean_html:
-            setattr(form.instance, field, bleach.clean(getattr(form.instance, field),
-                                                       tags=HTML_TAG_WHITELIST,
-                                                       attributes=HTML_ATTRIBUTES_WHITELIST,
-                                                       styles=HTML_STYLES_WHITELIST,
-                                                       strip=True))
+            setattr(form.instance, field,
+                    bleach.clean(getattr(form.instance, field),
+                                 tags=HTML_TAG_WHITELIST,
+                                 attributes=HTML_ATTRIBUTES_WHITELIST,
+                                 styles=HTML_STYLES_WHITELIST,
+                                 strip=True))
 
         if self.get_messages():
             messages.success(self.request, self.get_messages())
