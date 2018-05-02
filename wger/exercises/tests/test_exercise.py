@@ -419,7 +419,7 @@ class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
         self.assertContains(response, 'name')
         self.assertContains(response, 'uuid')
         self.assertContains(response, 'equipment')
-    
+
     def test_exercise_details_for_single_exercise(self, editor=False):
         """
         Tests the readonly exercise info API endpoint
