@@ -75,7 +75,7 @@ class MuscleSerializer(serializers.ModelSerializer):
         model = Muscle
 
 
-# Create a class serializer for all the details and information related to an exercise and all the fields are read only 
+# Create a class serializer for all the details and information related to an exercise and all the fields are read only
 class ExerciseDetailsSerializer(serializers.ModelSerializer):
     """
     Exercise details serializer
@@ -94,6 +94,6 @@ class ExerciseDetailsSerializer(serializers.ModelSerializer):
                   'status', )
 
     # Method that retrieves the image that is being serialized in the serializer method field
-    # This method takes an object and returns an image 
+    # This method takes an object and returns an image
     def get_image(self, obj):
         return force_text(obj.main_image)
