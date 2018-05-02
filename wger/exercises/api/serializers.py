@@ -14,6 +14,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 
+# Import force text to convert lazy objects into strings
+from django.utils.encoding import force_text
 from rest_framework import serializers
 from wger.exercises.models import (
     Muscle,
@@ -71,3 +73,25 @@ class MuscleSerializer(serializers.ModelSerializer):
     '''
     class Meta:
         model = Muscle
+
+
+# Create a class serializer for all the details and information related to an exercise and all the fields are read only 
+class ExerciseDetailsSerializer(serializers.ModelSerializer):
+    """
+    Exercise details serializer
+    """
+    muscles = MuscleSerializer(read_only=True, many=True)
+    muscles_secondary = MuscleSerializer(read_only=True, many=True)
+    equipment = EquipmentSerializer(read_only=True, many=True)
+    image = serializers.SerializerMethodField(source='main_image')
+
+    class Meta:
+        model = Exercise
+        fields = ('id', 'name', 'name_original', 'category', 'description',
+                  'image', 'muscles', 'muscles_secondary',
+                  'creation_date', 'language',
+                  'equipment', 'uuid', 'license_author', 'license',
+                  'status', )
+
+    def get_image(self, obj):
+        return force_text(obj.main_image)
