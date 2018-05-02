@@ -19,6 +19,7 @@ parts/
 sdist/
 var/
 wg-venv/
+wger-venv/
 
 *.egg-info/
 .installed.cfg

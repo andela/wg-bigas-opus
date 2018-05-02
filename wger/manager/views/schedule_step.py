@@ -62,7 +62,8 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
 
             weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53))
 
-            workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
+            workout = ModelChoiceField(queryset=Workout.objects.filter
+                                       (user=self.request.user))
 
             cycle = ChoiceField(choices=(
                 ("1", "Microcycle"),
