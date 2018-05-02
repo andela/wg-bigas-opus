@@ -18,6 +18,8 @@ lib64/
 parts/
 sdist/
 var/
+wg-venv/
+
 *.egg-info/
 .installed.cfg
 *.egg
@@ -60,6 +62,6 @@ target/
 .idea/
 .env
 .vscode/
-# External Libraries 
+# External Libraries
 wger/core/static/bower_components
 node_modules
