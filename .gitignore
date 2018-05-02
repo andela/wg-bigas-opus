@@ -68,8 +68,8 @@ node_modules
 
 .vscode/
 package-lock.json
-	
-# Virtual env 
+
+# Virtual env
 venv-django/
 
 # js
