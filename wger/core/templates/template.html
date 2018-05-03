@@ -61,6 +61,7 @@
 
     {% compress js %}
     <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'bower_components/Sortable/Sortable.min.js' %}"></script>
     <script src="{% static 'bower_components/d3/d3.js' %}"></script>
@@ -69,6 +70,7 @@
     <script src="{% static 'js/wger-core.js' %}"></script>
     <script src="{% static 'js/exercises.js' %}"></script>
     <script src="{% static 'js/nutrition.js' %}"></script>
+
     {% endcompress %}
 
     {% block header %}{% endblock %}
@@ -89,6 +91,9 @@
 
         // Check for RO-access before allowing sharing
         wgerToggleReadOnlyAccess();
+
+        //initiating popper js
+
      });
     </script>
 
@@ -120,13 +125,13 @@
                              style="border: 1px solid #151515;">
                         {{language.full_name}} <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" role="menu" style="color:#000">
                         {% for language in languages %}
                         {% language_select language %}
                         {% endfor %}
                         <li class="divider"></li>
                         <li>
-                            <a href="https://www.transifex.com/rge/wger-workout-manager/">
+                            <a href="https://www.transifex.com/rge/wger-workout-manager/" style="color:#000">
                                 <span class="{% fa_class 'plus' %}"></span>
                                 {% trans "Translate" %}
                             </a>
