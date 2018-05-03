@@ -254,7 +254,8 @@ def export_pdf(request, id, uidb64=None, token=None):
         meal_markers.append(len(data))
 
         if not meal.time:
-            p = Paragraph(u'<para align="center"><strong>{nr} {meal_nr}</strong></para>'
+            p = Paragraph(u'<para align="center"> \
+                          <strong>{nr} {meal_nr}</strong></para>'
                           .format(nr=_('Nr.'), meal_nr=i),
                           styleSheet["Normal"])
         else:
@@ -310,7 +311,8 @@ def export_pdf(request, id, uidb64=None, token=None):
 
     # Set the title (if available)
     if plan.description:
-        p = Paragraph('<para align="center"><strong>%(description)s</strong></para>' %
+        p = Paragraph('<para align="center">\
+                      <strong>%(description)s</strong></para>' %
                       {'description': plan.description},
                       styleSheet["Bold"])
         elements.append(p)
@@ -344,13 +346,15 @@ def export_pdf(request, id, uidb64=None, token=None):
     data.append([Paragraph(_('Carbohydrates'), styleSheet["Normal"]),
                  Paragraph(six.text_type(plan_data['total']['carbohydrates']),
                            styleSheet["Normal"]),
-                 Paragraph(six.text_type(plan_data['percent']['carbohydrates']),
+                 Paragraph(six.text_type
+                           (plan_data['percent']['carbohydrates']),
                            styleSheet["Normal"]),
                  Paragraph(six.text_type(plan_data['per_kg']['carbohydrates']),
                            styleSheet["Normal"])])
     data.append([Paragraph(_('Sugar content in carbohydrates'),
                            styleSheet["Normal"]),
-                 Paragraph(six.text_type(plan_data['total']['carbohydrates_sugar']),
+                 Paragraph(six.text_type
+                           (plan_data['total']['carbohydrates_sugar']),
                            styleSheet["Normal"])])
     data.append([Paragraph(_('Fat'), styleSheet["Normal"]),
                  Paragraph(six.text_type(plan_data['total']['fat']),
@@ -401,6 +405,7 @@ def export_pdf(request, id, uidb64=None, token=None):
     elements.append(p)
     doc.build(elements)
 
-    response['Content-Disposition'] = 'attachment; filename=nutritional-plan.pdf'
+    response['Content-Disposition'] = \
+        'attachment; filename=nutritional-plan.pdf'
     response['Content-Length'] = len(response.content)
     return response

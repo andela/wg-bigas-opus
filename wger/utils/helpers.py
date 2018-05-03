@@ -140,7 +140,8 @@ def check_token(uidb64, token):
             return False
         user = User.objects.get(pk=uid)
 
-        if user is not None and default_token_generator.check_token(user, token):
+        if user is not None and \
+                default_token_generator.check_token(user, token):
             return True
 
     return False
@@ -214,10 +215,14 @@ def smart_capitalize(input):
     '''
     A "smart" capitalizer
 
-    This is used to capitalize e.g. exercise names. This is different than python's
-    capitalize and the similar django template tag mainly because of side effects
-    when applied to all caps words. E.g. the German "KH" (Kurzhantel) is capitalized
-    to "Kh" or "ß" to "SS". Because of this, only words with more than 2 letters as
+    This is used to capitalize e.g. exercise names.
+    This is different than python's
+    capitalize and the similar django template tag mainly
+    because of side effects
+    when applied to all caps words. E.g. the German "KH"
+    (Kurzhantel) is capitalized
+    to "Kh" or "ß" to "SS". Because of this, only words
+    with more than 2 letters as
     well as the ones starting with "ß" are ignored.
 
     :param input: the input string

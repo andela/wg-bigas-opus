@@ -177,7 +177,8 @@ class WgerFormMixin(ModelFormMixin):
 
         # Template to extend. For AJAX requests we don't need the rest of the
         # template, only the form
-        context['extend_template'] = 'base_empty.html' if self.request.is_ajax() else 'base.html'
+        context['extend_template'] = \
+            'base_empty.html' if self.request.is_ajax() else 'base.html'
 
         return context
 
@@ -286,7 +287,8 @@ class WgerDeleteMixin(ModelFormMixin):
 
         # Template to extend. For AJAX requests we don't need the rest of the
         # template, only the form
-        context['extend_template'] = 'base_empty.html' if self.request.is_ajax() else 'base.html'
+        context['extend_template'] = \
+            'base_empty.html' if self.request.is_ajax() else 'base.html'
 
         return context
 
@@ -333,12 +335,14 @@ class TextTemplateView(TemplateView):
     '''
     def render_to_response(self, context, **response_kwargs):
         response_kwargs['content_type'] = 'text/plain'
-        return super(TextTemplateView, self).render_to_response(context, **response_kwargs)
+        return super(TextTemplateView, self)\
+            .render_to_response(context, **response_kwargs)
 
 
 class WebappManifestView(TemplateView):
     '''
-    A regular templateView that sets the mime type as application/x-web-app-manifest+json
+    A regular templateView that sets the mime type as
+    application/x-web-app-manifest+json
 
     This is used in the mozilla market place
     '''
@@ -346,4 +350,5 @@ class WebappManifestView(TemplateView):
 
     def render_to_response(self, context, **response_kwargs):
         response_kwargs['content_type'] = 'application/x-web-app-manifest+json'
-        return super(WebappManifestView, self).render_to_response(context, **response_kwargs)
+        return super(WebappManifestView, self)\
+            .render_to_response(context, **response_kwargs)
