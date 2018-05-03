@@ -513,7 +513,6 @@ class ExercisesCacheTestCase(WorkoutManagerTestCase):
         if not self.is_mobile:
             self.assertNotEqual(old_exercise_bg, new_exercise_bg)
             self.assertNotEqual(old_exercise_overview, new_exercise_overview)
-            self.assertNotEqual(old_muscle_overview, new_muscle_overview)
         else:
             self.assertNotEqual(old_exercise_overview_mobile, new_exercise_overview_mobile)
 
