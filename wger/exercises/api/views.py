@@ -226,6 +226,11 @@ class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
     '''
     serializer_class = ExerciseDetailsSerializer
 
+    """
+    This function queries the database for an exercise.
+    It takes an id as a parameter and return the exercise with the given id.
+    If no id is provided it returns all the exercises.
+    """
     def get_queryset(self):
         queryset = Exercise.objects.all()
         filter_value = self.request.query_params.get('id', None)
