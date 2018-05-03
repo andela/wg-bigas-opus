@@ -145,15 +145,17 @@ def overview(request, username=None):
     max_date = WeightEntry.objects.filter(user=user).\
         aggregate(Max('date'))['date__max']
     if min_date:
-        template_data['min_date'] = 'new Date(%(year)s, %(month)s, %(day)s)' % \
-                                    {'year': min_date.year,
-                                     'month': min_date.month,
-                                     'day': min_date.day}
+        template_data['min_date'] = \
+            'new Date(%(year)s, %(month)s, %(day)s)' % \
+            {'year': min_date.year,
+             'month': min_date.month,
+             'day': min_date.day}
     if max_date:
-        template_data['max_date'] = 'new Date(%(year)s, %(month)s, %(day)s)' % \
-                                    {'year': max_date.year,
-                                     'month': max_date.month,
-                                     'day': max_date.day}
+        template_data['max_date'] = \
+            'new Date(%(year)s, %(month)s, %(day)s)' % \
+            {'year': max_date.year,
+             'month': max_date.month,
+             'day': max_date.day}
 
     last_weight_entries = helpers.get_last_entries(user)
 
@@ -216,4 +218,5 @@ class WeightCsvImportFormPreview(FormPreview):
                                                            cleaned_data)
         WeightEntry.objects.bulk_create(weight_list)
         return HttpResponseRedirect(reverse('weight:overview',
-                                            kwargs={'username': request.user.username}))
+                                    kwargs={'username': request
+                                            .user.username}))

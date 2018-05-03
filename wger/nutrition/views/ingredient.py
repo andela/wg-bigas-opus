@@ -89,9 +89,10 @@ def view(request, id, slug=None):
         ingredient = get_object_or_404(Ingredient, pk=id)
         cache.set(cache_mapper.get_ingredient_key(ingredient), ingredient)
     template_data['ingredient'] = ingredient
-    template_data['form'] = UnitChooserForm(data={'ingredient_id': ingredient.id,
-                                                  'amount': 100,
-                                                  'unit': None})
+    template_data['form'] = \
+        UnitChooserForm(data={'ingredient_id': ingredient.id,
+                              'amount': 100,
+                              'unit': None})
     template_data['show_shariff'] = True
 
     return render(request, 'ingredient/view.html', template_data)
