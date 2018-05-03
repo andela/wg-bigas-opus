@@ -17,19 +17,83 @@ $(document).ready(function() {
         wgerPrefetchImages(['/static/images/muscles/main/muscle-' + {{muscle.id}} + '.svg']);
     {% endfor %}
     wgerPrefetchImages(['/static/images/muscles/muscular_system_back.svg']);
-
-
     // Hightlight the first element
     wgerHighlightMuscle($('.muscle').first());
-
     // Highlight on hover
     $('.muscle').hover(function(e) {
         e.preventDefault();
         wgerHighlightMuscle(this);
     });
-
     // Highlight on click
-
+    var a = document.getElementById("musclesvg");
+            // It's important to add an load event listener to the object,
+            // as it will load the svg doc asynchronously
+            a.addEventListener("load",function(){
+                // get the inner DOM of alpha.svg
+                var svgDoc = a.contentDocument;
+                // get the inner element by id
+                var muscle2 = svgDoc.getElementById("muscle2");
+                // add behaviour
+                muscle2.addEventListener("mouseenter",function(){
+                        muscle2.style.fill = "#9D2933"
+                        $('.exercise-list').hide();
+                        wgerHighlightMuscle($('#musclepiece-2'));
+                }, false);
+                muscle2.addEventListener("mouseout",function(){
+                        muscle2.style.fill = "transparent"
+                }, false);
+                var muscle4 = svgDoc.getElementById("muscle4");
+                muscle4.addEventListener("mouseenter",function(){
+                        muscle4.style.fill = "#9D2933"
+                        $('.exercise-list').hide();
+                        wgerHighlightMuscle($('#musclepiece-4'));
+                }, false);
+                muscle4.addEventListener("mouseout",function(){
+                        muscle4.style.fill = "transparent"
+                }, false);
+                var muscle1 = svgDoc.getElementById("muscle1");
+                muscle1.addEventListener("mouseenter",function(){
+                        muscle1.style.fill = "#9D2933"
+                        $('.exercise-list').hide();
+                        wgerHighlightMuscle($('#musclepiece-1'));
+                }, false);
+                muscle1.addEventListener("mouseout",function(){
+                        muscle1.style.fill = "transparent"
+                }, false);
+                var muscle14 = svgDoc.getElementById("muscle14");
+                muscle14.addEventListener("mouseenter",function(){
+                        muscle14.style.fill = "#9D2933"
+                        $('.exercise-list').hide();
+                        wgerHighlightMuscle($('#musclepiece-14'));
+                }, false);
+                muscle14.addEventListener("mouseout",function(){
+                        muscle14.style.fill = "transparent"
+                }, false);
+                var muscle10 = svgDoc.getElementById("muscle10");
+                muscle10.addEventListener("mouseenter",function(){
+                        muscle10.style.fill = "#9D2933"
+                        wgerHighlightMuscle($('#musclepiece-10'));
+                }, false);
+                muscle10.addEventListener("mouseout",function(){
+                        muscle10.style.fill = "transparent"
+                }, false);
+                var muscle3 = svgDoc.getElementById("muscle3");
+                muscle3.addEventListener("mouseenter",function(){
+                        muscle3.style.fill = "#9D2933"
+                        wgerHighlightMuscle($('#musclepiece-3'));
+                }, false);
+                muscle3.addEventListener("mouseout",function(){
+                        muscle3.style.fill = "transparent"
+                }, false);
+                var muscle6 = svgDoc.getElementById("muscle6");
+                muscle6.addEventListener("mouseenter",function(){
+                        muscle6.style.fill = "#9D2933"
+                        wgerHighlightMuscle($('#musclepiece-6'));
+                }, false);
+                muscle6.addEventListener("mouseout",function(){
+                        muscle6.style.fill = "transparent"
+                }, false);
+}, false)
 });
 </script>
 {% endblock %}
@@ -42,6 +106,18 @@ $(document).ready(function() {
 {% cache cache_timeout muscle-overview language.id %}
 {% trans "Hover with the mouse over the muscles to show corresponding exercises." %}
 
+<div class="row">
+    <div class="col-lg-12">
+        <object data="/static/images/muscles/new_front_muscle.svg" type="image/svg+xml"
+         id="musclesvg" ></object>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <object data="/static/images/muscles/back_view.svg" type="image/svg+xml"
+         id="musclesvg" ></object>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-4 col-xs-6">
         <h4 style="padding-bottom:0.5em;">{% trans "Muscles" %}</h4>
@@ -64,6 +140,7 @@ $(document).ready(function() {
             {% for muscle in group.list %}
             <li class="muscle"
                 data-target="muscle-{{muscle.id}}"
+                id="musclepiece-{{muscle.id}}"
                 data-is-front="{{muscle.is_front}}"
                 data-name="{{muscle.name}}"
                 itemscope itemtype="http://schema.org/Muscle">
