@@ -6,7 +6,7 @@ gulp.task('lint-js', function () {
   // So, it's best to have gulp ignore the directory as well.
   // Also, Be sure to return the stream from the task;
   // Otherwise, the task may end before the stream has finished.
-  return gulp.src(['**/*.js'])
+  return gulp.src(['**/*.js', '!wger/core/static/js/popper.js'])
   // eslint() attaches the lint output to the "eslint" property
   // of the file object so it can be used by other modules.
     .pipe(eslint())
@@ -20,7 +20,7 @@ gulp.task('lint-js', function () {
 
 gulp.task('jshint', function() {
   return gulp.src([
-    'bower.json', 'gulpfile.js', '!wger/core/static/js/popper.js'
+    'bower.json', 'gulpfile.js'
   ] ).pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
