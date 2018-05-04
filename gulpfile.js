@@ -20,10 +20,8 @@ gulp.task('lint-js', function () {
 
 gulp.task('jshint', function() {
   return gulp.src([
-    'bower.json', 'gulpfile.js'
-  ].concat(popper.js)
-  .concat('!wger/core/static/js/**'))
-    .pipe(jshint())
+    'bower.json', 'gulpfile.js', '!wger/core/static/js/popper.js'
+  ] ).pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
 });
