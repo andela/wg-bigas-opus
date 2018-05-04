@@ -38,6 +38,7 @@ install:
   # Install requirements
   - pip install -r requirements_devel.txt
   - npm install
+  - npm install gulp gulp-eslint -g
   - if [[ "$DB" = "postgresql" ]]; then pip install psycopg2; fi
 
   # Setup application
@@ -52,10 +53,10 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  # - pep8 wger
+  - pyflakes wger
 
   # Javascript linting
-  # - gulp lint
+  - gulp lint
 
   # Regular application
   - coverage run --source='.' ./manage.py test
