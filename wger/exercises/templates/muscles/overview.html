@@ -93,7 +93,113 @@ $(document).ready(function() {
                 muscle6.addEventListener("mouseout",function(){
                         muscle6.style.fill = "transparent"
                 }, false);
-}, false)
+            }, false)
+        
+        var b = document.getElementById("bckmusclesvg");
+
+         b.addEventListener("load",function(){
+            // get the inner DOM of alpha.svg
+            var svgDoc = b.contentDocument;
+            // get the inner element by id
+            var rmuscle5 = svgDoc.getElementById("rmuscle5");
+            // add behaviour
+            rmuscle5.addEventListener("mouseenter",function(){
+                rmuscle5.style.fill = "#9D2933"
+                rmuscle5.style.opacity =0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-5'));
+            }, false);
+            rmuscle5.addEventListener("mouseout",function(){
+                rmuscle5.style.fill = "transparent"
+            }, false);
+
+            var rmuscle7 = svgDoc.getElementById("rmuscle7");
+
+            rmuscle7.addEventListener("mouseenter",function(){
+                rmuscle7.style.fill = "#9D2933"
+                rmuscle7.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-7'));
+            }, false);
+            rmuscle7.addEventListener("mouseout",function(){
+                rmuscle7.style.fill = "transparent"
+            }, false);
+
+            var rmuscle8 = svgDoc.getElementById("rmuscle8");
+
+            rmuscle8.addEventListener("mouseenter",function(){
+                rmuscle8.style.fill = "#9D2933"
+                rmuscle8.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-8'));
+            }, false);
+            rmuscle8.addEventListener("mouseout",function(){
+                rmuscle8.style.fill = "transparent"
+            }, false);
+
+            var rmuscle9 = svgDoc.getElementById("rmuscle9");
+
+            rmuscle9.addEventListener("mouseenter",function(){
+                rmuscle9.style.fill = "#9D2933"
+                rmuscle9.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-9'));
+            }, false);
+            rmuscle9.addEventListener("mouseout",function(){
+                rmuscle9.style.fill = "transparent"
+            }, false);
+
+            var rmuscle11 = svgDoc.getElementById("rmuscle11");
+
+            rmuscle11.addEventListener("mouseenter",function(){
+                rmuscle11.style.fill = "#9D2933"
+                rmuscle11.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-11'));
+            }, false);
+            rmuscle11.addEventListener("mouseout",function(){
+                rmuscle11.style.fill = "transparent"
+            }, false);
+
+            var rmuscle12 = svgDoc.getElementById("rmuscle12");
+
+            rmuscle12.addEventListener("mouseenter",function(){
+                rmuscle12.style.fill = "#9D2933"
+                rmuscle12.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-12'));
+            }, false);
+            rmuscle12.addEventListener("mouseout",function(){
+                rmuscle12.style.fill = "transparent"
+            }, false);
+
+            var rmuscle15 = svgDoc.getElementById("rmuscle15");
+
+            rmuscle15.addEventListener("mouseenter",function(){
+                rmuscle15.style.fill = "#9D2933"
+                rmuscle15.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-15'));
+            }, false);
+            rmuscle15.addEventListener("mouseout",function(){
+                rmuscle15.style.fill = "transparent"
+            }, false);
+
+            var rmuscle16 = svgDoc.getElementById("rmuscle16");
+
+            rmuscle16.addEventListener("mouseenter",function(){
+                rmuscle16.style.fill = "#9D2933"
+                rmuscle16.style.opacity = 0.8
+                    $('.exercise-list').hide();
+                    wgerHighlightMuscle($('#musclepiece-16'));
+            }, false);
+            rmuscle16.addEventListener("mouseout",function(){
+                rmuscle16.style.fill = "transparent"
+            }, false);
+
+         }, false)
+
+
 });
 </script>
 {% endblock %}
