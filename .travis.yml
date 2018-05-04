@@ -36,7 +36,9 @@ install:
   - nvm use $TRAVIS_NODE_VERSION
 
   # Install requirements
-  - pip install -r requirements_devel.txt
+  - pip install -r requirements.txt
+  - pip install coverage
+  - pip install pyflakes
   - npm install
   - npm install gulp gulp-eslint -g
   - if [[ "$DB" = "postgresql" ]]; then pip install psycopg2; fi
