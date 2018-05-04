@@ -32,6 +32,7 @@ oauthlib==2.0.7
 packaging==17.1
 pep8==1.7.1
 Pillow==5.1.0
+pycodestyle==2.4.0
 Pygments==2.2.0
 PyJWT==1.6.1
 pyparsing==2.2.0
