@@ -36,7 +36,7 @@ install:
   - nvm use $TRAVIS_NODE_VERSION
 
   # Install requirements
-  - pip install -r requirements_devel.txt
+  - pip install -r requirements.txt
   - pip install coverage
   - pip install django-extensions
   - npm install gulp gulp-eslint -g
