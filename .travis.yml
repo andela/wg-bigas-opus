@@ -54,7 +54,7 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  - pep8 wger
+  # - pep8 wger
 
   # Javascript linting
   - gulp lint
