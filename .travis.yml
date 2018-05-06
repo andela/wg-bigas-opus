@@ -37,7 +37,7 @@ install:
 
   # Install requirements
   - pip install -r requirements.txt
-  - pip install pycodestyle
+  - pip install pyflakes
   - pip install coverage
   - pip install django-extensions
   - npm install gulp gulp-eslint -g
@@ -56,7 +56,7 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  - pycodestyle wger
+  - pyflakes wger
 
   # Javascript linting
   - gulp lint

@@ -21,6 +21,7 @@ django-tastypie==0.14.1
 djangorestframework==3.2.5
 docutils==0.14
 easy-thumbnails==2.5
+flake8==3.5.0
 html5lib==1.0.1
 icalendar==4.0.1
 idna==2.6
@@ -28,11 +29,12 @@ imagesize==1.0.0
 invoke==0.23.0
 Jinja2==2.10
 MarkupSafe==1.0
+mccabe==0.6.1
 oauthlib==2.0.7
 packaging==17.1
 pep8==1.7.1
 Pillow==5.1.0
-pycodestyle==2.4.0
+pyflakes==1.6.0
 Pygments==2.2.0
 PyJWT==1.6.1
 pyparsing==2.2.0
