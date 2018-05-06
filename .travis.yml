@@ -55,7 +55,7 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  - flakes8 wger
+  # - flakes8 wger
 
   # Javascript linting
   - gulp lint
