@@ -22,7 +22,6 @@
  */
 function wgerHighlightMuscle(element) {
   var $muscle;
-  var isFront;
   var divId;
   divId = $(element).data('target');
 
