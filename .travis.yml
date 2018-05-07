@@ -43,7 +43,7 @@ install:
 
   # Setup application
   - if [[ "$DB" = "sqlite" ]]; then invoke create-settings; fi
-  - if [[ "$DB" = "postgresql" ]]; then invoke create-settings --database-type postgresql; fi
+  - if [[ "$DB" = "postgresql" ]]; then invoke create_settings --database-type postgresql; fi
 
 # Create test databases
 before_script:
