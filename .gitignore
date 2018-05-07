@@ -59,14 +59,15 @@ target/
 
 # IDE
 .idea/
-.env
 .vscode/
-
-# External Libraries
-wger/core/static/bower_components
-node_modules
 
 # js
 package-lock.json
+
+# External Libraries 
+wger/core/static/bower_components
+node_modules
+wger/settings.py
+
 # env
 new-wger/
