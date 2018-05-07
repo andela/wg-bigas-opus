@@ -65,4 +65,3 @@ script:
 
   # Code coverage
   - coverage report
-
