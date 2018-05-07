@@ -19,7 +19,9 @@ python:
 # Manually define here the combinations environment variables to test
 # https://github.com/travis-ci/travis-ci/issues/1519
 env:
+  - TEST_MOBILE=True  DB=postgresql TRAVIS_NODE_VERSION="6"
   - TEST_MOBILE=True  DB=sqlite     TRAVIS_NODE_VERSION="6"
+  - TEST_MOBILE=False DB=postgresql TRAVIS_NODE_VERSION="6"
   - TEST_MOBILE=False DB=sqlite     TRAVIS_NODE_VERSION="6"
 
 # Install the application
@@ -59,6 +61,7 @@ script:
   - gulp lint
 
 
+
   # Regular application
   - coverage run --source='.' ./manage.py test
 
@@ -68,4 +71,3 @@ script:
 
 notifications:
     slack: andela:jCFp66ZuJynangG2t3KVF3fV
-
