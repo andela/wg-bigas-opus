@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+'''The workout this step manages'''# -*- coding: utf-8 -*-
 
 # This file is part of wger Workout Manager.
 #
@@ -326,7 +326,7 @@ class ScheduleStep(models.Model):
     duration = models.IntegerField(verbose_name=_('Duration'),
                                    help_text=_('The duration in weeks'),
                                    default=4,
-                                   validators=[MinValueValidator(1), MaxValueValidator(25)])
+                                   validators=[MinValueValidator(1), MaxValueValidator(52)]) #    increased the max value validator for weeks
     '''The duration in weeks'''
 
     order = models.IntegerField(verbose_name=_('Order'),
