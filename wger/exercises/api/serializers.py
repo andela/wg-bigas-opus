@@ -92,7 +92,7 @@ class ExerciseDetailsSerializer(serializers.ModelSerializer):
                   'creation_date', 'language',
                   'equipment', 'uuid', 'license_author', 'license',
                   'status', )
-                  
+
     # Method that retrieves the image that is being serialized in the serializer method field
     # This method takes an object and returns an image
     def get_image(self, obj):
