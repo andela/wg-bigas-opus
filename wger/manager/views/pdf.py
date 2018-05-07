@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU Affero General Public License
 
 import logging
-import datetime
+import datetime # noqa
 
 from django.http import HttpResponse
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext as _ # noqa
 
 from wger.manager.models import Workout
 from wger.manager.helpers import render_workout_day
@@ -29,16 +29,16 @@ from wger.utils.pdf import styleSheet
 from wger.utils.pdf import render_footer
 
 from reportlab.lib.pagesizes import A4, cm
-from reportlab.platypus import (
+from reportlab.platypus import ( # noqa
     Paragraph,
     SimpleDocTemplate,
     Table,
     Spacer
 )
 
-from reportlab.lib import colors
+from reportlab.lib import colors # noqa
 
-from wger import get_version
+from wger import get_version # noqa
 
 logger = logging.getLogger(__name__)
 
