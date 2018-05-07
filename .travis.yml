@@ -55,7 +55,7 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  - flake8 wger --exclude=migrations, wg-venv, site-packages
+  - flake8 wger
 
   # Javascript linting
   - gulp lint
