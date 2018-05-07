@@ -14,6 +14,29 @@
     {% trans 'Login' as submit_text %}
     {% render_form_fields form submit_text %}
 </form>
+<div class="row">
+        <div class="col-sm-9">
+            <h4 class="text-center">-- Or --</h4>
+            <a 
+                class="btn btn-block btn-social btn-facebook"
+                style="background:#3B5998; color:white;";
+                href="{% url 'social:begin' 'facebook' %}">
+                <span class="fa fa-facebook"></span>Login with Facebook
+            <a 
+                class="  btn btn-block btn-social btn-google"
+                style="background:#DD4B39; color:white;";
+                href="{% url 'social:begin' 'google-oauth2' %}">
+                <span class="fa fa-google"></span>Login with Google
+            </a>
+            <a 
+                class="btn btn-block btn-social btn-twitter"
+                style="background:#55ACEE; color:white; ";
+                href="{% url 'social:begin' 'twitter' %}">
+                <span class="fa fa-twitter"></span>Login with twitter
+            </a>
+       </div>
+    </div>        
+
 {% endblock %}
 
 
