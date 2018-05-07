@@ -58,9 +58,6 @@ script:
   # Javascript linting
   - gulp lint
 
-
-
-
   # Regular application
   - coverage run --source='.' ./manage.py test
 
