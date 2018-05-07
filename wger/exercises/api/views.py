@@ -222,6 +222,7 @@ class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     This is a read only API endpoint for exercise details 
+
     '''
     serializer_class = ExerciseDetailsSerializer
 
