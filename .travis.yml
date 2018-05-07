@@ -60,17 +60,13 @@ script:
 
 
 
+
   # Regular application
   - coverage run --source='.' ./manage.py test
 
 
   # Code coverage
-<<<<<<< HEAD
   - coverage report
 
 notifications:
     slack: andela:jCFp66ZuJynangG2t3KVF3fV
-
-=======
-  - coverage report
->>>>>>> [Bug] Fix failing tests
