@@ -3,7 +3,7 @@
 Simple FunkLoad test
 '''
 import unittest
-from random import random
+from random import random # noqa
 from funkload.FunkLoadTestCase import FunkLoadTestCase
 
 

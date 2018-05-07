@@ -31,14 +31,14 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
 
 # Must happen after calling django.setup()
-from django.contrib.auth.models import User
-from wger.core.models import DaysOfWeek
-from wger.exercises.models import Exercise
-from wger.gym.models import (
+from django.contrib.auth.models import User # noqa
+from wger.core.models import DaysOfWeek # noqa
+from wger.exercises.models import Exercise # noqa
+from wger.gym.models import ( # noqa
     GymUserConfig,
     Gym
 )
-from wger.manager.models import (
+from wger.manager.models import ( # noqa
     Workout,
     Day,
     Set,
@@ -48,12 +48,12 @@ from wger.manager.models import (
     WorkoutLog,
     WorkoutSession
 )
-from wger.weight.models import WeightEntry
+from wger.weight.models import WeightEntry # noqa
 
-from wger.core.models import Language
+from wger.core.models import Language # noqa
 
 # Nutrition import //_c
-from wger.nutrition.models import (
+from wger.nutrition.models import ( # noqa
     Ingredient,
     IngredientWeightUnit,
     WeightUnit,
