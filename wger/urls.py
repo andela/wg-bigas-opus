@@ -175,6 +175,12 @@ urlpatterns += [
         nutrition_api_views.search,
         name='ingredient-search'),
     url(r'^api/v2/', include(router.urls)),
+
+    # Register view with the url
+    url(r'^exercisedetails/(?P<id>\d+)/$',
+        exercises_api_views.ExerciseDetailsViewSet,
+        name='exercisedetails'),
+  
    #social login 
      url(r'^oauth/', include('social_django.urls', namespace='social')),
     # Register view with the url

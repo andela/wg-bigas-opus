@@ -67,7 +67,6 @@ node_modules
 
 # js
 package-lock.json
-package-lock.json
 	
 # Virtual env 
 venv-django/
