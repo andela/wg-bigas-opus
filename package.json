@@ -28,7 +28,10 @@
     "gulp-eslint": "^3.0.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap3": "^3.3.5",
+=======
+>>>>>>> [Chore] Add migration files
     "bower": "^1.8.4"
   }
 }
