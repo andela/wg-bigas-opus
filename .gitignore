@@ -22,6 +22,7 @@ var/
 .installed.cfg
 *.egg
 .env
+.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -59,15 +60,15 @@ target/
 
 # IDE
 .idea/
+.env
 .vscode/
 
-# js
-package-lock.json
-
-# External Libraries 
+# External Libraries
 wger/core/static/bower_components
 node_modules
 wger/settings.py
 
-# env
+# js
+package-lock.json
+#env
 new-wger/
