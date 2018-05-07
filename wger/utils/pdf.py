@@ -103,13 +103,18 @@ def render_footer(url, date=None):
 
 # register new truetype fonts for reportlab
 pdfmetrics.registerFont(TTFont(
-    'OpenSans', path_join(settings.SITE_ROOT, 'core/static/fonts/OpenSans-Light.ttf')))
+    'OpenSans', path_join(settings.SITE_ROOT,
+                          'core/static/fonts/OpenSans-Light.ttf')))
 pdfmetrics.registerFont(TTFont(
-    'OpenSans-Bold', path_join(settings.SITE_ROOT, 'core/static/fonts/OpenSans-Bold.ttf')))
+    'OpenSans-Bold', path_join(settings.SITE_ROOT,
+                               'core/static/fonts/OpenSans-Bold.ttf')))
 pdfmetrics.registerFont(TTFont(
-    'OpenSans-Regular', path_join(settings.SITE_ROOT, 'core/static/fonts/OpenSans-Regular.ttf')))
+    'OpenSans-Regular', path_join(settings.SITE_ROOT,
+                                  'core/static/fonts/OpenSans-Regular.ttf')))
 pdfmetrics.registerFont(TTFont(
-    'OpenSans-Italic', path_join(settings.SITE_ROOT, 'core/static/fonts/OpenSans-LightItalic.ttf')))
+    'OpenSans-Italic',
+    path_join(settings.SITE_ROOT,
+              'core/static/fonts/OpenSans-LightItalic.ttf')))
 
 styleSheet = StyleSheet1()
 styleSheet.add(ParagraphStyle(

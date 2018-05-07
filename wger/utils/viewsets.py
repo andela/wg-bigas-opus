@@ -34,7 +34,8 @@ class WgerOwnerObjectModelViewSet(viewsets.ModelViewSet):
                     raise exceptions.PermissionDenied('You are not \
                                                       allowed to do this')
         else:
-            return super(WgerOwnerObjectModelViewSet, self).create(request, *args, **kwargs)
+            return super(WgerOwnerObjectModelViewSet,
+                         self).create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         '''
@@ -48,4 +49,5 @@ class WgerOwnerObjectModelViewSet(viewsets.ModelViewSet):
                     raise exceptions.PermissionDenied('You are not \
                                                       allowed to do this')
         else:
-            return super(WgerOwnerObjectModelViewSet, self).update(request, *args, **kwargs)
+            return super(WgerOwnerObjectModelViewSet,
+                         self).update(request, *args, **kwargs)
