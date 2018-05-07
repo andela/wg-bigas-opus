@@ -408,7 +408,7 @@ class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
     Tests the exercise details are returned
     """
 
-    def test_exercise_details(self, editor=False):
+    def test_exercise_detail(self, editor=False):
         """
         Tests the exercise details API
         """
@@ -419,6 +419,7 @@ class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
         self.assertContains(response, 'name')
         self.assertContains(response, 'uuid')
         self.assertContains(response, 'equipment')
+
     
     def test_exercise_details_for_single_exercise(self, editor=False):
         """
