@@ -115,12 +115,15 @@ router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, 
 # Register viewset with a router
 router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
 
+<<<<<<< HEAD
 # Register viewset with a router
 router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
 
 # Register viewset with a router
 router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
 
+=======
+>>>>>>> 33875ae2419478112d15090e904c749fcc8be91b
 # Nutrition app
 router.register(r'ingredient', nutrition_api_views.IngredientViewSet, base_name='api-ingredient')
 router.register(r'weightunit', nutrition_api_views.WeightUnitViewSet, base_name='weightunit')
