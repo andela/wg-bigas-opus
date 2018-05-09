@@ -57,4 +57,4 @@ sphinxcontrib-websupport==1.0.1
 sqlparse==0.2.4
 urllib3==1.22
 webencodings==0.5.1
--e git+https://github.com/andela/wg-bigas-opus.git@9bc3531cb69662611dec3d2aaf0408e3e668da2d#egg=wger
+-e git+https://github.com/andela/wg-bigas-opus.git@37c40d8f38942ce90831405c24feb4e8ee220198#egg=wger
