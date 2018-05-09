@@ -109,6 +109,16 @@ router.register(r'exerciseimage', exercises_api_views.ExerciseImageViewSet, base
 router.register(r'exercisecomment', exercises_api_views.ExerciseCommentViewSet, base_name='exercisecomment')
 router.register(r'muscle', exercises_api_views.MuscleViewSet, base_name='muscle')
 
+# Register viewset with a router
+router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
+
+# Register viewset with a router
+router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
+
+
+# Register viewset with a router
+router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
+
 # Nutrition app
 router.register(r'ingredient', nutrition_api_views.IngredientViewSet, base_name='api-ingredient')
 router.register(r'weightunit', nutrition_api_views.WeightUnitViewSet, base_name='weightunit')
@@ -169,8 +179,14 @@ urlpatterns += [
         nutrition_api_views.search,
         name='ingredient-search'),
     url(r'^api/v2/', include(router.urls)),
-   #social login 
-     url(r'^oauth/', include('social_django.urls', namespace='social')),
+
+   #social login
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+
+    # Register view with the url
+    url(r'^exercisedetails/(?P<id>\d+)/$',
+        exercises_api_views.ExerciseDetailsViewSet,
+        name='exercisedetails'),
 ]
 
 #

@@ -403,6 +403,48 @@ class DeleteExercisesTestCase(WorkoutManagerDeleteTestCase):
     user_success = 'admin'
     user_fail = 'test'
 
+class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
+    """
+    Tests the exercise details are returned
+    """
+
+    def test_exercise_details(self, editor=False):
+        """
+        Tests the exercise details API
+        """
+        url = '/api/v2/exercisedetails/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id')
+        self.assertContains(response, 'name')
+        self.assertContains(response, 'uuid')
+        self.assertContains(response, 'equipment')
+
+    def test_exercise_details_for_single_exercise(self, editor=False):
+        """
+        Tests the readonly exercise info API endpoint
+        """
+        response = self.client.get('/api/v2/exercisedetails/2/')
+        self.assertEqual(response.status_code, 200)
+        result = json.loads(response.content.decode('utf8'))
+        self.assertContains(response, 'id')
+        self.assertEqual(result['id'], 2)
+        self.assertContains(response, 'name')
+        self.assertEqual(result['name'], 'Very cool exercise')
+        self.assertContains(response, 'equipment')
+        self.assertEqual(result['license_author'], None)
+        self.assertEqual(result['status'], '2')
+        self.assertEqual(result['description'], '')
+        self.assertEqual(result['name_original'], '')
+        self.assertContains(response, 'creation_date')
+        self.assertContains(response, 'uuid')
+        self.assertEqual(result['license'], 2)
+        self.assertEqual(result['category'], 2)
+        self.assertEqual(result['language'], 2)
+        self.assertEqual(result['muscles'][0]['id'], 2)
+        self.assertContains(response, 'muscles_secondary')
+        self.assertEqual(result['equipment'], [])
+        
 
 class ExercisesCacheTestCase(WorkoutManagerTestCase):
     '''
@@ -510,6 +552,8 @@ class WorkoutCacheTestCase(WorkoutManagerTestCase):
         exercise.delete()
         for workout_id in workout_ids:
             self.assertFalse(cache.get(cache_mapper.get_workout_canonical(workout_id)))
+
+
 
 
 # TODO: fix test, all registered users can upload exercises
