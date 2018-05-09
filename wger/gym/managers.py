@@ -51,3 +51,17 @@ class GymManager(models.Manager):
         return users.filter(Q(groups__permissions=perm_gym) |
                             Q(groups__permissions=perm_gyms) |
                             Q(groups__permissions=perm_trainer)).distinct()
+
+    def get_active_users(self, gym_pk):
+        '''
+        Returns all the active users for the gym (Users who do not hold admin positions)
+        '''
+        perm_gym = Permission.objects.get(codename='manage_gym')
+        perm_gyms = Permission.objects.get(codename='manage_gyms')
+        perm_trainer = Permission.objects.get(codename='gym_trainer')
+
+        users = User.objects.filter(userprofile__gym_id=gym_pk).filter(is_active=True)
++       return users.exclude(Q(groups__permissions=perm_gym) |
++                            Q(groups__permissions=perm_gyms) |
++                            Q(groups__permissions=perm_trainer)).distinct()
++
