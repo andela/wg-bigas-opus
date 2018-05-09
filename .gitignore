@@ -74,6 +74,11 @@ venv-django/
 
 # js
 package-lock.json
+
+# Virtual env
+wgervenv/
+wvenv/
+venv-django/
+
 # Virtual enviroments
 venv/
-
