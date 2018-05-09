@@ -9,3 +9,5 @@
 pep8
 django-debug-toolbar
 coverage
+
+-e git+https://github.com/andela/wg-bigas-opus.git@177eeae62d3d56019d788afcee3972f5ac3a9606#egg=wger

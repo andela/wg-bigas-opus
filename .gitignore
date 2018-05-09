@@ -58,13 +58,22 @@ target/
 
 # IDE
 .idea/
+.env
+.vscode/
 
-# External Libraries 
+# External Libraries
 wger/core/static/bower_components
 node_modules
+
 
 .vscode/
 package-lock.json
 	
 # Virtual env 
 venv-django/
+
+# js
+package-lock.json
+# Virtual enviroments
+venv/
+
