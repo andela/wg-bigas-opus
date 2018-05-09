@@ -55,13 +55,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/shariff/build/shariff.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/metrics-graphics/dist/metricsgraphics.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/metricsgraphics-custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-social.css' %}">
     {% endcompress %}
 
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
 
     {% compress js %}
     <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'bower_components/Sortable/Sortable.min.js' %}"></script>
     <script src="{% static 'bower_components/d3/d3.js' %}"></script>
@@ -125,7 +126,7 @@
                              style="border: 1px solid #151515;">
                         {{language.full_name}} <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" style="color:#000">
+                    <ul class="dropdown-menu" role="menu" style="color:#000; padding-left: 10px;"> 
                         {% for language in languages %}
                         {% language_select language %}
                         {% endfor %}
