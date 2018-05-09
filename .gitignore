@@ -70,5 +70,10 @@ wger/settings.py
 
 # js
 package-lock.json
+
 #env
 new-wger/
+
+# Virtual enviroments
+venv/
+
