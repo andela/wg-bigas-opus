@@ -39,7 +39,8 @@ logger = logging.getLogger(__name__)
             'port': 'Port to use. Default: 8000',
             'browser': 'Whether to open the application in a browser window. Default: false',
             'settings-path': 'Path to settings file (absolute path recommended). Leave empty for default',
-            'extra-args': 'Additional arguments to pass to the builtin server. Pass as string: "--arg1 --arg2=value". Default: none'})
+            'extra-args': 'Additional arguments to pass to the builtin server. \
+            Pass as string: "--arg1 --arg2=value". Default: none'})
 def start_wger(context, address='localhost', port=8000, browser=False, settings_path=None, extra_args=''):
     '''
     Start the application using django's built in webserver
@@ -210,7 +211,7 @@ def create_or_reset_admin(context, settings_path=None):
     # the settings module during import
     from wger.manager.models import User
     try:
-        admin = User.objects.get(username="admin")
+        admin = User.objects.get(username="admin") # noqa
         print("*** Password for user admin was reset to 'admin'")
     except User.DoesNotExist:
         print("*** Created default admin user")
