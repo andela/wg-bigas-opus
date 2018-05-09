@@ -41,8 +41,7 @@ class GymMembersCsvExportTestCase(WorkoutManagerTestCase):
 
             today = datetime.date.today()
             filename \
-                = 'User-data-gym-{gym}-{t.year}-{t.month:02d}-{t.day:02d}\
-                .csv'.\
+                = 'User-data-gym-{gym}-{t.year}-{t.month:02d}-{t.day:02d}.csv'.\
                 format(t=today, gym=gym.id)
             self.assertEqual(response['Content-Disposition'],
                              'attachment; filename={0}'.format(filename))
