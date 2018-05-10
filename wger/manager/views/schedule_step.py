@@ -20,7 +20,8 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db import models
-from django.forms import ModelForm, ModelChoiceField
+from django import forms
+from django.forms import ModelForm, ModelChoiceField, Form, ChoiceField
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -57,13 +58,18 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
         This is defined here because only at this point during the request
         have we access to the current user
         '''
+        class StepForm(ModelForm, forms.Form):
+            weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53)) # Loops through the number of weeks to display them on the site
+            workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
+            cycle = ChoiceField(choices=(("1", "Microcycle"), ("2", "Mesocycle"), ("3", "Macrocycle"), ("4", "Custom")), initial="4",
+                                widget=forms.Select(attrs={'onchange': 'cycleChange()'})) # cycles that a user can choose for the workout schedule
 
-        class StepForm(ModelForm):
-            workout = ModelChoiceField(queryset=Workout.objects.filter
-                                       (user=self.request.user))
+            duration = ChoiceField(choices=weeks, initial=1,
+                                   widget=forms.Select(),  help_text=_('The duration in weeks')) # duration of the weeks that a user can select
 
             class Meta:
                 model = ScheduleStep
+                fields = ['workout', 'cycle', 'duration']
                 exclude = ('order', 'schedule')
 
         return StepForm
