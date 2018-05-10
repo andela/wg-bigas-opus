@@ -128,10 +128,13 @@ class GymConfig(m.Model):
     Gym this configuration belongs to
     '''
 
-    weeks_inactive = m.PositiveIntegerField(verbose_name=_('Reminder of inactive members'),
-                                            help_text=_('Number of weeks since the last time a '
-                                            'user logged his presence to be considered inactive'),
-                                            default=4)
+    weeks_inactive = m.\
+        PositiveIntegerField(verbose_name=_('Reminder of inactive members'),
+                             help_text=_('Number of weeks since the last \
+                                         time a '
+                             'user logged his presence to be considered \
+                              inactive'),
+                             default=4)
     '''
     Reminder of inactive members
     '''
@@ -181,9 +184,11 @@ class GymAdminConfig(AbstractGymUserConfigModel, m.Model):
         Only one entry per user and gym
         '''
 
-    overview_inactive = m.BooleanField(verbose_name=_('Overview of inactive members'),
-                                       help_text=_('Receive email overviews of inactive members'),
-                                       default=True)
+    overview_inactive = m.\
+        BooleanField(verbose_name=_('Overview of inactive members'),
+                     help_text=_('Receive email overviews of inactive \
+                                  members'),
+                     default=True)
     '''
     Reminder of inactive members
     '''
@@ -206,10 +211,12 @@ class GymUserConfig(AbstractGymUserConfigModel, m.Model):
         Only one entry per user and gym
         '''
 
-    include_inactive = m.BooleanField(verbose_name=_('Include in inactive overview'),
-                                      help_text=_('Include this user in the email list with '
-                                      'inactive members'),
-                                      default=True)
+    include_inactive = m.\
+        BooleanField(verbose_name=_('Include in inactive overview'),
+                     help_text=_('Include this user in the \
+                                 email list with '
+                                 'inactive members'),
+                     default=True)
     '''
     Include user in inactive overview
     '''
@@ -274,9 +281,10 @@ def gym_document_upload_dir(instance, filename):
     '''
     Returns the upload target for documents
     '''
-    return "gym/documents/{0}/{1}/{2}".format(instance.member.userprofile.gym.id,
-                                              instance.member.id,
-                                              uuid.uuid4())
+    return "gym/documents/{0}/{1}/{2}"\
+        .format(instance.member.userprofile.gym.id,
+                instance.member.id,
+                uuid.uuid4())
 
 
 @python_2_unicode_compatible
@@ -534,7 +542,8 @@ class Contract(m.Model):
                           max_length=2,
                           choices=AMOUNT_TYPE,
                           default=AMOUNT_TYPE_MONTHLY,
-                          help_text=_('How often the amount will be charged to the member'))
+                          help_text=_('How often the amount will be \
+                                       charged to the member'))
     '''
     How often the amount will be charged to the member
     '''

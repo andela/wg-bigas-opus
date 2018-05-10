@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU Affero General Public License
 
 import logging
-import datetime
+import datetime # noqa
 
 from django.http import HttpResponse
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext as _ # noqa
 
 from wger.manager.models import Workout
 from wger.manager.helpers import render_workout_day
@@ -29,21 +29,22 @@ from wger.utils.pdf import styleSheet
 from wger.utils.pdf import render_footer
 
 from reportlab.lib.pagesizes import A4, cm
-from reportlab.platypus import (
+from reportlab.platypus import ( # noqa
     Paragraph,
     SimpleDocTemplate,
     Table,
     Spacer
 )
 
-from reportlab.lib import colors
+from reportlab.lib import colors # noqa
 
-from wger import get_version
+from wger import get_version # noqa
 
 logger = logging.getLogger(__name__)
 
 
-def workout_log(request, id, images=False, comments=False, uidb64=None, token=None):
+def workout_log(request, id, images=False,
+                comments=False, uidb64=None, token=None):
     '''
     Generates a PDF with the contents of the given workout
 
@@ -76,15 +77,16 @@ def workout_log(request, id, images=False, comments=False, uidb64=None, token=No
                             rightMargin=cm,
                             topMargin=0.5 * cm,
                             bottomMargin=0.5 * cm,
-                            title=_('Workout'),
+                            title=('Workout'),
                             author='wger Workout Manager',
-                            subject=_('Workout for %s') % request.user.username)
+                            subject=('Workout for %s') % request.user.username)
 
     # container for the 'Flowable' objects
     elements = []
 
     # Set the title
-    p = Paragraph('<para align="center"><strong>%(description)s</strong></para>' %
+    p = Paragraph('<para align="center"> \
+                    <strong>%(description)s</strong></para>' %
                   {'description': workout},
                   styleSheet["HeaderBold"])
     elements.append(p)
@@ -92,23 +94,27 @@ def workout_log(request, id, images=False, comments=False, uidb64=None, token=No
 
     # Iterate through the Workout and render the training days
     for day in workout.canonical_representation['day_list']:
-        elements.append(render_workout_day(day, images=images, comments=comments))
+        elements.append(render_workout_day(day, images=images,
+                        comments=comments))
         elements.append(Spacer(10 * cm, 0.5 * cm))
 
     # Footer, date and info
     elements.append(Spacer(10 * cm, 0.5 * cm))
-    elements.append(render_footer(request.build_absolute_uri(workout.get_absolute_url())))
+    elements.append(render_footer
+                    (request.build_absolute_uri(workout.get_absolute_url())))
 
     # write the document and send the response to the browser
     doc.build(elements)
 
     # Create the HttpResponse object with the appropriate PDF headers.
-    response['Content-Disposition'] = 'attachment; filename=Workout-{0}-log.pdf'.format(id)
+    response['Content-Disposition'] = \
+        'attachment; filename=Workout-{0}-log.pdf'.format(id)
     response['Content-Length'] = len(response.content)
     return response
 
 
-def workout_view(request, id, images=False, comments=False, uidb64=None, token=None):
+def workout_view(request, id, images=False,
+                 comments=False, uidb64=None, token=None):
     '''
     Generates a PDF with the contents of the workout, without table for logs
     '''
@@ -143,15 +149,16 @@ def workout_view(request, id, images=False, comments=False, uidb64=None, token=N
                             rightMargin=cm,
                             topMargin=0.5 * cm,
                             bottomMargin=0.5 * cm,
-                            title=_('Workout'),
+                            title=('Workout'),
                             author='wger Workout Manager',
-                            subject=_('Workout for %s') % request.user.username)
+                            subject=('Workout for %s') % request.user.username)
 
     # container for the 'Flowable' objects
     elements = []
 
     # Set the title
-    p = Paragraph('<para align="center"><strong>%(description)s</strong></para>' %
+    p = Paragraph('<para align="center"> \
+    <strong>%(description)s</strong></para>' %
                   {'description': workout},
                   styleSheet["HeaderBold"])
     elements.append(p)
@@ -159,17 +166,20 @@ def workout_view(request, id, images=False, comments=False, uidb64=None, token=N
 
     # Iterate through the Workout and render the training days
     for day in workout.canonical_representation['day_list']:
-        elements.append(render_workout_day(day, images=images, comments=comments, only_table=True))
+        elements.append(render_workout_day(day, images=images,
+                                           comments=comments, only_table=True))
         elements.append(Spacer(10 * cm, 0.5 * cm))
 
     # Footer, date and info
     elements.append(Spacer(10 * cm, 0.5 * cm))
-    elements.append(render_footer(request.build_absolute_uri(workout.get_absolute_url())))
+    elements.append(render_footer
+                    (request.build_absolute_uri(workout.get_absolute_url())))
 
     # write the document and send the response to the browser
     doc.build(elements)
 
     # Create the HttpResponse object with the appropriate PDF headers.
-    response['Content-Disposition'] = 'attachment; filename=Workout-{0}-table.pdf'.format(id)
+    response['Content-Disposition'] = \
+        'attachment; filename=Workout-{0}-table.pdf'.format(id)
     response['Content-Length'] = len(response.content)
     return response

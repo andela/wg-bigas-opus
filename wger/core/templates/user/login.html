@@ -14,8 +14,8 @@
     {% trans 'Login' as submit_text %}
     {% render_form_fields form submit_text %}
 </form>
-<div class="row">
-        <div class="col-sm-9">
+<div class="row col-sm-12">
+        <div class=" social-login col-sm-8" style="margin:0px 100px 0px 150px; display:inline-block;">
             <h4 class="text-center">-- Or --</h4>
             <a 
                 class="btn btn-block btn-social btn-facebook"
@@ -41,17 +41,17 @@
 
 
 {% block sidebar %}
-<h4>{% trans "No account?" %}</h4>
+<h4 style="margin:0px 100px 0px 200px;">{% trans "No account?" %}</h4>
 <p>
-    <a href="{% url 'core:user:registration' %}" class="btn btn-block btn-default">
+    <a href="{% url 'core:user:registration' %}" class="btn btn-block btn-default" style="margin:0px 100px 0px 200px;">
         <span class="{% fa_class 'sign-in' %}"></span>
         {% trans "Register" %}
     </a>
 </p>
 
-<h4>{% trans "Forgot password?" %}</h4>
+<h4 style="margin:0px 100px 0px 200px;">{% trans "Forgot password?" %}</h4>
 <p>
-    <a href="{% url 'core:user:password_reset' %}" class="btn btn-block btn-default">
+    <a href="{% url 'core:user:password_reset' %}" class="btn btn-block btn-default" style="margin:0px 100px 0px 200px;">
         <span class="{% fa_class 'key' %}"></span>
         {% trans "Reset password" %}
     </a>
