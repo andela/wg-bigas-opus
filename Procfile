@@ -1,2 +1,2 @@
 web: gunicorn wger.wsgi
-release: create_settings
+release: wger create_settings
