@@ -67,14 +67,6 @@ wger/core/static/bower_components
 node_modules
 wger/settings.py
 
-<<<<<<< HEAD
-
-.vscode/
-package-lock.json
-	
-# Virtual env 
-venv-django/
-
 # js
 package-lock.json
 
