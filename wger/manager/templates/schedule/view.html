@@ -61,6 +61,38 @@
     $(function() {
         init_sortable();
     });
+
+    function cycleChange(){
+        var selectedValue = $("#id_cycle option:selected").val();
+        switch (selectedValue) {
+            case "1":
+                $("#id_duration option").remove();
+                $("#id_duration").append("<option value=1>1 week</option>");
+                break;
+            case "2":
+                $("#id_duration option").remove();
+                var count=2;
+                while( count <= 6){
+                    $("#id_duration").append("<option value="+count+">"+count+"weeks </option>");
+                    count++;
+                }
+                break;
+            case "3":
+                $("#id_duration option").remove();
+                $("#id_duration").append("<option value=52>52 weeks</option>");
+                break;
+            default:
+                $("#id_duration option").remove();
+                var count=1;
+                while( count <= 52){
+                    $("#id_duration").append("<option value="+count+">"+count+"weeks </option>");
+                    count++;
+                }
+                break;
+        }
+    };
+
+    
 </script>
 {% endblock %}
 

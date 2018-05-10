@@ -46,7 +46,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-settings*.py
 *.sqlite
 /CACHE
 
@@ -65,6 +64,13 @@ target/
 wger/core/static/bower_components
 node_modules
 
-# js
 package-lock.json
 new-wger/
+
+# Virtual env
+wgervenv/
+wvenv/
+venv-django/
+wg-venv
+
+# Virtual enviroments
