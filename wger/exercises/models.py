@@ -219,8 +219,7 @@ class Exercise(AbstractSubmissionModel, AbstractLicenseModel, models.Model):
     The exercise`s author
     Many to One relationship
     """
-    
-    
+
     '''
     Globally unique ID, to identify the exercise across installations
     '''
