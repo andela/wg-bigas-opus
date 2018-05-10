@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # This file is part of wger Workout Manager.
 #
 # wger Workout Manager is free software: you can redistribute it and/or modify
@@ -77,4 +76,3 @@ class GymManager(models.Manager):
         return users.exclude(Q(groups__permissions=perm_gym) |
                              Q(groups__permissions=perm_gyms) |
                              Q(groups__permissions=perm_trainer)).distinct()
-    

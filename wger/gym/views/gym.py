@@ -129,7 +129,7 @@ class GymUserListView(LoginRequiredMixin,
         else:
             for u in Gym.objects.get_members(self.kwargs['pk']).select_related('usercache'):
                 out['members'].append({'obj': u,
-                                       'last_log': u.usercache.last_activity})      
+                                       'last_log': u.usercache.last_activity})
         return out
 
     def get_context_data(self, **kwargs):
