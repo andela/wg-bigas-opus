@@ -64,8 +64,3 @@ WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>' # noqa
 
 # Your twitter handle, if you have one for this instance.
 # WGER_SETTINGS['TWITTER'] = ''
-
-if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
-    pass
-else:
-    django_heroku.settings(locals())
