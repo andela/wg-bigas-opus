@@ -68,12 +68,12 @@ wger/core/static/bower_components
 node_modules
 wger/settings.py
 
-# js
 package-lock.json
-
-#env
-new-wger/
 
 # Virtual enviroments
 venv/
-
+new-wger/
+wgervenv/
+wvenv/
+venv-django
+venv/
