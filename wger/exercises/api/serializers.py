@@ -95,5 +95,6 @@ class ExerciseDetailsSerializer(serializers.ModelSerializer):
 
     # Method that retrieves the image that is being serialized in the serializer method field
     # This method takes an object and returns an image
+    # This method takes an object and returns an image
     def get_image(self, obj):
         return force_text(obj.main_image)

@@ -91,7 +91,8 @@ def search(request):
 
     if q:
         languages = load_item_languages(LanguageConfig.SHOW_ITEM_EXERCISES,
-                                        language_code=request.GET.get('language', None))
+                                        language_code=request
+                                        .GET.get('language', None))
         exercises = (Exercise.objects.filter(name__icontains=q)
                      .filter(language__in=languages)
                      .filter(status=Exercise.STATUS_ACCEPTED)
@@ -209,8 +210,10 @@ class MuscleViewSet(viewsets.ReadOnlyModelViewSet):
     filter_fields = ('name',
                      'is_front')
 
+
 class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
     '''
+
     This is a read only API endpoint for overall exercise details
     '''
     serializer_class = ExerciseDetailsSerializer
