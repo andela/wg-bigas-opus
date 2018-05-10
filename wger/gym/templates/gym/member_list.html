@@ -41,10 +41,6 @@
         {{current_user.obj.pk}}
     </td>
     <td>
-<<<<<<< HEAD
-=======
-        {% comment %} {{current_user.obj}} {% endcomment %}
->>>>>>> d0d7ee8195033845b252618e8908cb01741283dc
         <a href="{% url 'core:user:overview' current_user.obj.pk %}">{{current_user.obj}}</a>
 
         {% if current_user.perms.gym_trainer %}
@@ -142,8 +138,26 @@
                 {% endif %}
             {% endif %}
         </td>
+    {% endif %}%} show if trainer is active or inactive {% endcomment %}
+    <td>{% if current_user.obj.is_active %}
+        <span>Yes</span>
+        {% else %}
+        <span>No</span>
+        {% endif %}
+    </td>
+
+    {% comment %} Add activate and deactivate button {% endcomment %}
+    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
+        <td>
+            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
+                {% if current_user.obj.is_active %}
+                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
+                {% else %}
+                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
+                {% endif %}
+            {% endif %}
+        </td>
     {% endif %}
-<<<<<<< HEAD
 
     {% comment %} show if trainer is active or inactive {% endcomment %}
     <td>{% if current_user.obj.is_active %}
@@ -165,9 +179,6 @@
             {% endif %}
         </td>
     {% endif %}
-=======
->>>>>>> [Feature] Enable admin to activate and deactivate trainers froma gym
-
     {% comment %} show if trainer is active or inactive {% endcomment %}
     <td>{% if current_user.obj.is_active %}
         <span>Yes</span>
@@ -188,30 +199,6 @@
             {% endif %}
         </td>
     {% endif %}
-<<<<<<< HEAD
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-=======
->>>>>>> [Feature] Enable admin to activate and deactivate trainers froma gym
 
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
     <td style="text-align: right;">
