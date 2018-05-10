@@ -4,6 +4,8 @@
 from wger.settings_global import * # noqa
 
 import django_heroku
+import dj_database_url
+import os
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
@@ -14,18 +16,21 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$c!o!@ea&a3_s-%r=eyovgv&s+@87q+u%^s+3e)j+mpbg2y#g!'
 
@@ -60,4 +65,7 @@ WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>' # noqa
 # Your twitter handle, if you have one for this instance.
 # WGER_SETTINGS['TWITTER'] = ''
 
-# django_heroku.settings(locals())
+if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+    pass
+else:
+    django_heroku.settings(locals())
