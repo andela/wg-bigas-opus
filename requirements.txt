@@ -38,3 +38,6 @@ six
 
 social-auth-app-django
 social-auth-core
+
+# heroku
+gunicorn==19.8.1
