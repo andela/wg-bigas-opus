@@ -17,12 +17,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE':   'django.db.backends.postgresql',
+        'NAME':     'wger',
+        'USER':     'postgres',
+        'TEST': {'CHARSET': 'UTF8'}
     }
 }
 
