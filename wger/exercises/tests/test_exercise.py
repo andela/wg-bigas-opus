@@ -420,6 +420,7 @@ class DeleteExercisesTestCase(WorkoutManagerDeleteTestCase):
     user_success = 'admin'
     user_fail = 'test'
 
+
 class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
     """
     Tests the exercise details are returned
@@ -461,7 +462,7 @@ class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
         self.assertEqual(result['muscles'][0]['id'], 2)
         self.assertContains(response, 'muscles_secondary')
         self.assertEqual(result['equipment'], [])
-        
+
 
 class ExercisesCacheTestCase(WorkoutManagerTestCase):
     '''
@@ -593,8 +594,6 @@ class WorkoutCacheTestCase(WorkoutManagerTestCase):
         for workout_id in workout_ids:
             self.assertFalse(cache.get
                              (cache_mapper.get_workout_canonical(workout_id)))
-
-
 
 
 # TODO: fix test, all registered users can upload exercises
