@@ -57,6 +57,8 @@ script:
 
   # Javascript linting
   - gulp lint
+  
+
 
 
   # Regular application
@@ -68,4 +70,3 @@ script:
 
 notifications:
     slack: andela:jCFp66ZuJynangG2t3KVF3fV
-
