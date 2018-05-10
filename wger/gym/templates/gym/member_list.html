@@ -41,7 +41,6 @@
         {{current_user.obj.pk}}
     </td>
     <td>
-        {% comment %} {{current_user.obj}} {% endcomment %}
         <a href="{% url 'core:user:overview' current_user.obj.pk %}">{{current_user.obj}}</a>
 
         {% if current_user.perms.gym_trainer %}
@@ -59,6 +58,8 @@
     <td>
         {{current_user.obj.get_full_name}}
     </td>
+
+    {% comment %} show if trainer is active or inactive {% endcomment %}
     <td>{% if current_user.obj.is_active %}
         <span>Yes</span>
         {% else %}
@@ -66,6 +67,7 @@
         {% endif %}
     </td>
 
+    {% comment %} Add activate and deactivate button {% endcomment %}
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
         <td>
             {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
