@@ -81,6 +81,5 @@ package-lock.json
 wgervenv/
 wvenv/
 venv-django/
-
-# Virtual enviroments
 venv/
+new-wger/
