@@ -106,13 +106,10 @@ class GymUserListView(LoginRequiredMixin,
         '''
         Return a list with the users, not really a queryset.
         '''
-
-
         mixed = self.request.GET.get('mixed', None)
         out = {'admins': [],
                'members': [],
                'mixed': mixed}
-        
         # admins list
         for u in Gym.objects.get_admins(self.kwargs['pk']):
             out['admins'].append({'obj': u,
@@ -121,7 +118,6 @@ class GymUserListView(LoginRequiredMixin,
                                             'gym_trainer': u.has_perm('gym.gym_trainer'),
                                             'any_admin': is_any_gym_admin(u)}
                                   })
-        
         if mixed == "active":
             for u in Gym.objects.get_active_users(self.kwargs['pk']).select_related('usercache'):
                 out['members'].append({'obj': u,
@@ -130,12 +126,10 @@ class GymUserListView(LoginRequiredMixin,
             for u in Gym.objects.get_inactive_users(self.kwargs['pk']).select_related('usercache'):
                 out['members'].append({'obj': u,
                                        'last_log': u.usercache.last_activity})
-
         else:
             for u in Gym.objects.get_members(self.kwargs['pk']).select_related('usercache'):
                 out['members'].append({'obj': u,
-                                       'last_log': u.usercache.last_activity})
-                
+                                       'last_log': u.usercache.last_activity})      
         return out
 
     def get_context_data(self, **kwargs):

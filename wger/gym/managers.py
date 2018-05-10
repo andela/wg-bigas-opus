@@ -78,4 +78,3 @@ class GymManager(models.Manager):
                              Q(groups__permissions=perm_gyms) |
                              Q(groups__permissions=perm_trainer)).distinct()
     
-
