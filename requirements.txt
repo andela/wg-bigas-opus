@@ -19,7 +19,7 @@ django-bower
 invoke
 requests
 flake8
-pyflakesg
+pyflakes
 mccabe
 
 # REST API
