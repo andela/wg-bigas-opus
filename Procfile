@@ -1,2 +1,1 @@
-web: gunicorn wger.wsgi
-release: python manage.py makemigrations --merge && python manage.py migrate
+web: python manage.py runserver 0.0.0.0:$PORT
