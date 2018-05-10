@@ -16,6 +16,7 @@
 
 import re
 import sys
+import django-heroku
 
 '''
 This file contains the global settings that don't usually need to be changed.
@@ -133,7 +134,7 @@ MIDDLEWARE_CLASSES = (
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.facebook.FacebookOAuth2', 
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     'wger.utils.helpers.EmailAuthBackend'
 )
@@ -154,7 +155,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                
+
 
                 # Django mobile
                 'django_mobile.context_processors.flavour',
@@ -162,7 +163,7 @@ TEMPLATES = [
                 # Breadcrumbs
                 'django.template.context_processors.request',
                 #social_django
-                'social_django.context_processors.backends', 
+                'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect'
             ],
             'loaders': [
