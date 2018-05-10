@@ -17,6 +17,7 @@
 import logging
 import uuid
 import datetime
+import csv
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponseForbidden
@@ -26,6 +27,7 @@ from django.utils.translation import ugettext_lazy, ugettext as _
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DeleteView, UpdateView
+from django.http import HttpResponse
 
 from wger.core.models import (
     RepetitionUnit,
@@ -36,7 +38,8 @@ from wger.manager.models import (
     WorkoutSession,
     WorkoutLog,
     Schedule,
-    Day
+    Day,
+    Set
 )
 from wger.manager.forms import (
     WorkoutForm,
@@ -388,3 +391,33 @@ def timer(request, day_pk):
     context['weight_units'] = WeightUnit.objects.all()
     context['repetition_units'] = RepetitionUnit.objects.all()
     return render(request, 'workout/timer.html', context)
+
+@login_required
+def export_workout(request, pk):
+
+    ''' export workout as csv'''
+
+    workouts = Workout.objects.filter(user=request.user, id=pk)
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=' + str(request.user) + '_workouts.csv'
+    writer = csv.writer(response)
+    writer.writerow(['Date created', 'Comment', 'Days', 'Description', 'Exercise'])
+
+    for workout in workouts:
+        training_days = Day.objects.filter(training=workout.id)
+        for day in training_days:
+            workout_days = "\n".join(
+                [item.day_of_week for item in day.day.all()]
+            )
+            sets = Set.objects.filter(exerciseday=day.id)
+            for one_set in sets:
+                exercises = "\n".join(
+                    [exercise.name for exercise in one_set.exercises.all()]
+                )
+                writer.writerow([
+                    workout.creation_date,
+                    workout.comment, workout_days,
+                    day.description, exercises
+                ])
+    
+    return response
