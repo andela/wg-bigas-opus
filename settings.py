@@ -3,6 +3,8 @@
 
 from wger.settings_global import * # noqa
 
+import django_heroku
+import dj_database_url
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
@@ -15,14 +17,7 @@ MANAGERS = ADMINS
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+    'default': dj_database_url.config()
 }
 
 # Make this unique, and don't share it with anybody.
