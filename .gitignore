@@ -66,6 +66,13 @@ wger/core/static/bower_components
 node_modules
 new-wger
 
-# js
 package-lock.json
 
+
+# Virtual env
+wgervenv/
+wvenv/
+venv-django/
+
+# Virtual enviroments
+venv/
