@@ -107,10 +107,7 @@ class GymUserListView(LoginRequiredMixin, WgerMultiplePermissionRequiredMixin, L
                'members': [],
                'mixed': mixed}
 
-        for u in Gym.objects.get_members(self.kwargs['pk']).select_related('usercache'):
-            out['members'].append({'obj': u,
-                                   'last_log': u.usercache.last_activity})
-
+        
         # admins list
         for u in Gym.objects.get_admins(self.kwargs['pk']):
             out['admins'].append({'obj': u,
