@@ -9,6 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('gym', '0007_auto_20180503_0228'),
+        ('gym', '0007_auto_20180503_1220'),
         ('gym', '0008_merge'),
     ]
 

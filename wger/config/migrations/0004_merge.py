@@ -10,6 +10,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('config', '0003_merge'),
         ('config', '0002_auto_20180503_0228'),
+        ('config', '0002_auto_20180503_1220'),
     ]
 
     operations = [
