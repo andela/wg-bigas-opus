@@ -34,7 +34,8 @@ class WeightUnitIngredientRepresentationTestCase(WorkoutManagerTestCase):
         '''
         Test that the representation of an object is correct
         '''
-        self.assertEqual("{0}".format(IngredientWeightUnit.objects.get(pk=1)), 'Spoon (109g)')
+        self.assertEqual("{0}".format(IngredientWeightUnit.objects.get(pk=1)),
+                         'Spoon (109g)')
 
 
 class AddWeightUnitIngredientTestCase(WorkoutManagerAddTestCase):
@@ -95,7 +96,8 @@ class WeightUnitFormTestCase(WorkoutManagerTestCase):
 
     def test_edit_weight_unit(self):
         '''
-        Tests that the form in the edit view only shows weight units in the user's language
+        Tests that the form in the edit view only shows
+        weight units in the user's language
         '''
         self.user_login('admin')
         response = self.client.get(reverse('nutrition:unit_ingredient:edit',
