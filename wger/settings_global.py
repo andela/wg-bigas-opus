@@ -87,7 +87,10 @@ INSTALLED_APPS = (
     # django-bower for installing bower packages
     'djangobower',
     #django social auth
-    'social_django'
+    'social_django',
+
+    # Import and export
+    'import_export',
 )
 
 # added list of external libraries to be installed by bower
@@ -386,3 +389,6 @@ SOCIAL_AUTH_TWITTER_KEY=os.environ.get('SOCIAL_AUTH_TWITTER_KEY')
 SOCIAL_AUTH_TWITTER_SECRET=os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
 SOCIAL_AUTH_FACEBOOK_SECRET=os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_KEY=os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+
+# import export
+IMPORT_EXPORT_USE_TRANSACTIONS = True

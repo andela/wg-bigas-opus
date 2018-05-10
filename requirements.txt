@@ -36,3 +36,6 @@ six
 
 social-auth-app-django
 social-auth-core
+
+# import export
+django-import-export
