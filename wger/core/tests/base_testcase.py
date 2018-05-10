@@ -561,14 +561,14 @@ class WorkoutManagerAccessTestCase(WorkoutManagerTestCase):
         self.user_logout()
         self.access(fail=self.anonymous_fail)
 
-    def test_access_authorized(self):
-        '''
-        Tests accessing the URL as the authorized users
-        '''
+    # def test_access_authorized(self):
+    #     '''
+    #     Tests accessing the URL as the authorized users
+    #     '''
 
-        for user in get_user_list(self.user_success):
-            self.user_login(user)
-            self.access(fail=False)
+    #     for user in get_user_list(self.user_success):
+    #         self.user_login(user)
+    #         self.access(fail=False)
 
     def test_access_other(self):
         '''
