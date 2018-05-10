@@ -218,7 +218,7 @@ an appointment for each training day with the appropriate exercises.{% endblockt
                 </form>
 
                 <p>
-                    <a href="" class="btn btn-block btn-default" id="download-pdf-button">
+                    <a href="{% url 'manager:workout:export_workouts' workout.id %}" class="btn btn-block btn-default" id="download-pdf-button">
                         {% trans "Download" %}
                     </a>
                 </p>
