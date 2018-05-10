@@ -65,6 +65,7 @@ target/
 wger/core/static/bower_components
 node_modules
 
+<<<<<<< HEAD
 
 .vscode/
 package-lock.json
@@ -80,6 +81,4 @@ wgervenv/
 wvenv/
 venv-django/
 new-wger/
-
-# Virtual enviroments
 venv/

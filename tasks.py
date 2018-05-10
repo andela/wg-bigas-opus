@@ -399,7 +399,6 @@ def database_exists():
     else:
         return True
 
-
 def start_browser(url):
     '''
     Start the web browser with the given URL
