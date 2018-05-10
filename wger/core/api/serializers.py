@@ -80,10 +80,11 @@ class WeightUnitSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeightUnit
 
+
 class UserApiSerializer(serializers.ModelSerializer):
     "User registration serializer"
     class Meta:
         model = User
-        fields=('username', 'email', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
-        
+        fields = ('username', 'email', 'password')
+        extra_kwargs = {'password': {
+            'write_only': True}}

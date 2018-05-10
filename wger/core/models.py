@@ -31,6 +31,8 @@ from wger.utils.constants import TWOPLACES
 from wger.utils.units import AbstractWeight
 
 from wger.weight.models import WeightEntry
+
+
 @python_2_unicode_compatible
 class Language(models.Model):
     '''
@@ -75,6 +77,7 @@ class Language(models.Model):
         '''
         return False
 
+
 @python_2_unicode_compatible
 class UserProfile(models.Model):
     GENDER_MALE = '1'
@@ -101,7 +104,7 @@ class UserProfile(models.Model):
     )
 
     user = models.OneToOneField(User,
-                                editable=False)
+                                editable=False)                            
     '''
     The user that can add users using an api endpoint
     '''
@@ -299,7 +302,7 @@ by the US Department of Agriculture. It is extremely complete, with around
                                     help_text=_('Allow external users to access your workouts and '
                                                 'logs in a read-only mode. You need to set this '
                                                 'before you can share links e.g. to social media.'),
-                                    default=False)
+                                    default=False)                                    
     '''Allow anonymous read-only access'''
 
     num_days_weight_reminder = models.IntegerField(verbose_name=_('Automatic reminders for weight '
