@@ -76,4 +76,3 @@ class GymManager(models.Manager):
         return users.exclude(Q(groups__permissions=perm_gym) |
                              Q(groups__permissions=perm_gyms) |
                              Q(groups__permissions=perm_trainer)).distinct()
-    
