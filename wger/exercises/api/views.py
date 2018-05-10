@@ -212,9 +212,6 @@ class MuscleViewSet(viewsets.ReadOnlyModelViewSet):
 class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
     '''
 
-    This is a read only API endpoint for overall exercise details 
-    '''
-    serializer_class = ExerciseDetailsSerializer
     This is a read only API endpoint for overall exercise details
     '''
     serializer_class = ExerciseDetailsSerializer
@@ -231,4 +228,3 @@ class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
         if filter_value is not None:
             queryset = queryset.filter(field_name=filter_value)
         return queryset
-
