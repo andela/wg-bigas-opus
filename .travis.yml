@@ -53,19 +53,16 @@ before_script:
 # Do the tests
 script:
   # Formatting
+  # - flake8 wger
   - flake8 wger
-
   # Javascript linting
   - gulp lint
 
-
   # Regular application
-  - coverage run --source='.' ./manage.py test
-
+  - coverage run --source='wger' ./manage.py test
 
   # Code coverage
   - coverage report
 
 notifications:
     slack: andela:jCFp66ZuJynangG2t3KVF3fV
-
