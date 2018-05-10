@@ -34,9 +34,9 @@ install:
   - nvm use $TRAVIS_NODE_VERSION
 
   # Install requirements
-  - pip install -r requirements.txt
-  - pip install coverage
-  - pip install django-extensions
+  - pip3 install -r requirements.txt
+  - pip3 install coverage
+  - pip3 install django-extensions
   - npm install
   - npm install gulp gulp-eslint -g
   - if [[ "$DB" = "postgresql" ]]; then pip install psycopg2; fi
@@ -53,10 +53,12 @@ before_script:
 # Do the tests
 script:
   # Formatting
-  # - flake8 wger
+  - flake8 wger
 
   # Javascript linting
   - gulp lint
+  
+
 
 
   # Regular application
@@ -66,3 +68,5 @@ script:
   # Code coverage
   - coverage report
 
+notifications:
+    slack: andela:jCFp66ZuJynangG2t3KVF3fV

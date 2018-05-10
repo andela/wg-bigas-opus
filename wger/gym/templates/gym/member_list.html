@@ -57,6 +57,10 @@
     <th style="width: 10%;">{% trans "ID" %}</th>
     <th style="width: 40%;">{% trans "Username" %}</th>
     <th>{% trans "Name" %}</th>
+<<<<<<< HEAD
+=======
+    <th>{% trans "Active" %}</th> {% comment %} Header showing if user is active or not {% endcomment %}
+>>>>>>> [Chore] Add comments for changes made
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
         <th style="text-align: right;">{% trans "Roles" %}</th>
     {% endif %}
@@ -70,6 +74,7 @@
     </td>
     <td>
         {{current_user.obj}}
+        <a href="{% url 'core:user:overview' current_user.obj.pk %}">{{current_user.obj}}</a>
 
         {% if current_user.perms.gym_trainer %}
             <span class="label label-primary">{% trans "Trainer" %}</span>
@@ -86,6 +91,28 @@
     <td>
         {{current_user.obj.get_full_name}}
     </td>
+
+    {% comment %} show if trainer is active or inactive {% endcomment %}
+    <td>{% if current_user.obj.is_active %}
+        <span>Yes</span>
+        {% else %}
+        <span>No</span>
+        {% endif %}
+    </td>
+
+    {% comment %} Add activate and deactivate button {% endcomment %}
+    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
+        <td>
+            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
+                {% if current_user.obj.is_active %}
+                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
+                {% else %}
+                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
+                {% endif %}
+            {% endif %}
+        </td>
+    {% endif %}
+>>>>>>> [Chore] Add comments for changes made
 
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
     <td style="text-align: right;">
