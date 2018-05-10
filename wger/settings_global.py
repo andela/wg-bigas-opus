@@ -87,7 +87,7 @@ INSTALLED_APPS = (
 
     # django-bower for installing bower packages
     'djangobower',
-    #django social auth
+    # django social auth
     'social_django'
 )
 
@@ -116,7 +116,8 @@ MIDDLEWARE_CLASSES = (
     # Javascript Header. Sends helper headers for AJAX
     'wger.utils.middleware.JavascriptAJAXRedirectionMiddleware',
 
-    # Custom authentication middleware. Creates users on-the-fly for certain paths
+    # Custom authentication middleware.
+    # Creates users on-the-fly for certain paths
     'wger.utils.middleware.WgerAuthenticationMiddleware',
 
     # Send an appropriate Header so search engines don't index pages
