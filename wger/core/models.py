@@ -31,8 +31,6 @@ from wger.utils.constants import TWOPLACES
 from wger.utils.units import AbstractWeight
 
 from wger.weight.models import WeightEntry
-
-
 @python_2_unicode_compatible
 class Language(models.Model):
     '''
@@ -77,7 +75,6 @@ class Language(models.Model):
         '''
         return False
 
-
 @python_2_unicode_compatible
 class UserProfile(models.Model):
     GENDER_MALE = '1'
@@ -106,8 +103,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,
                                 editable=False)
     '''
-    The user
+    The user that can add users using an api endpoint
     '''
+    add_user_rest_api= models.BooleanField(default=False,editable=True)
+    created_by=models.CharField(max_length=150, null=True, blank=True)
 
     gym = models.ForeignKey(Gym,
                             editable=False,
