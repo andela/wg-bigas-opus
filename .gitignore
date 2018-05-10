@@ -23,6 +23,8 @@ wg-venv/
 *.egg-info/
 .installed.cfg
 *.egg
+.env
+.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -66,17 +68,15 @@ target/
 # External Libraries
 wger/core/static/bower_components
 node_modules
-new-wger
-.vscode/
-package-lock.json
+wger/settings.py
 
 # js
 package-lock.json
 
-# Virtual env
+# Virtual enviroments
+venv/
+new-wger/
 wgervenv/
 wvenv/
-venv-django/
-new-wger/
-venv/
+venv-django
 

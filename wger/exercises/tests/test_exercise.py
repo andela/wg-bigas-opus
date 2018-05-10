@@ -512,8 +512,8 @@ class ExercisesCacheTestCase(WorkoutManagerTestCase):
 
         old_exercise_bg = cache\
             .get(cache_mapper.get_exercise_muscle_bg_key(2))
-        old_muscle_overview = cache\
-            .get(get_template_cache_name('muscle-overview', 2))
+        # old_muscle_overview = cache\
+        #     .get(get_template_cache_name('muscle-overview', 2))
         old_exercise_overview = cache\
             .get(get_template_cache_name('exercise-overview', 2))
         old_exercise_overview_mobile = cache\
@@ -540,8 +540,8 @@ class ExercisesCacheTestCase(WorkoutManagerTestCase):
         self.client.get(reverse('exercise:exercise:view', kwargs={'id': 2}))
 
         new_exercise_bg = cache.get(cache_mapper.get_exercise_muscle_bg_key(2))
-        new_muscle_overview = cache\
-            .get(get_template_cache_name('muscle-overview', 2))
+        # new_muscle_overview = cache\
+        #     .get(get_template_cache_name('muscle-overview', 2))
         new_exercise_overview = cache\
             .get(get_template_cache_name('exercise-overview', 2))
         new_exercise_overview_mobile = cache\
@@ -550,7 +550,6 @@ class ExercisesCacheTestCase(WorkoutManagerTestCase):
         if not self.is_mobile:
             self.assertNotEqual(old_exercise_bg, new_exercise_bg)
             self.assertNotEqual(old_exercise_overview, new_exercise_overview)
-            self.assertNotEqual(old_muscle_overview, new_muscle_overview)
         else:
             self.assertNotEqual(old_exercise_overview_mobile,
                                 new_exercise_overview_mobile)
