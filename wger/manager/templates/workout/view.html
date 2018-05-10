@@ -205,30 +205,6 @@ an appointment for each training day with the appropriate exercises.{% endblockt
         </div>
     </div>
 </div>
-<div class="modal fade" id="export-workout-popup">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">{% trans "Export workout" %}</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal">
-                    <div id="pdf-download-info" data-workout-id="{{ workout.id }}" data-uid="{{ uid }}" data-token="{{ token }}"></div>
-                </form>
-
-                <p>
-                    <a href="{% url 'manager:workout:export_workouts' workout.id %}" class="btn btn-block btn-default" id="download-pdf-button">
-                        {% trans "Download" %}
-                    </a>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
 
 
@@ -256,7 +232,7 @@ an appointment for each training day with the appropriate exercises.{% endblockt
             </a>
         </li>
         <li>
-            <a data-toggle="modal" data-target="#export-workout-popup">
+            <a href="{% url 'manager:workout:export_workouts' workout.id %}">
                 <span class="{% fa_class 'download' %}"></span>
                 {% trans "Export workout" %}
             </a>
