@@ -209,6 +209,14 @@ class Exercise(AbstractSubmissionModel, AbstractLicenseModel, models.Model):
                             max_length=36,
                             editable=False,
                             default=uuid.uuid4)
+
+    author = models.ForeignKey(User, null=True, on_delete=models.CASCADE, verbose_name=_('Author'))
+    """
+    The exercise`s author
+    Many to One relationship
+    """
+    
+    
     '''
     Globally unique ID, to identify the exercise across installations
     '''
@@ -332,6 +340,7 @@ class Exercise(AbstractSubmissionModel, AbstractLicenseModel, models.Model):
             self.status = self.STATUS_ACCEPTED
             if not self.license_author:
                 self.license_author = request.get_host().split(':')[0]
+                self.author = request.user
         else:
             if not self.license_author:
                 self.license_author = request.user.username

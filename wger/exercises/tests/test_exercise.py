@@ -444,7 +444,7 @@ class ExerciseDetailsAPITestCase(WorkoutManagerTestCase):
         self.assertEqual(result['muscles'][0]['id'], 2)
         self.assertContains(response, 'muscles_secondary')
         self.assertEqual(result['equipment'], [])
-        
+
 
 class ExercisesCacheTestCase(WorkoutManagerTestCase):
     '''
