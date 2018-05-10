@@ -71,10 +71,10 @@ wger/settings.py
 # js
 package-lock.json
 
-# Virtual env
+# Virtual enviroments
+venv/
+new-wger/
 wgervenv/
 wvenv/
-venv-django/
-
-# Virtual enviroments
+venv-django
 venv/
