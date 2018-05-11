@@ -23,7 +23,8 @@ from django.utils.translation import ugettext_lazy
 
 from django.views.generic import CreateView, UpdateView
 
-from wger.nutrition.models import NutritionPlan, Meal
+from wger.nutrition.forms import MealForm
+from wger.nutrition.models import NutritionPlan, Meal, MealItem, Ingredient
 from wger.utils.generic_views import WgerFormMixin
 
 logger = logging.getLogger(__name__)
@@ -39,7 +40,8 @@ class MealCreateView(WgerFormMixin, CreateView):
     '''
 
     model = Meal
-    fields = '__all__'
+    form_class = MealForm
+    template_name = 'meal/new_meal_create.html'
     title = ugettext_lazy('Add new meal')
     owner_object = {'pk': 'plan_pk', 'class': NutritionPlan}
 
@@ -52,6 +54,19 @@ class MealCreateView(WgerFormMixin, CreateView):
         return super(MealCreateView, self).form_valid(form)
 
     def get_success_url(self):
+        data = self.request.POST
+
+        ingredient = Ingredient.objects.get(id=data['ingredient'])
+        meal_item = MealItem.objects.create(
+            meal=self.object,
+            amount=data['amount'],
+            ingredient=ingredient,
+            meal_choice=data['meal_choice']
+        )
+        if 'weight_unit' in data:
+            if data['weight_unit']:
+                meal_item.weight_unit = data['weight_unit']
+                meal_item.save()
         return self.object.plan.get_absolute_url()
 
     # Send some additional data to the template
