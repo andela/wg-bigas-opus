@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -118,6 +119,9 @@ MIDDLEWARE_CLASSES = (
     # Custom authentication middleware. Creates users
     # on-the-fly for certain paths
     'wger.utils.middleware.WgerAuthenticationMiddleware',
+
+    # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Send an appropriate Header so search engines don't index pages
     'wger.utils.middleware.RobotsExclusionMiddleware',
