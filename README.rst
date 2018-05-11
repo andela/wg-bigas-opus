@@ -9,7 +9,7 @@ easy integration with other projects and tools.
 
 It is written with python/django and uses jQuery and some D3js for charts.
 
-For more details and a live system, refer to the project's site: https://wger.de/
+For more details and a live system, refer to the project's site: https://wger-bigas-opus-app.herokuapp.com/en/software/features
 
 
 Installation
