@@ -44,6 +44,12 @@ class Command(BaseCommand):
             else:
                 profile.can_add_user = True
                 profile.save()
-                self.stdout.write(self.style.SUCCESS("{0} can now add users via the rest api".format(options['username'])))
+                self.stdout.write(
+                    self.style.SUCCESS(
+                        "{0} can now add users via the rest api".format(
+                            options['username']
+                        )
+                    )
+                )
         except Exception as ex:
             self.stdout.write(self.style.WARNING(ex))

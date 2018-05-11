@@ -27,6 +27,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             UserProfile.objects.filter(created_by=options['username'])
-            self.stdout.write(self.style.SUCCESS("{0} can now list users via the rest api".format(options['username'])))
+            self.stdout.write(
+                self.style.SUCCESS(
+                    "{0} can now list users via the rest api".format(
+                        options['username']
+                    )
+                )
+            )
+
         except Exception as ex:
             self.stdout.write(self.style.WARNING(ex))

@@ -16,7 +16,7 @@
 # along with Workout Manager.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.contrib.auth.models import User
-from rest_framework import viewsets,status
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import detail_route
 
@@ -70,13 +70,14 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         user = self.get_object().user
         return Response(UsernameSerializer(user).data)
 
+
 class UserApiRegistrationViewset(viewsets.ModelViewSet):
     '''
     User registration to get the Api key
     '''
     is_private = True
-    serializer_class= UserApiSerializer
-    ordering_fields=('username', 'email', 'password')
+    serializer_class = UserApiSerializer
+    ordering_fields = ('username', 'email', 'password')
 
     def get_queryset(self):
         '''
@@ -106,16 +107,18 @@ class UserApiRegistrationViewset(viewsets.ModelViewSet):
         return Response(
             {'Message': 'You Have no permission to add users.'}, status=status.HTTP_403_FORBIDDEN)
 
+
 class ListApiUserProfileViewset(viewsets.ModelViewSet):
     '''
     API endpoint for the created user from the external app clear
     '''
     is_private = True
-    serializer_class= UserprofileSerializer
-    ordering_fields=('username', 'email', 'password')
+    serializer_class = UserprofileSerializer
+    ordering_fields = ('username', 'email', 'password')
+
     def get_queryset(self):
         return UserProfile.objects.filter(created_by=self.request.user.username)
-    
+
 
 class LanguageViewSet(viewsets.ReadOnlyModelViewSet):
     '''
