@@ -1,0 +1,8 @@
+build:
+  languages:
+    - python
+release:
+  command:
+    - docker build -t wger_dev . && docker run -p 8000:8000 wger_dev
+run:
+  web: gunicorn wger.wsgi:application --log-file -
