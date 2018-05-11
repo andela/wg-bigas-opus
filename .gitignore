@@ -20,6 +20,7 @@ sdist/
 var/
 wg-venv/
 wger-venv/
+venv-wger/
 
 *.egg-info/
 .installed.cfg
