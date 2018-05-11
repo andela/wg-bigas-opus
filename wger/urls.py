@@ -101,19 +101,14 @@ router.register(r'workoutlog', manager_api_views.WorkoutLogViewSet,
                 base_name='workoutlog')
 
 # Core app
-router.register(r'userprofile', core_api_views.UserProfileViewSet,
-                base_name='userprofile')
-router.register(r'language', core_api_views.LanguageViewSet,
-                base_name='language')
-router.register(r'daysofweek', core_api_views.DaysOfWeekViewSet,
-                base_name='daysofweek')
-router.register(r'license', core_api_views.LicenseViewSet,
-                base_name='license')
-router.register(r'setting-repetitionunit',
-                core_api_views.RepetitionUnitViewSet,
-                base_name='setting-repetition-unit')
-router.register(r'setting-weightunit', core_api_views.WeightUnitViewSet,
-                base_name='setting-weight-unit')
+router.register(r'userprofile', core_api_views.UserProfileViewSet, base_name='userprofile')
+router.register(r'users', core_api_views.UserApiRegistrationViewset, base_name='users')
+router.register(r'language', core_api_views.LanguageViewSet, base_name='language')
+router.register(r'daysofweek', core_api_views.DaysOfWeekViewSet, base_name='daysofweek')
+router.register(r'license', core_api_views.LicenseViewSet, base_name='license')
+router.register(r'setting-repetitionunit', core_api_views.RepetitionUnitViewSet, base_name='setting-repetition-unit')
+router.register(r'setting-weightunit', core_api_views.WeightUnitViewSet, base_name='setting-weight-unit')
+
 
 # Exercises app
 router.register(r'exercise', exercises_api_views.ExerciseViewSet,
