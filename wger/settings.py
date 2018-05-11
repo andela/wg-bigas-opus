@@ -1,31 +1,21 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from wger.settings_global import *
+from wger.settings_global import * # noqa
+
+import os
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
-TEMPLATES[0]['OPTIONS']['debug'] = True
+TEMPLATES[0]['OPTIONS']['debug'] = True # noqa
 
 ADMINS = (
     ('Your name', 'your_email@example.com'),
 )
 MANAGERS = ADMINS
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Volumes/Projects/simulations/wg-bigas-opus/wger/database.sqlite',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '!k^i=_jy_le3z(v*0p-ocw)0mw9d0*i#j))q1)p2q@8)cz6%9e'
+SECRET_KEY = '$c!o!@ea&a3_s-%r=eyovgv&s+@87q+u%^s+3e)j+mpbg2y#g!'
 
 # Your reCaptcha keys
 RECAPTCHA_PUBLIC_KEY = ''
@@ -39,21 +29,21 @@ SITE_URL = 'http://localhost:8000'
 
 # Path to uploaded files
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '/Users/antonyng/.local/share/wger/media'
+MEDIA_ROOT = '/Users/PhilSkiiiwalker/.local/share/wger/media'
 MEDIA_URL = '/media/'
 
 # Allow all hosts to access the application. Change if used in production.
 ALLOWED_HOSTS = '*'
 
 # This might be a good idea if you setup memcached
-#SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 # Configure a real backend in production
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Sender address used for sent emails
-WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>'
+WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>' # noqa
 
 # Your twitter handle, if you have one for this instance.
-#WGER_SETTINGS['TWITTER'] = ''
+# WGER_SETTINGS['TWITTER'] = ''

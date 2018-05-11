@@ -18,6 +18,8 @@ lib64/
 parts/
 sdist/
 var/
+wg-venv/
+
 *.egg-info/
 .installed.cfg
 *.egg
@@ -63,14 +65,16 @@ target/
 # External Libraries
 wger/core/static/bower_components
 node_modules
+wger/settings.py
 
+# js
 package-lock.json
 new-wger/
 
-# Virtual env
+# Virtual enviroments
+venv/
+new-wger/
 wgervenv/
 wvenv/
 venv-django/
 wg-venv
-
-# Virtual enviroments
