@@ -24,15 +24,18 @@ browsing the site as the user "{{current_user}}", all actions are performed on h
             {% block title %}{% endblock %}
         </h2>
     </div>
-    <div class="col-sm-4" style="padding-top: 15px; padding-bottom: 15px;">
-        <div class="btn-group">
+    <div class="col-sm-3">
+        {% block energy_data %}{% endblock %}
+    </div>
 
+    <div class="col-sm-3" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="btn-group">
             {% block options %}
             {% endblock %}
 
             {% if show_shariff %}
                 <button type="button"
-                        class="btn btn-default btn-sm"
+                        class="btn btn-default btn-sm pull-right"
                         data-toggle="modal"
                         data-target="#shariffModal">
                     <span class="glyphicon glyphicon-retweet"></span>
@@ -66,6 +69,21 @@ browsing the site as the user "{{current_user}}", all actions are performed on h
         {% block sidebar %}
         {% endblock %}
     </div>
-   
+    <div class="col-sm-6" id="meal-content">
+        {% if messages and not no_messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags == 'warning'%}alert-error{% elif message.tags == 'info' %}alert-info{% elif message.tags == 'success' %}alert-success{% endif %}">
+                <a href="#" class="close extra-bold" data-dismiss="alert">&times;</a>
+                {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% render_breadcrumbs "django_bootstrap_breadcrumbs/bootstrap3.html" %}
+        <div id="contents">
+        {% block contents %}{% endblock %}
+        </div>
+    </div>
+
 </div>
 {% endblock %}
