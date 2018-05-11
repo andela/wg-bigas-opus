@@ -73,7 +73,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
 class UserApiRegistrationViewset(viewsets.ModelViewSet):
     '''
-    User registration to get the Api key
+    API endpoint for the created user from the external app.
     '''
     is_private = True
     serializer_class = UserApiSerializer
@@ -110,7 +110,7 @@ class UserApiRegistrationViewset(viewsets.ModelViewSet):
 
 class ListApiUserProfileViewset(viewsets.ModelViewSet):
     '''
-    API endpoint for the created user from the external app clear
+    Lists users created by the created user from the external app to avoid his users having to register  access wger instance 
     '''
     is_private = True
     serializer_class = UserprofileSerializer
