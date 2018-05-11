@@ -1,2 +1,2 @@
-web: gunicorn wger.wsgi --log-file - 
+web: gunicorn wger.wsgi --log-file - && worker: invoke create-settings --settings-path /home/wger/wger/settings.py && invoke bootstrap-wger --settings-path /home/wger/wger/settings.py --no-start-server
 release: python manage.py makemigrations --merge && python manage.py migrate && python manage.py runserver 0.0.0.0:$PORT
