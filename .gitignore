@@ -23,8 +23,7 @@ wg-venv/
 *.egg-info/
 .installed.cfg
 *.egg
-.env
-.vscode
+settings.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
