@@ -16,6 +16,8 @@
 
 import re
 import sys
+import django_heroku
+import dj_database_url
 
 '''
 This file contains the global settings that don't usually need to be changed.
@@ -27,6 +29,22 @@ For a full list of options, visit:
 import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+
+if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 #
 # Application definition
