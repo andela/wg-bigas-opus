@@ -3,8 +3,6 @@
 
 from wger.settings_global import * # noqa
 
-import django_heroku
-import dj_database_url
 import os
 
 # Use 'DEBUG = True' to get more details for server errors
@@ -16,21 +14,6 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$c!o!@ea&a3_s-%r=eyovgv&s+@87q+u%^s+3e)j+mpbg2y#g!'
 
