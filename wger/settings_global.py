@@ -363,7 +363,8 @@ else:
 # Django Rest Framework
 #
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_C
+    'DEFAULT_PERMISSION_CLASSES': ('wger.utils.permissions.WgerPermission',),
+    'PAGINATE_BY': 20,
     'PAGINATE_BY_PARAM': 'limit',  # Allow client to override, using `?limit=xxx`. # noqa
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_AUTHENTICATION_CLASSES': (
