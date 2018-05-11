@@ -207,7 +207,8 @@ def get_last_entries(user, amount=5):
         This can be used e.g. to present a list where the last entries and
         their changes are presented.
          '''
-
+        
+        print("the stuff is ", user)
         last_entries = WeightEntry.objects.filter(user=user).order_by('-date')[:5]
         last_entries_details = []
 
