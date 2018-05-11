@@ -3,7 +3,7 @@
 
 from wger.settings_global import * # noqa
 
-import os
+# import os
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True

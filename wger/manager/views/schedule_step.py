@@ -21,7 +21,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db import models
 from django import forms
-from django.forms import ModelForm, ModelChoiceField, Form, ChoiceField
+from django.forms import ModelForm, ModelChoiceField, ChoiceField
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -63,9 +63,12 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
             weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53))
             workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
 
-
-            cycle = ChoiceField(choices=(("1", "Microcycle"), ("2", "Mesocycle"), ("3", "Macrocycle"), ("4", "Custom")), initial="4",
-                                widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
+            cycle = ChoiceField(choices=(
+                ("1", "Microcycle"),
+                ("2", "Mesocycle"),
+                ("3", "Macrocycle"),
+                ("4", "Custom")
+            ), initial="4", widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
 
             duration = ChoiceField(choices=weeks, initial=1,
                                    widget=forms.Select(),  help_text=_('The duration in weeks'))
