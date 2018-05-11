@@ -14,25 +14,28 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 
+import csv
+import datetime
 import logging
 import uuid
-import datetime
-import csv
+from io import TextIOWrapper
 
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponseForbidden
-from django.template.context_processors import csrf
-from django.core.urlresolvers import reverse, reverse_lazy
-from django.utils.translation import ugettext_lazy, ugettext as _
-from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.template.context_processors import csrf
+from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy
 from django.views.generic import DeleteView, UpdateView
-from django.http import HttpResponse
 
 from wger.core.models import (
     RepetitionUnit,
-    WeightUnit
+    WeightUnit,
+    DaysOfWeek
 )
+from wger.exercises.models import Exercise
 from wger.manager.models import (
     Workout,
     WorkoutSession,
@@ -50,8 +53,8 @@ from wger.utils.generic_views import (
     WgerFormMixin,
     WgerDeleteMixin
 )
+from wger.utils.generic_views import WgerDeleteMixin, WgerFormMixin
 from wger.utils.helpers import make_token
-
 
 logger = logging.getLogger(__name__)
 
@@ -421,3 +424,45 @@ def export_workout(request, pk):
                 ])
     
     return response
+
+
+@login_required
+def import_workout(request):
+    ''' Importing csv files '''
+    if request.POST and request.FILES:
+        csv_file = TextIOWrapper(
+            request.FILES['csv_file'].file,
+            encoding="utf-8"
+        )
+
+        reader = csv.DictReader(csv_file)
+        workout = []
+        
+        for row in reader:
+            workout.append(dict(row))
+
+
+        for single_workout in workout:
+            a_workout = Workout(
+                creation_date=single_workout["Date created"],
+                comment=single_workout["Comment"],
+                user=request.user
+                )
+            a_workout.save()
+
+            day = Day(
+                training=a_workout,
+                description=single_workout["Description"]
+                )
+            day.save()
+
+            for day_name in single_workout["Days"].split("\n"):
+                day.day.add(DaysOfWeek.objects.filter(day_of_week=day_name).first())
+
+            single_set = Set(exerciseday=day)
+            single_set.save()
+
+            for exercise in single_workout["Exercise"].split("\n"):
+                single_set.exercises.add(Exercise.objects.filter(name=exercise).first())
+
+    return HttpResponseRedirect(reverse('manager:workout:overview'))
