@@ -134,8 +134,8 @@ MIDDLEWARE_CLASSES = (
     # Javascript Header. Sends helper headers for AJAX
     'wger.utils.middleware.JavascriptAJAXRedirectionMiddleware',
 
-    # Custom authentication middleware. Creates users
-    # on-the-fly for certain paths
+    # Custom authentication middleware.
+    # Creates users on-the-fly for certain paths
     'wger.utils.middleware.WgerAuthenticationMiddleware',
 
     # 'django.middleware.security.SecurityMiddleware',
@@ -363,8 +363,7 @@ else:
 # Django Rest Framework
 #
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('wger.utils.permissions.WgerPermission',),
-    'PAGINATE_BY': 20,
+    'DEFAULT_PERMISSION_C
     'PAGINATE_BY_PARAM': 'limit',  # Allow client to override, using `?limit=xxx`. # noqa
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -402,6 +401,7 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
+
 #social login credentials
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=os.\
