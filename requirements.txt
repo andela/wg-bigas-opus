@@ -41,3 +41,6 @@ social-auth-core
 
 # heroku
 gunicorn==19.8.1
+dj-database-url==0.4.2
+psycopg2==2.7.3
+whitenoise==3.3.0
