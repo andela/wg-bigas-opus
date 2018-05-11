@@ -21,6 +21,10 @@ from wger.core.models import UserProfile
 
 
 class Command(BaseCommand):
+    '''
+    Administrator uses this command to allow an user
+    with external app to be able to add user via REST API
+    '''
     def add_arguments(self, parser):
         # Positional arguments
         parser.add_argument('username', type=str)

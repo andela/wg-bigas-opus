@@ -20,6 +20,9 @@ from wger.core.models import UserProfile
 
 
 class Command(BaseCommand):
+    '''
+    lists users created via api
+    '''
     def add_arguments(self, parser):
         # Positional arguments
         parser.add_argument('username', type=str)

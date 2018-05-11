@@ -110,7 +110,9 @@ class UserApiRegistrationViewset(viewsets.ModelViewSet):
 
 class ListApiUserProfileViewset(viewsets.ModelViewSet):
     '''
-    Lists users created by the created user from the external app to avoid his users having to register  access wger instance 
+    Lists users created by the created user
+    from the external app to avoid his usersaving
+    to register  access wger instance.
     '''
     is_private = True
     serializer_class = UserprofileSerializer
