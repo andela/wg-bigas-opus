@@ -398,25 +398,33 @@ def timer(request, day_pk):
 @login_required
 def export_workout(request, pk):
 
-    ''' export workout as csv'''
+    ''' implements the export workout as csv'''
 
     workouts = Workout.objects.filter(user=request.user, id=pk)
+
+    # assign correct type and name to the file
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=' + str(request.user) + '_workouts.csv'
     writer = csv.writer(response)
+    # populate the csv with the row names
     writer.writerow(['Date created', 'Comment', 'Days', 'Description', 'Exercise'])
 
     for workout in workouts:
+        # extract the workout days 
         training_days = Day.objects.filter(training=workout.id)
         for day in training_days:
             workout_days = "\n".join(
                 [item.day_of_week for item in day.day.all()]
             )
+            
+            # extract the exercises 
             sets = Set.objects.filter(exerciseday=day.id)
             for one_set in sets:
                 exercises = "\n".join(
                     [exercise.name for exercise in one_set.exercises.all()]
                 )
+
+                # populate the csv with data
                 writer.writerow([
                     workout.creation_date,
                     workout.comment, workout_days,
@@ -428,8 +436,9 @@ def export_workout(request, pk):
 
 @login_required
 def import_workout(request):
-    ''' Importing csv files '''
+    ''' implements the Importing csv files '''
     if request.POST and request.FILES:
+        # Gets the csv files and converts it to a standard format
         csv_file = TextIOWrapper(
             request.FILES['csv_file'].file,
             encoding="utf-8"
@@ -438,11 +447,14 @@ def import_workout(request):
         reader = csv.DictReader(csv_file)
         workout = []
         
+        # assign the content in the csv to workout list
         for row in reader:
             workout.append(dict(row))
 
 
         for single_workout in workout:
+
+            # extract the workout from the list and save it
             a_workout = Workout(
                 creation_date=single_workout["Date created"],
                 comment=single_workout["Comment"],
@@ -450,18 +462,21 @@ def import_workout(request):
                 )
             a_workout.save()
 
+            # extract the day from the workout and save
             day = Day(
                 training=a_workout,
                 description=single_workout["Description"]
                 )
             day.save()
 
+            # save the workout days 
             for day_name in single_workout["Days"].split("\n"):
                 day.day.add(DaysOfWeek.objects.filter(day_of_week=day_name).first())
 
             single_set = Set(exerciseday=day)
             single_set.save()
-
+            
+            # save the exercises 
             for exercise in single_workout["Exercise"].split("\n"):
                 single_set.exercises.add(Exercise.objects.filter(name=exercise).first())
 
