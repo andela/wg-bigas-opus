@@ -200,7 +200,7 @@ def process_log_entries(logs):
     return entry_log, json.dumps(chart_data, cls=DecimalJsonEncoder)
 
 
-def get_last_entries(user, amount=5):
+def get_last_entries(user, amount=10):
         '''
         Get the last weight entries as well as the difference to the last
 
@@ -208,8 +208,7 @@ def get_last_entries(user, amount=5):
         their changes are presented.
          '''
         
-        print("the stuff is ", user)
-        last_entries = WeightEntry.objects.filter(user=user).order_by('-date')[:5]
+        last_entries = WeightEntry.objects.filter(user=user).order_by('-date')[:15]
         last_entries_details = []
 
         for index, entry in enumerate(last_entries):
