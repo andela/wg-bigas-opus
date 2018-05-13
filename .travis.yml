@@ -62,7 +62,7 @@ script:
   # Regular application
   - coverage run --source='.' ./manage.py test
 
-  after_success: coveralls
+  - coveralls
 
   # Code coverage
   - coverage report
