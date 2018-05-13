@@ -104,7 +104,6 @@ def dashboard(request):
     except ObjectDoesNotExist:
         plan = False
     template_data['plan'] = plan
-    print("the stuff is awesomely",get_last_entries(request.user))
     # Load the last logged weight entry, if one exists
     try:
         weight = WeightEntry.objects.filter(user=request.user).latest('date')
