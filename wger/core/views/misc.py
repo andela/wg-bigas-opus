@@ -218,7 +218,6 @@ def fitbitFetch(request):
     # exchange access_code for token
     token = fitbit.RequestAccessToken(code)
 
-    print("the code is ", fitbit.GetWeight(token))
     # fetch weight data
     try:
         data = fitbit.GetWeight(token)
