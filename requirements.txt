@@ -21,8 +21,6 @@ requests
 flake8
 pyflakes
 mccabe
-whitenoise
-gunicorn
 
 # REST API
 djangorestframework>=3.2,<3.3
