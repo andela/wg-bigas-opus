@@ -16,6 +16,8 @@
 
 import re
 import sys
+import django_heroku
+import dj_database_url
 
 '''
 This file contains the global settings that don't usually need to be changed.
@@ -27,6 +29,22 @@ For a full list of options, visit:
 import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+
+if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 #
 # Application definition
@@ -42,6 +60,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -86,7 +105,7 @@ INSTALLED_APPS = (
 
     # django-bower for installing bower packages
     'djangobower',
-    #django social auth
+    # django social auth
     'social_django'
 )
 
@@ -115,9 +134,12 @@ MIDDLEWARE_CLASSES = (
     # Javascript Header. Sends helper headers for AJAX
     'wger.utils.middleware.JavascriptAJAXRedirectionMiddleware',
 
-    # Custom authentication middleware. Creates users
-    # on-the-fly for certain paths
+    # Custom authentication middleware.
+    # Creates users on-the-fly for certain paths
     'wger.utils.middleware.WgerAuthenticationMiddleware',
+
+    # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Send an appropriate Header so search engines don't index pages
     'wger.utils.middleware.RobotsExclusionMiddleware',
@@ -162,7 +184,7 @@ TEMPLATES = [
 
                 # Breadcrumbs
                 'django.template.context_processors.request',
-                #social_django
+                # social_django
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect'
             ],
@@ -320,7 +342,11 @@ THUMBNAIL_ALIASES = {
 #
 # Django compressor
 #
+<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+=======
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-collected')
+>>>>>>> ft-heroku-deploy
 STATIC_URL = '/static/'
 
 # The default is not DEBUG, override if needed
@@ -380,6 +406,7 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
+
 #social login credentials
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=os.\
