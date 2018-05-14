@@ -7,8 +7,7 @@ RUN pip install -r requirements_devel.txt
 RUN pip install wger
 RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm libjpeg62-turbo-dev zlib1g-dev vim tmux
 COPY . .
-RUN wger create-settings  --settings-path `pwd`/wger/settings.py  --database-path `pwd`/database.sqlite
-CMD chmod 777 `pwd`/wger/settings.py
-# RUN invoke bootstrap-wger --settings-path `pwd`/wger/settings.py  --no-start-server
+RUN python manage.py setup develop
+RUN wger bootstrap-wger
 CMD python manage.py makemigrations --merge && python manage.py migrate
 CMD python manage.py runserver 0.0.0.0:8000 --settings=wger.settings
