@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from wger.settings_global import *
+from wger.settings_global import *  # noqa
+
+import django_heroku
+import dj_database_url
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
@@ -13,16 +16,21 @@ ADMINS = (
 MANAGERS = ADMINS
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/database.sqlite',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'n9qjaxsa_5xcv_9%+rhqu0d5-if&wc)=%u7p52rda9vqktg(bz'
