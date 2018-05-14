@@ -342,11 +342,8 @@ THUMBNAIL_ALIASES = {
 #
 # Django compressor
 #
-<<<<<<< HEAD
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-=======
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static-collected')
->>>>>>> ft-heroku-deploy
 STATIC_URL = '/static/'
 
 # The default is not DEBUG, override if needed
