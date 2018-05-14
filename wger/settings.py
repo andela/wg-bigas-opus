@@ -16,21 +16,20 @@ ADMINS = (
 MANAGERS = ADMINS
 
 
-if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': './database.sqlite', # noqa
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
-else:
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
+}
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.config()}
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'n9qjaxsa_5xcv_9%+rhqu0d5-if&wc)=%u7p52rda9vqktg(bz'
