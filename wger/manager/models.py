@@ -349,14 +349,6 @@ class ScheduleStep(models.Model):
         default=4,
         validators=[MinValueValidator(1), MaxValueValidator(52)])
 
-<<<<<<< HEAD
-=======
-    duration = models.IntegerField(verbose_name=_('Duration'),
-                                   help_text=_('The duration in weeks'),
-                                   default=4,
-                                   validators=[MinValueValidator(1), MaxValueValidator(52)])
-
->>>>>>> ft-heroku-deploy
     '''The duration in weeks'''
 
     order = models.IntegerField(verbose_name=_('Order'),
