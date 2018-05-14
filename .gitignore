@@ -23,8 +23,6 @@ wg-venv/
 *.egg-info/
 .installed.cfg
 *.egg
-.env
-.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -50,6 +48,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.sqlite
 /CACHE
 
 # Sphinx documentation
@@ -75,5 +74,6 @@ venv/
 new-wger/
 wgervenv/
 wvenv/
-venv-django
+venv-django/
+wg-venv
 venv-wger/
