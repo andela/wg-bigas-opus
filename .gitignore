@@ -65,10 +65,10 @@ target/
 # External Libraries
 wger/core/static/bower_components
 node_modules
-wger/settings.py
 
 # js
 package-lock.json
+new-wger/
 
 # Virtual enviroments
 venv/
@@ -76,3 +76,4 @@ new-wger/
 wgervenv/
 wvenv/
 venv-django/
+wg-venv

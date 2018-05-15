@@ -134,8 +134,8 @@ MIDDLEWARE_CLASSES = (
     # Javascript Header. Sends helper headers for AJAX
     'wger.utils.middleware.JavascriptAJAXRedirectionMiddleware',
 
-    # Custom authentication middleware. Creates users
-    # on-the-fly for certain paths
+    # Custom authentication middleware.
+    # Creates users on-the-fly for certain paths
     'wger.utils.middleware.WgerAuthenticationMiddleware',
 
     # 'django.middleware.security.SecurityMiddleware',
@@ -184,7 +184,7 @@ TEMPLATES = [
 
                 # Breadcrumbs
                 'django.template.context_processors.request',
-                #social_django
+                # social_django
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect'
             ],
@@ -402,6 +402,7 @@ WGER_SETTINGS = {
     'EMAIL_FROM': 'wger Workout Manager <wger@example.com>',
     'TWITTER': False
 }
+
 #social login credentials
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=os.\
