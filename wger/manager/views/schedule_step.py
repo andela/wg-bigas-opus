@@ -58,7 +58,6 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
         This is defined here because only at this point during the request
         have we access to the current user
         '''
-<<<<<<< HEAD
         class StepForm(ModelForm, forms.Form):
             weeks = tuple(
                 (element, "{} weeks".format(element))
@@ -66,18 +65,11 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
             )
 
             workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
-=======
 
-        class StepForm(ModelForm, forms.Form):
-            weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53))
-            workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
-
->>>>>>> ft-heroku-deploy
             cycle = ChoiceField(choices=(
                 ("1", "Microcycle"),
                 ("2", "Mesocycle"),
                 ("3", "Macrocycle"),
-<<<<<<< HEAD
                 ("4", "Custom")),
                 initial="4",
                 widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
@@ -85,13 +77,6 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
             duration = ChoiceField(
                 choices=weeks, initial=1,
                 widget=forms.Select(),  help_text=_('The duration in weeks'))
-=======
-                ("4", "Custom")
-            ), initial="4", widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
-
-            duration = ChoiceField(choices=weeks, initial=1,
-                                   widget=forms.Select(),  help_text=_('The duration in weeks'))
->>>>>>> ft-heroku-deploy
 
             class Meta:
                 model = ScheduleStep
