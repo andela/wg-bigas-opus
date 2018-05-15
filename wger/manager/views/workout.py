@@ -21,21 +21,16 @@ import uuid
 from io import TextIOWrapper
 
 
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponseForbidden
-from django.template.context_processors import csrf
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.shortcuts import render
+from django.http import HttpResponseForbidden
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin # noqa
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.template.context_processors import csrf
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy
 from django.views.generic import DeleteView, UpdateView
 
 from wger.core.models import (
@@ -61,7 +56,7 @@ from wger.utils.generic_views import (
     WgerFormMixin,
     WgerDeleteMixin
 )
-from wger.utils.generic_views import WgerDeleteMixin, WgerFormMixin
+
 from wger.utils.helpers import make_token
 
 logger = logging.getLogger(__name__)
@@ -420,6 +415,7 @@ def timer(request, day_pk):
     context['repetition_units'] = RepetitionUnit.objects.all()
     return render(request, 'workout/timer.html', context)
 
+
 @login_required
 def export_workout(request, pk):
 
@@ -435,14 +431,14 @@ def export_workout(request, pk):
     writer.writerow(['Date created', 'Comment', 'Days', 'Description', 'Exercise'])
 
     for workout in workouts:
-        # extract the workout days 
+        # extract the workout days
         training_days = Day.objects.filter(training=workout.id)
         for day in training_days:
             workout_days = "\n".join(
                 [item.day_of_week for item in day.day.all()]
             )
-            
-            # extract the exercises 
+
+            # extract the exercises
             sets = Set.objects.filter(exerciseday=day.id)
             for one_set in sets:
                 exercises = "\n".join(
@@ -455,7 +451,7 @@ def export_workout(request, pk):
                     workout.comment, workout_days,
                     day.description, exercises
                 ])
-    
+
     return response
 
 
@@ -471,11 +467,10 @@ def import_workout(request):
 
         reader = csv.DictReader(csv_file)
         workout = []
-        
+
         # assign the content in the csv to workout list
         for row in reader:
             workout.append(dict(row))
-
 
         for single_workout in workout:
 
@@ -494,14 +489,14 @@ def import_workout(request):
                 )
             day.save()
 
-            # save the workout days 
+            # save the workout days
             for day_name in single_workout["Days"].split("\n"):
                 day.day.add(DaysOfWeek.objects.filter(day_of_week=day_name).first())
 
             single_set = Set(exerciseday=day)
             single_set.save()
-            
-            # save the exercises 
+
+            # save the exercises
             for exercise in single_workout["Exercise"].split("\n"):
                 single_set.exercises.add(Exercise.objects.filter(name=exercise).first())
 
