@@ -63,7 +63,7 @@ target/
 # IDE
 .idea/
 .env
-.vscode/
+.vscode/settings.json
 
 # External Libraries
 wger/core/static/bower_components
