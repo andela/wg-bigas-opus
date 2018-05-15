@@ -63,7 +63,6 @@
     });
 
     {% comment %} Function responsible for the displaying of the select form for cycles and number of weeks {% endcomment %}
-
     function cycleChange(){ 
         var selectedValue = $("#id_cycle option:selected").val();
         switch (selectedValue) {
@@ -71,8 +70,7 @@
             case "1":
                 $("#id_duration option").remove();
                 $("#id_duration").append("<option value=1>1 week</option>");
-                break;
-                
+                break;    
                 {% comment %}  Microcycle value for a week {% endcomment %}
             case "2":
                 $("#id_duration option").remove();
