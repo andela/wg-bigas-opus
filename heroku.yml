@@ -3,6 +3,6 @@ build:
     - python
 release:
   command:
-    - python manage.py runserver
+    - python manage.py makemigrations --merge && python manage.py migrate
 run:
   web: gunicorn wger.wsgi:application --log-file -
