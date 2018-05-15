@@ -20,7 +20,8 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db import models
-from django.forms import ModelForm, ModelChoiceField
+from django import forms
+from django.forms import ModelForm, ModelChoiceField, ChoiceField
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -57,31 +58,50 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
         This is defined here because only at this point during the request
         have we access to the current user
         '''
+        class StepForm(ModelForm, forms.Form):
+            weeks = tuple(
+                (element, "{} weeks".format(element))
+                for element in range(1, 53)
+            )
 
-        class StepForm(ModelForm):
             workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
+            cycle = ChoiceField(choices=(
+                ("1", "Microcycle"),
+                ("2", "Mesocycle"),
+                ("3", "Macrocycle"),
+                ("4", "Custom")),
+                initial="4",
+                widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
+
+            duration = ChoiceField(
+                choices=weeks, initial=1,
+                widget=forms.Select(),  help_text=_('The duration in weeks'))
 
             class Meta:
                 model = ScheduleStep
+                fields = ['workout', 'cycle', 'duration']
                 exclude = ('order', 'schedule')
 
         return StepForm
 
     def get_context_data(self, **kwargs):
         context = super(StepCreateView, self).get_context_data(**kwargs)
-        context['form_action'] = reverse('manager:step:add',
-                                         kwargs={'schedule_pk': self.kwargs['schedule_pk']})
+        context['form_action'] = \
+            reverse('manager:step:add',
+                    kwargs={'schedule_pk': self.kwargs['schedule_pk']})
         return context
 
     def get_success_url(self):
-        return reverse('manager:schedule:view', kwargs={'pk': self.kwargs['schedule_pk']})
+        return reverse('manager:schedule:view',
+                       kwargs={'pk': self.kwargs['schedule_pk']})
 
     def form_valid(self, form):
         '''Set the schedule and the order'''
 
         schedule = Schedule.objects.get(pk=self.kwargs['schedule_pk'])
 
-        max_order = schedule.schedulestep_set.all().aggregate(models.Max('order'))
+        max_order = \
+            schedule.schedulestep_set.all().aggregate(models.Max('order'))
         form.instance.schedule = schedule
         form.instance.order = (max_order['order__max'] or 0) + 1
         return super(StepCreateView, self).form_valid(form)
@@ -105,7 +125,8 @@ class StepEditView(WgerFormMixin, UpdateView, PermissionRequiredMixin):
         '''
 
         class StepForm(ModelForm):
-            workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
+            workout = ModelChoiceField(queryset=Workout
+                                       .objects.filter(user=self.request.user))
 
             class Meta:
                 model = ScheduleStep
@@ -114,7 +135,8 @@ class StepEditView(WgerFormMixin, UpdateView, PermissionRequiredMixin):
         return StepForm
 
     def get_success_url(self):
-        return reverse('manager:schedule:view', kwargs={'pk': self.object.schedule_id})
+        return reverse('manager:schedule:view',
+                       kwargs={'pk': self.object.schedule_id})
 
 
 class StepDeleteView(WgerDeleteMixin, DeleteView, PermissionRequiredMixin):
@@ -128,7 +150,8 @@ class StepDeleteView(WgerDeleteMixin, DeleteView, PermissionRequiredMixin):
     messages = ugettext_lazy('Successfully deleted')
 
     def get_success_url(self):
-        return reverse('manager:schedule:view', kwargs={'pk': self.object.schedule.id})
+        return reverse('manager:schedule:view',
+                       kwargs={'pk': self.object.schedule.id})
 
     def get_context_data(self, **kwargs):
         '''
@@ -136,5 +159,6 @@ class StepDeleteView(WgerDeleteMixin, DeleteView, PermissionRequiredMixin):
         '''
         context = super(StepDeleteView, self).get_context_data(**kwargs)
         context['title'] = _(u'Delete {0}?').format(self.object)
-        context['form_action'] = reverse('core:license:delete', kwargs={'pk': self.kwargs['pk']})
+        context['form_action'] = reverse('core:license:delete',
+                                         kwargs={'pk': self.kwargs['pk']})
         return context
