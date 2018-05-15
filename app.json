@@ -2,6 +2,11 @@
   "name": "wg-bigas-opus",
   "scripts": {
   },
+  "env": {
+    "DISABLE_COLLECTSTATIC": {
+      "required": true
+    }
+  },
   "formation": {
   },
   "addons": [
