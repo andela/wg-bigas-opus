@@ -36,7 +36,7 @@ install:
   # Install requirements
   - pip3 install -r requirements.txt
   - pip3 install coverage
-  - pip install coveralls
+  - pip3 install coveralls
   - pip3 install django-extensions
   - npm install
   - npm install gulp gulp-eslint -g
