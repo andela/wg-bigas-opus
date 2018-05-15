@@ -3,6 +3,6 @@ build:
     - python
 release:
   command:
-    - docker build -t wger_dev . && docker run wger_dev
+    - python manage.py runserver
 run:
   web: gunicorn wger.wsgi:application --log-file -
