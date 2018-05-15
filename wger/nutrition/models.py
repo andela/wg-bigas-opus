@@ -738,6 +738,10 @@ class MealItem(models.Model):
 @receiver(post_delete, sender=MealItem)
 
 def handle_cache(sender, **kwargs):
+    '''
+    deletes the cached data nutrition database is changed
+    '''
+
     model = kwargs.get('instance')
     if isinstance(model, (Meal, MealItem)):
         cache.delete(cache_mapper.get_nutrition_item(model.get_owner_object().id))
