@@ -37,7 +37,6 @@ day in your current workout:{% endblocktrans %} <strong>{{current_workout}}</str
 </div>
 {% endif %}
 
-<a class="btn btn-default" href="{% url 'core:fitbit-login' %}">Sync From FitBit</a>
 <div class="row">
     <div class="col-sm-4">
         <h4>{% trans "Workout"%}</h4>
@@ -110,7 +109,9 @@ day in your current workout:{% endblocktrans %} <strong>{{current_workout}}</str
         </table>
     </div>
     <div class="col-sm-4">
-        <h4>{% trans "Weight"%}</h4>
+        <h4>{% trans "Weight"%}
+        <a class="btn btn-default" href="{% url 'core:fitbit-login' %}">Sync From FitBit</a>
+        </h4>
         <p>
             <a href="{% url 'weight:overview' user.username %}">{% trans "Overview" %}</a>
         </p>
