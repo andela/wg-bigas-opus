@@ -1,8 +1,4 @@
-.. image:: https://coveralls.io/repos/github/andela/wg-bigas-opus/badge.svg?branch=ft-add-coveralls-badge-157356491
-:target: https://coveralls.io/github/andela/wg-bigas-opus?branch=ft-add-coveralls-badge-157356491
-
-
-.. image:: https://travis-ci.org/andela/wg-bigas-opus.svg?branch=develop
+.. image:: https://coveralls.io/repos/github/andela/wg-bigas-opus/badge.svg?branch=ft-add-coveralls-badge-157356491     .. image:: https://travis-ci.org/andela/wg-bigas-opus.svg?branch=develop
 
 
 Thank you for downloading wger Workout Manager. wger (ˈvɛɡɐ) is a free, open source web
