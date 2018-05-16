@@ -74,7 +74,6 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
             duration = ChoiceField(choices=weeks, initial=1,
                                    widget=forms.Select(),  help_text=_('The duration in weeks'))
 
-
             class Meta:
                 model = ScheduleStep
                 fields = ['workout', 'cycle', 'duration']
