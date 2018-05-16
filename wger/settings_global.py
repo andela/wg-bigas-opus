@@ -30,11 +30,11 @@ import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-if os.path.exists("/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite"): # noqa
+if os.path.exists(BASE_DIR + "/database.sqlite"): # noqa
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/settings.pydatabase.sqlite', # noqa
+            'NAME': 'database.sqlite', # noqa
             'USER': '',
             'PASSWORD': '',
             'HOST': '',
