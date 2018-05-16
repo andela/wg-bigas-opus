@@ -30,7 +30,12 @@ import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-if os.path.exists(BASE_DIR + "/database.sqlite"): # noqa
+DATABASES = {
+    'default': dj_database_url.config()
+}
+print(os.environ.get("DB"))
+
+if os.environ.get("DB") == "sqlite":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -41,14 +46,7 @@ if os.path.exists(BASE_DIR + "/database.sqlite"): # noqa
             'PORT': '',
         }
     }
-else:
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
 
-#
-# Application definition
-#
 SITE_ID = 1
 ROOT_URLCONF = 'wger.urls'
 WSGI_APPLICATION = 'wger.wsgi.application'
