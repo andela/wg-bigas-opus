@@ -110,4 +110,3 @@ class FitBit:
             self.GetWeight(token)
         else:
             raise Exception("Action unsuccessful")
-            

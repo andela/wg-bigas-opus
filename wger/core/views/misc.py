@@ -243,4 +243,3 @@ def fitbitFetch(request):
     except Exception as e:
         return e
     return HttpResponseRedirect(reverse('core:dashboard'))
-    
