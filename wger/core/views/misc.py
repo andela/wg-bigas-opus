@@ -211,6 +211,7 @@ class FeedbackClass(FormView):
 
         return super(FeedbackClass, self).form_valid(form)
 
+
 @login_required
 def fitbitLogin(request):
     """View redirects to the fitbit authorization page"""
@@ -242,3 +243,4 @@ def fitbitFetch(request):
     except Exception as e:
         return e
     return HttpResponseRedirect(reverse('core:dashboard'))
+    

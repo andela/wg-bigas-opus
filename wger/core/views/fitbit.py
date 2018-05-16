@@ -1,6 +1,5 @@
 import requests
 import urllib
-import base64
 import os
 
 
@@ -38,7 +37,6 @@ class FitBit:
 
         # Authentication header
         client_id = self.CLIENT_ID.encode('utf-8')
-        secret = self.CLIENT_SECRET.encode('utf-8')
         headers = {
             'Authorization': os.environ.get('Authorization'),
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -73,8 +71,6 @@ class FitBit:
         """ Refresh expired access token """
 
         # authentication header
-        client_id = self.CLIENT_ID.encode('utf-8')
-        secret = self.CLIENT_SECRET.encode('utf-8')
         headers = {
             'Authorization': os.environ.get('Authorization'),
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -114,3 +110,4 @@ class FitBit:
             self.GetWeight(token)
         else:
             raise Exception("Action unsuccessful")
+            
