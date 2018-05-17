@@ -15,7 +15,6 @@
 
 {% block content %}
 {% if perms.gym.manage_gym or perms.gym.gym_trainer %}
-
 <!-- Add code to display the three buttons which display the user states whether active or inactive -->
 <!-- Also when all users are displayed you can see the active and inactive users-->
 
@@ -23,7 +22,7 @@
       $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
-       return null;
+       return null;gst
     }
     else{
        return decodeURI(results[1]) || 0;
@@ -35,6 +34,7 @@
         var current = $.urlParam('mixed')
         if(current === null){
             $("#all").attr('class','active')
+           
         }else if (current === 'active'){
             $("#active").attr('class','active')
             $(".active-tab").hide()
