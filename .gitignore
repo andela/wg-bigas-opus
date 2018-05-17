@@ -78,5 +78,4 @@ venv/
 new-wger/
 wgervenv/
 wvenv/
-venv-django
-venv/
+venv-django/

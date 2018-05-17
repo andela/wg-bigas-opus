@@ -106,8 +106,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,
                                 editable=False)
     '''
-    The user
+    The user that can add users using an api endpoint
     '''
+    add_user_rest_api = models.BooleanField(default=False, editable=True)
+    created_by = models.CharField(max_length=150, null=True, blank=True)
 
     gym = models.ForeignKey(Gym,
                             editable=False,
