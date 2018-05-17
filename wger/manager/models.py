@@ -851,9 +851,9 @@ class WorkoutSession(models.Model):
     The date the workout session was performed
     '''
     workout_log = models.ForeignKey(WorkoutLog,
-                            verbose_name=_('Workout log'),
-                            null=True,
-                            blank=True)
+                                    verbose_name=_('Workout log'),
+                                    null=True,
+                                    blank=True)
     '''
     Adds a foreign key from the logs to the sessions
     '''
