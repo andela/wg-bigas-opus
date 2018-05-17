@@ -135,13 +135,14 @@ class GymUserListView(LoginRequiredMixin,
     def get_context_data(self, **kwargs):
         '''
         Pass other info to the template
+        Add a new column to show whether user is active or inactive
         '''
         context = super(GymUserListView, self).get_context_data(**kwargs)
         context['gym'] = Gym.objects.get(pk=self.kwargs['pk'])
         context['admin_count'] = len(context['object_list']['admins'])
         context['user_count'] = len(context['object_list']['members'])
         context['user_table'] = \
-            {'keys': [_('ID'), _('Username'), _('Name'), _('Last activity')],
+            {'keys': [_('ID'), _('Username'), _('Name'), _('Last activity'), _('Active')],
              'users': context['object_list']['members']}
         return context
 
