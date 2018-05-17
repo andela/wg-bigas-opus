@@ -61,6 +61,46 @@
     $(function() {
         init_sortable();
     });
+
+    {% comment %} Function responsible for the displaying of the select form for cycles and number of weeks {% endcomment %}
+
+    function cycleChange(){ 
+        var selectedValue = $("#id_cycle option:selected").val();
+        switch (selectedValue) {
+            {% comment %}  Macrocycle value for annual plan {% endcomment %}
+            case "1":
+                $("#id_duration option").remove();
+                $("#id_duration").append("<option value=1>1 week</option>");
+                break;
+                
+                {% comment %}  Microcycle value for a week {% endcomment %}
+            case "2":
+                $("#id_duration option").remove();
+                var count=2;
+                while( count <= 6){
+                    $("#id_duration").append("<option value="+count+">"+count+"weeks </option>");
+                    count++;
+                }
+                break;
+
+                {% comment %}  Macrocycle value for annual plan {% endcomment %}
+            case "3":
+                $("#id_duration option").remove();
+                $("#id_duration").append("<option value=52>52 weeks</option>");
+                break;
+
+                {% comment %} Default value is a loop of the custom {% endcomment %}
+            default:
+                $("#id_duration option").remove();
+                var count=1;
+                while( count <= 52){
+                    $("#id_duration").append("<option value="+count+">"+count+"weeks </option>");
+                    count++;
+                }
+                break;
+        }
+    };
+
 </script>
 {% endblock %}
 

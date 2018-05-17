@@ -115,6 +115,7 @@ router.register(r'setting-repetitionunit',
 router.register(r'setting-weightunit', core_api_views.WeightUnitViewSet,
                 base_name='setting-weight-unit')
 
+
 # Exercises app
 router.register(r'exercise', exercises_api_views.ExerciseViewSet,
                 base_name='exercise')
@@ -133,6 +134,7 @@ router.register(r'muscle', exercises_api_views.MuscleViewSet,
 
 # Register viewset with a router
 router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
+
 
 # Register viewset with a router
 router.register(r'exercisedetails', exercises_api_views.ExerciseDetailsViewSet, base_name='exercisedetails')
@@ -213,13 +215,19 @@ urlpatterns += [
         name='ingredient-search'),
     url(r'^api/v2/', include(router.urls)),
 
+
    #social login
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+
 
     # Register view with the url
     url(r'^exercisedetails/(?P<id>\d+)/$',
         exercises_api_views.ExerciseDetailsViewSet,
         name='exercisedetails'),
+
+
+   #social login 
+     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
 
 #

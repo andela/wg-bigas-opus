@@ -210,8 +210,10 @@ class MuscleViewSet(viewsets.ReadOnlyModelViewSet):
     filter_fields = ('name',
                      'is_front')
 
+
 class ExerciseDetailsViewSet(viewsets.ReadOnlyModelViewSet):
     '''
+
     This is a read only API endpoint for overall exercise details
     '''
     serializer_class = ExerciseDetailsSerializer
