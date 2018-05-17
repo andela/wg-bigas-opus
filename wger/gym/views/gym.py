@@ -142,7 +142,7 @@ class GymUserListView(LoginRequiredMixin,
         context['admin_count'] = len(context['object_list']['admins'])
         context['user_count'] = len(context['object_list']['members'])
         context['user_table'] = \
-            {'keys': [_('ID'), _('Username'), _('Name'), _('Last activity'),_('Active')],
+            {'keys': [_('ID'), _('Username'), _('Name'), _('Last activity'), _('Active')],
              'users': context['object_list']['members']}
         return context
 
