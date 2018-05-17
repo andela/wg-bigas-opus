@@ -123,21 +123,28 @@ class NutritionPlan(models.Model):
         if not result:
             use_metric = self.user.userprofile.use_metric
             unit = 'kg' if use_metric else 'lb'
-            result = {'total': {'energy': 0,
-                                'protein': 0,
-                                'carbohydrates': 0,
-                                'carbohydrates_sugar': 0,
-                                'fat': 0,
-                                'fat_saturated': 0,
-                                'fibres': 0,
-                                'sodium': 0},
-                    'percent': {'protein': 0,
-                                'carbohydrates': 0,
-                                'fat': 0},
-                    'per_kg': {'protein': 0,
-                                'carbohydrates': 0,
-                                'fat': 0},
-                    }
+            result = {
+                'total': {
+                    'energy': 0,
+                    'protein': 0,
+                    'carbohydrates': 0,
+                    'carbohydrates_sugar': 0,
+                    'fat': 0,
+                    'fat_saturated': 0,
+                    'fibres': 0,
+                    'sodium': 0
+                    },
+                'percent': {
+                    'protein': 0,
+                    'carbohydrates': 0,
+                    'fat': 0
+                    },
+                'per_kg': {
+                    'protein': 0,
+                    'carbohydrates': 0,
+                    'fat': 0
+                    },
+                }
 
             # Energy
             for meal in self.meal_set.select_related():
@@ -730,13 +737,13 @@ class MealItem(models.Model):
 
         return nutritional_info
 
+
 @receiver(post_save, sender=NutritionPlan)
 @receiver(post_delete, sender=NutritionPlan)
 @receiver(post_save, sender=Meal)
 @receiver(post_delete, sender=Meal)
 @receiver(post_save, sender=MealItem)
 @receiver(post_delete, sender=MealItem)
-
 def handle_cache(sender, **kwargs):
     '''
     deletes the cached data nutrition database is changed
@@ -747,4 +754,3 @@ def handle_cache(sender, **kwargs):
         cache.delete(cache_mapper.get_nutrition_item(model.get_owner_object().id))
     else:
         cache.delete(cache_mapper.get_nutrition_item(model.id))
-
