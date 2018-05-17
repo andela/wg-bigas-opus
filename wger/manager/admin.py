@@ -23,5 +23,7 @@ admin.site.register(manager_models.Set)
 admin.site.register(manager_models.Day)
 admin.site.register(manager_models.WorkoutLog)
 admin.site.register(UserProfile)
+# admin.site.register(manager_models.WorkoutSessions)
 
 admin.site.register(manager_models.Setting)
+admin.site.register(manager_models.WorkoutSession)
