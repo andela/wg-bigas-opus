@@ -11,7 +11,7 @@ easy integration with other projects and tools.
 
 It is written with python/django and uses jQuery and some D3js for charts.
 
-For more details and a live system, refer to the project's site: https://wger.de/
+For more details and a live system, refer to the project's site: https://wger-bigas-opus-app.herokuapp.com/en/software/features
 
 
 Installation
@@ -90,28 +90,22 @@ the comments in the documentation (development chapter) about this::
 Docker images
 ~~~~~~~~~~~~~
 
-Alternatively, there are docker images for development as well, ``wger/devel``
-and ``wger/devel-fedora``. Both images contain an instance of the application
-running with django's development server using a sqlite database and  can be
-used to quickly setup a development instance (vim and tmux are already
-installed). The only difference is that devel has an ubuntu base image while
-devel-fedora uses fedora.
+Alternatively, you can create a docker image for development as well.
+This image will contain an instance of the application running with django's
+development server using a sqlite database and can be used to quickly setup a development
+instance (vim and tmux are already installed).
 
 ::
 
- $ docker run -ti --name wger.devel --publish 8000:8000 wger/devel
+ $ docker build -t wger_dev .
+ $ docker run -p 8000:8000 wger_dev
 
-Then, *within the docker image*, activate the virtualenv
+or interactively in the container
 
-::
-
-  $ source ~/venv/bin/activate
-
-and start the development server
 
 ::
 
- $ python manage.py runserver 0.0.0.0:8000
+  $ docker run -it -p 8000:8000 wger_dev /bin/bash
 
 Then just open http://localhost:8000 and log in as: **admin**, password **admin**
 
