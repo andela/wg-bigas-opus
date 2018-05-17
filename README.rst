@@ -3,6 +3,7 @@
  
 
 .. image:: https://travis-ci.org/andela/wg-bigas-opus.svg?branch=develop
+    :target: https://travis-ci.org/andela/wg-bigas-opus
 
 
 Thank you for downloading wger Workout Manager. wger (ˈvɛɡɐ) is a free, open source web
