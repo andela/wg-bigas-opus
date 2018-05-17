@@ -21,8 +21,8 @@ from django.dispatch import receiver
 from easy_thumbnails.files import get_thumbnailer
 from easy_thumbnails.signal_handlers import generate_aliases
 from easy_thumbnails.signals import saved_file
-
-from wger.exercises.models import ExerciseImage
+from django.core.cache import cache
+from wger.exercises.models import ExerciseImage, Muscle
 
 
 @receiver(post_delete, sender=ExerciseImage)
@@ -34,6 +34,14 @@ def delete_exercise_image_on_delete(sender, instance, **kwargs):
     thumbnailer = get_thumbnailer(instance.image)
     thumbnailer.delete_thumbnails()
     instance.image.delete(save=False)
+
+
+@receiver(post_delete, sender=Muscle)
+def reset_cache_when_muscle_is_deleted(sender, instance, **kwargs):
+    '''
+    Reset cache when a muscle is deleted it should reflect also in the exercises
+    '''
+    cache.clear()
 
 
 @receiver(pre_save, sender=ExerciseImage)
