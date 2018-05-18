@@ -17,12 +17,15 @@
 {% if perms.gym.manage_gym or perms.gym.gym_trainer %}
 <!-- Add code to display the three buttons which display the user states whether active or inactive -->
 <!-- Also when all users are displayed you can see the active and inactive users-->
+<<<<<<< HEAD
 
+=======
+>>>>>>> [Feature] Add code to hide the active column in the specific user states
     <script>
       $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
-       return null;
+       return null;gst
     }
     else{
        return decodeURI(results[1]) || 0;
@@ -34,6 +37,7 @@
         var current = $.urlParam('mixed')
         if(current === null){
             $("#all").attr('class','active')
+           
         }else if (current === 'active'){
             $("#active").attr('class','active')
             $(".active-tab").hide()
@@ -62,9 +66,12 @@
     <th style="width: 10%;">{% trans "ID" %}</th>
     <th style="width: 40%;">{% trans "Username" %}</th>
     <th>{% trans "Name" %}</th>
+<<<<<<< HEAD
     <th>{% trans "Active" %}</th> {% comment %} Header showing if user is active or not {% endcomment %}
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
         <th>{% trans "Action" %}</th>
+=======
+>>>>>>> [Feature] Add code to hide the active column in the specific user states
         <th style="text-align: right;">{% trans "Roles" %}</th>
 </tr>
 </thead>
@@ -132,127 +139,6 @@
             {% endif %}
         </td>
     {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}%} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
 
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
     <td style="text-align: right;">
