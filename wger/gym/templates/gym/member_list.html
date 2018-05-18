@@ -15,6 +15,7 @@
 
 {% block content %}
 {% if perms.gym.manage_gym or perms.gym.gym_trainer %}
+
 <!-- Add code to display the three buttons which display the user states whether active or inactive -->
 <!-- Also when all users are displayed you can see the active and inactive users-->
     <script>
@@ -49,6 +50,7 @@
         <li class="nav-item " id="active"><a class="nav-link" href="members?mixed=active">Active Users</a></li>
         <li class="nav-item" id="inactive"><a class="nav-link" href="members?mixed=inactive">Deactivated Users</a></li>
     </ul>
+
     {% include 'gym/partial_user_list.html' %}
 {% endif %}
 
