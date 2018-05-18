@@ -170,7 +170,7 @@
                 {% endif %}
             {% endif %}
         </td>
-    {% endif %}%} show if trainer is active or inactive {% endcomment %}
+    {% endif %}{% comment %} show if trainer is active or inactive {% endcomment %}
     <td>{% if current_user.obj.is_active %}
         <span>Yes</span>
         {% else %}
