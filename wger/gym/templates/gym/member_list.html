@@ -15,6 +15,8 @@
 
 {% block content %}
 {% if perms.gym.manage_gym or perms.gym.gym_trainer %}
+<!-- Add code to display the three buttons which display the user states whether active or inactive -->
+<!-- Also when all users are displayed you can see the active and inactive users-->
     <script>
       $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -33,8 +35,12 @@
             $("#all").attr('class','active')
         }else if (current === 'active'){
             $("#active").attr('class','active')
+            $(".active-tab").hide()
+            $(".Active").hide()
         }else{
             $("#inactive").attr('class','active')
+            $(".active-tab").hide()
+            $(".Active").hide()
         }
     })
     </script>
@@ -43,9 +49,6 @@
         <li class="nav-item " id="active"><a class="nav-link" href="members?mixed=active">Active Users</a></li>
         <li class="nav-item" id="inactive"><a class="nav-link" href="members?mixed=inactive">Deactivated Users</a></li>
     </ul>
-
-
-
     {% include 'gym/partial_user_list.html' %}
 {% endif %}
 
@@ -61,7 +64,6 @@
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
         <th>{% trans "Action" %}</th>
         <th style="text-align: right;">{% trans "Roles" %}</th>
-    {% endif %}
 </tr>
 </thead>
 <tbody>
@@ -149,7 +151,6 @@
             {% endif %}
         </td>
     {% endif %}
-
     {% comment %} show if trainer is active or inactive {% endcomment %}
     <td>{% if current_user.obj.is_active %}
         <span>Yes</span>
@@ -350,9 +351,6 @@
         <td style="text-align: right;">{{gym.config.weeks_inactive}} {% trans 'weeks' %}</td>
     </tr>
 </table>
-
-
-
 
 {#                     #}
 {# Admin configuration #}
