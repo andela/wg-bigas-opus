@@ -1,0 +1,160 @@
+body{
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.row{
+  margin-bottom: 0;
+}
+.parent{
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  top: 0;
+}
+.navbar-fixed {
+  height: 96px;
+  padding-top: 16px;
+}
+nav {
+  color: #fff;
+  background-color: transparent;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0),
+  0 3px 1px 0px rgba(0,0,0,0),
+  0 1px 5px 0 rgba(0,0,0,0);
+}
+
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 40px;
+  border: 2px #fff solid;
+  padding: 6px;
+  font-weight: 800;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* SMOOTH SCROLL */
+
+.container {
+  width: 88%;
+}
+
+.row.heading_content{
+  top: 40%;
+  position: fixed;
+  width: 100%;
+}
+
+.row.heading_content .manager {
+  font-size: 32px;
+  border: 2px solid;
+  padding: 4px 12px;
+  margin: 0;
+}
+
+.row.heading_content .quote{
+  font-size: 56px;
+  margin: 0;
+}
+
+.btn {
+  width: 32%;
+}
+
+/* DOWN ARROW SVG SECTION */
+.container.svg {
+  top: 88%;
+  position: fixed;
+  width:100%;
+}
+
+svg + svg {
+  margin-top: 2em;
+}
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 2em;
+}
+
+svg {
+  width: 30px;
+  max-height: 40px;
+  display: inline-block;
+}
+
+.arrow-down path {
+  stroke: white;
+  fill: transparent;
+  stroke-width: 1px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: .8;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: .8;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.arrow-down path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+  /* Safari 和 Chrome */
+}
+
+.arrow-down path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+  /* Safari 和 Chrome */
+}
+
+.arrow-down path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  /* Safari 和 Chrome */
+}
+
+footer {
+  position: relative;
+}
+
+
