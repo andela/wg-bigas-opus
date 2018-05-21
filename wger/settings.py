@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from wger.settings_global import *
+from wger.settings_global import *  # noqa
+
+import django_heroku
+import dj_database_url
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
@@ -16,7 +19,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': './database.sqlite',
+        'NAME': './database.sqlite', # noqa
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -24,8 +27,12 @@ DATABASES = {
     }
 }
 
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.config()}
+
+
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'poi=52_rg*ilam*h)szdtx@8@c=_=oo9bfp&yudd4zg*tbr6(8'
+SECRET_KEY = 'n9qjaxsa_5xcv_9%+rhqu0d5-if&wc)=%u7p52rda9vqktg(bz'
 
 # Your reCaptcha keys
 RECAPTCHA_PUBLIC_KEY = ''
@@ -39,14 +46,14 @@ SITE_URL = 'http://localhost:8000'
 
 # Path to uploaded files
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '/Users/betsy/.local/share/wger/media'
+MEDIA_ROOT = '/Users/PhilSkiiiwalker/.local/share/wger/media'
 MEDIA_URL = '/media/'
 
 # Allow all hosts to access the application. Change if used in production.
 ALLOWED_HOSTS = '*'
 
 # This might be a good idea if you setup memcached
-#SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 # Configure a real backend in production
 if DEBUG:
@@ -56,4 +63,4 @@ if DEBUG:
 WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>'
 
 # Your twitter handle, if you have one for this instance.
-#WGER_SETTINGS['TWITTER'] = ''
+# WGER_SETTINGS['TWITTER'] = ''
