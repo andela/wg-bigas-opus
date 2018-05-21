@@ -110,7 +110,6 @@ day in your current workout:{% endblocktrans %} <strong>{{current_workout}}</str
     </div>
     <div class="col-sm-4">
         <h4>{% trans "Weight"%}
-        <a class="btn btn-primary" href="{% url 'core:fitbit-login' %}">Sync From FitBit</a>
         </h4>
         <p>
             <a href="{% url 'weight:overview' user.username %}">{% trans "Overview" %}</a>
@@ -200,7 +199,11 @@ or, if you don't have one, simply by date.{% endblocktrans %}</em></p>
         <a href="{% url 'weight:add' %}" class="btn btn-success btn-sm wger-modal-dialog">
             {% trans "Add weight entry" %}
         </a>
+        <a href="{% url 'core:fitbit-login' %}" class="btn btn-success btn-sm wger-modal-dialog" style="margin-left: 104px;">
+                {% trans "Sync From FitBit" %}
+            </a>
     </div>
+    
 </div>
 {% endblock %}
 
