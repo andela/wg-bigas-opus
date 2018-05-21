@@ -228,7 +228,7 @@ def fitbitFetch(request):
     # exchange access_code for token
     token = fitbit.RequestAccessToken(code)
 
-    # fetch weight data
+    # fetch weight dataa
     try:
         data = fitbit.GetWeight(token)
         for log in data['body-weight']:
