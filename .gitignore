@@ -64,6 +64,7 @@ target/
 
 # External Libraries
 wger/core/static/bower_components
+wger/settings.py
 node_modules
 
 # js
@@ -77,5 +78,4 @@ wgervenv/
 wvenv/
 venv-django/
 wg-venv
-
 .DS_Store
