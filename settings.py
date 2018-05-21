@@ -25,7 +25,7 @@ DATABASES = {
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '07ckjs-1xf_mg0vbatb6()dy4jq=)@l5tg%7e=4xl9jv+avcm$'
+SECRET_KEY = '#e7*&a3#-*o4ra9y^tuu66njwvtn219fjf@k3cb=u^5#7z^*41'
 
 # Your reCaptcha keys
 RECAPTCHA_PUBLIC_KEY = ''
