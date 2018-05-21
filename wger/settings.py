@@ -26,7 +26,7 @@ DATABASES = {
     }
 }
 
-if 'DATABASE_URL' in os.environ:
+if os.environ.get("HEROKU_ENV") == "1":
     DATABASES = {'default': dj_database_url.config()}
 
 
