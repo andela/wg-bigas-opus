@@ -3,6 +3,7 @@
 
 from wger.settings_global import *  # noqa
 import os # noqa
+import django_heroku # noqa
 import dj_database_url # noqa
 
 # Use 'DEBUG = True' to get more details for server errors
