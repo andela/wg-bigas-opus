@@ -44,9 +44,9 @@ class Command(BaseCommand):
             user = User.objects.get(username=options['username'])
             profile = UserProfile.objects.get(user=user)
             if options['disable']:
-                profile.can_add_user = False
+                profile.add_user_rest_api = False
             else:
-                profile.can_add_user = True
+                profile.add_user_rest_api = True
                 profile.save()
                 self.stdout.write(
                     self.style.SUCCESS(
