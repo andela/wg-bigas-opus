@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/shadowmaster/Desktop/simulations/wger/wg-bigas-opus/database.sqlite',
+        'NAME': '/Users/shadowmaster/.local/share/wger/database.sqlite',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -25,7 +25,7 @@ DATABASES = {
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '94n$tpetb@h=^jo@=ximl)1^z-1o1pd!yzhz@vh1je%c4&#y@&'
+SECRET_KEY = '07ckjs-1xf_mg0vbatb6()dy4jq=)@l5tg%7e=4xl9jv+avcm$'
 
 # Your reCaptcha keys
 RECAPTCHA_PUBLIC_KEY = ''
