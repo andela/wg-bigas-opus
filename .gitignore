@@ -21,6 +21,7 @@ var/
 wg-venv/
 wger-venv/
 venv-wger/
+wger-venv/
 
 *.egg-info/
 .installed.cfg
