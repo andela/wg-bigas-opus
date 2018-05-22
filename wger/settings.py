@@ -3,7 +3,6 @@
 
 from wger.settings_global import *  # noqa
 import os # noqa
-import dj_database_url # noqa
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
@@ -25,9 +24,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-if os.environ.get("HEROKU_ENV") == "1":
-    DATABASES = {'default': dj_database_url.config()}
 
 
 # Make this unique, and don't share it with anybody.
