@@ -65,7 +65,6 @@ target/
 # External Libraries
 wger/core/static/bower_components
 node_modules
-settings.py
 
 # js
 package-lock.json
