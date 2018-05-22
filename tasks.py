@@ -129,7 +129,7 @@ def bootstrap_wger(context,
                               Supported: sqlite3, postgresql. \
                               Default: sqlite3',
             'key-length': 'Lenght of the generated secret key. Default: 50'})
-def create_settings(context, settings_path=None, database_path='', url=None,
+def create_settings(context, settings_path=None, database_path=None, url=None,
                     database_type='sqlite3', key_length=50):
     '''
     Creates a local settings file
