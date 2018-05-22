@@ -140,8 +140,8 @@ def create_settings(context, settings_path=None, database_path=None, url=None,
     settings_module = os.path.dirname(settings_path)
     print("*** Creating settings file at {0}".format(settings_module))
 
-    if database_path is None:
-        database_path = get_user_data_path('wger', 'database.sqlite')
+    # if database_path is None:
+    #     database_path = get_user_data_path('wger', 'database.sqlite')
     dbpath_value = repr(database_path)
 
     media_folder_path = repr(get_user_data_path('wger', 'media'))
