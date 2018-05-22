@@ -15,17 +15,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': './database.sqlite', # noqa
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'n9qjaxsa_5xcv_9%+rhqu0d5-if&wc)=%u7p52rda9vqktg(bz'
 
