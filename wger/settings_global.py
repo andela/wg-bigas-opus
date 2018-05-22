@@ -35,7 +35,12 @@ DATABASES = {
 }
 print(os.environ.get("DB"))
 
-if os.environ.get("DB") == "sqlite":
+if os.environ.get("HEROKU_ENV"):
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+
+if os.environ.get("DB"):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
