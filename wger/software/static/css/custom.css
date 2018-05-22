@@ -47,6 +47,10 @@ nav .brand-logo {
   transition: all 0.3s ease;
 }
 
+video {
+  width: -webkit-fill-available;
+}
+
 /* SMOOTH SCROLL */
 
 .container {
@@ -80,6 +84,7 @@ nav .brand-logo {
   top: 88%;
   position: fixed;
   width:100%;
+  max-width: none;
 }
 
 svg + svg {
@@ -87,7 +92,6 @@ svg + svg {
 }
 
 .wrapper {
-  max-width: 100%;
   margin: 0 auto;
   text-align: center;
   padding-top: 2em;
