@@ -33,6 +33,7 @@
         var current = $.urlParam('mixed')
         if(current === null){
             $("#all").attr('class','active')
+           
         }else if (current === 'active'){
             $("#active").attr('class','active')
             $(".active-tab").hide()
@@ -51,8 +52,6 @@
     </ul>
     {% include 'gym/partial_user_list.html' %}
 {% endif %}
-
-
 <h4>{% trans "Administrators and trainers" %}</h4>
 <table class="table table-hover">
 <thead>
@@ -111,7 +110,8 @@
     {% endif %}
 
     {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
+    <td>
+        {% if current_user.obj.is_active %}
         <span>Yes</span>
         {% else %}
         <span>No</span>
@@ -130,127 +130,6 @@
             {% endif %}
         </td>
     {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}{% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
-    {% endif %}
-
-    {% comment %} show if trainer is active or inactive {% endcomment %}
-    <td>{% if current_user.obj.is_active %}
-        <span>Yes</span>
-        {% else %}
-        <span>No</span>
-        {% endif %}
-    </td>
-
-    {% comment %} Add activate and deactivate button {% endcomment %}
-    {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
-        <td>
-            {% if not current_user.perms.manage_gym and not current_user.perms.manage_gyms %}
-                {% if current_user.obj.is_active %}
-                    <a href="{% url 'core:user:deactivate' current_user.obj.pk %}" class="btn btn-danger btn-sm">Deactivate</a>
-                {% else %}
-                    <a href="{% url 'core:user:activate' current_user.obj.pk %}" class="btn btn-success btn-sm">Activate</a>
-                {% endif %}
-            {% endif %}
-        </td>
 
     {% if perms.gym.manage_gym or perms.gym.manage_gyms %}
     <td style="text-align: right;">
