@@ -31,7 +31,12 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 
-if os.environ.get("DB") == "sqlite":
+if os.environ.get("HEROKU_ENV"):
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+
+if os.environ.get("DB"):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -42,8 +47,6 @@ if os.environ.get("DB") == "sqlite":
             'PORT': '',
         }
     }
-if os.environ.get("HEROKU_ENV") == "1":
-    DATABASES = {'default': dj_database_url.config()}    
 
 SITE_ID = 1
 ROOT_URLCONF = 'wger.urls'
