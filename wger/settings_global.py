@@ -35,7 +35,7 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 if os.environ.get("HEROKU_ENV"): 
     DATABASES = {
         'default': dj_database_url.config()
-    }G
+    }
 
 
 if os.environ.get("DB") == "sqlite":
