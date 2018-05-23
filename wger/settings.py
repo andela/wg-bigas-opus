@@ -6,6 +6,7 @@ import os # noqa
 import django_heroku # noqa
 import dj_database_url # noqa
 
+
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
 TEMPLATES[0]['OPTIONS']['debug'] = True # noqa
@@ -26,10 +27,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-if os.environ.get("HEROKU_ENV") == "1":
-    DATABASES = {'default': dj_database_url.config()}
-
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'n9qjaxsa_5xcv_9%+rhqu0d5-if&wc)=%u7p52rda9vqktg(bz'

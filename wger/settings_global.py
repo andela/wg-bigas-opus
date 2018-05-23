@@ -33,7 +33,6 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 DATABASES = {
     'default': dj_database_url.config()
 }
-print(os.environ.get("DB"))
 
 if os.environ.get("HEROKU_ENV"):
     DATABASES = {
