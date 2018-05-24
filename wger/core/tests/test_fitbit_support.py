@@ -10,11 +10,18 @@ from wger.core.views.fitbit import FitBit
 
 class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
 
+    """
+    Test Integration with fitbit
+    """
+    # Import environment variables
+
     CLIENT_ID = os.environ.get('CLIENT_ID')
     CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
     SCOPE = os.environ.get('SCOPE')
     REDIRECT_URI = os.environ.get('REDIRECT_URI')
     AUTHORIZE_URI = os.environ.get('AUTHORIZE_URI')
+
+    # Set parameters
 
     params = {
             'client_id': CLIENT_ID,
@@ -24,6 +31,9 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
     }
 
     def test_it_shows_instructions(self):
+        """
+        Test if the link received is the actual link required
+        """
         # encode the parameters
         urlparams = urllib.parse.urlencode(self.params)
         # construct and return authorization_uri
@@ -35,6 +45,9 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
         msg_prefix='', fetch_redirect_response=False)
 
     def test_app_redirects_to_fitbit(self):
+        """
+        Test if link redirects ti the site
+        """
         self.user_login()
         r = self.client.get(reverse('core:fitbit-login'))
         status_code = r.status_code
