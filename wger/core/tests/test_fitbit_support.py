@@ -37,7 +37,7 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
         # encode the parameters
         urlparams = urllib.parse.urlencode(self.params)
         # construct and return authorization_uri
-        url = self.AUTHORIZE_URI + '?' + urlparams
+        url = self.AUTHORIZE_URI + "?" + urlparams
         self.user_login()
         r = self.client.get(reverse('core:fitbit-login'))
         status_code = r.status_code
