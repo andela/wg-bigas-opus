@@ -71,8 +71,9 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
                 ("4", "Custom")
             ), initial="4", widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
 
-            duration = ChoiceField(choices=weeks, initial=1,
-                                   widget=forms.Select(),  help_text=_('The duration in weeks'))
+            duration = ChoiceField(
+                choices=weeks, initial=1,  # noqa
+                widget=forms.Select(),  help_text=_('The duration in weeks'))
 
             class Meta:
                 model = ScheduleStep

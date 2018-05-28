@@ -17,8 +17,9 @@ from django.core.urlresolvers import reverse
 
 from wger.core.tests import api_base_test
 from wger.core.tests.base_testcase import WorkoutManagerAddTestCase
-from wger.core.tests.base_testcase import WorkoutManagerEditTestCase
+from wger.core.tests.base_testcase import WorkoutManagerEditTestCase # noqa
 from wger.nutrition.models import MealItem
+
 
 class AddMealItemUnitTestCase(WorkoutManagerAddTestCase):
     '''
