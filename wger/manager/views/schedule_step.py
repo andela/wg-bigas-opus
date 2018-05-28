@@ -64,7 +64,7 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
                 for element in range(1, 53)
             )
 
-        class StepForm(ModelForm):
+        class StepForm(ModelForm):  # noqa
             workout = ModelChoiceField(queryset=Workout.objects.filter
                                        (user=self.request.user))
             cycle = ChoiceField(choices=(
@@ -76,7 +76,7 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
                 widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
 
             duration = ChoiceField(
-                choices=weeks, initial=1,
+                choices=weeks, initial=1,  # noqa
                 widget=forms.Select(),  help_text=_('The duration in weeks'))
 
             class Meta:
