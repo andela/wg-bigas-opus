@@ -4,7 +4,7 @@ import os
 
 from django.core.management import execute_from_command_line
 
-from tasks import (
+from tasks import ( # noqa
     setup_django_environment,
     get_user_config_path
 )
