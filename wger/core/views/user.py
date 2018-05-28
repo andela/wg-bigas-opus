@@ -553,6 +553,7 @@ class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         '''
         Pass other info to the template
+        Add another key to the table to display the state of the user whether active or inactive.
         '''
         context = super(UserListView, self).get_context_data(**kwargs)
         context['show_gym'] = True
@@ -560,6 +561,7 @@ class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
                                           _('Username'),
                                           _('Name'),
                                           _('Last activity'),
-                                          _('Gym')],
+                                          _('Gym'),
+                                          _('Active')],
                                  'users': context['object_list']['members']}
         return context

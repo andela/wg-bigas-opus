@@ -26,8 +26,6 @@ wger-venv/
 *.egg-info/
 .installed.cfg
 *.egg
-.env
-.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -53,7 +51,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-settings*.py
 *.sqlite
 /CACHE
 
@@ -66,15 +63,16 @@ target/
 # IDE
 .idea/
 .env
-.vscode/
+.vscode/settings.json
 
 # External Libraries
 wger/core/static/bower_components
 node_modules
-wger/settings.py
+settings.py
 
 # js
 package-lock.json
+new-wger/
 
 # Virtual enviroments
 venv/
@@ -82,3 +80,5 @@ new-wger/
 wgervenv/
 wvenv/
 venv-django/
+wg-venv
+.DS_Store
