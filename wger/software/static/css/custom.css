@@ -150,6 +150,7 @@ video {
 
 .btn {
   width: 32%;
+  background-color: #fe4a74;
 }
 
 /* DOWN ARROW SVG SECTION */
@@ -238,6 +239,14 @@ footer {
   display: inline-block;
 }
 
+.content {
+  padding-top: 8rem;
+}
+
+section:nth-of-type(2n) {
+  padding-top: 0;
+}
+
 .card {
   background: transparent;
   box-shadow: 0 0 0 0 rgba(134, 65, 65, 0.14), 0 0 0 0 rgba(0,0,0,0.12), 0 0 0 0 rgba(0,0,0,0.2);
@@ -248,3 +257,147 @@ h1.center{
   color: #fff;
   font-size: 48px;
 }
+
+.card-panel {
+  background-color: transparent;
+  min-height: 24vh;
+  font-size: 12px;
+}
+
+.card-panel.even {
+  background-color: #FE4B74;
+}
+
+h5{
+  margin-bottom: 16px;
+}
+
+.feature_title:before{
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 1px;
+  border-bottom: 1.6px solid #FE4B74;
+  margin-top: 32px;
+}
+
+.even .feature_title:before {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 1px;
+  border-bottom: 1.6px solid #fff;
+  margin-top: 32px;
+}
+
+/* SLIDER */
+
+
+/**** slider ****/
+
+#slider, ul {
+	height: 200px;
+}
+
+#slider {
+	margin: auto;
+	overflow: hidden;
+	/* padding: 20px; */
+  border-right: 1px solid rgb(255, 255, 255, 0.4);
+  border-left: 1px solid rgb(255, 255, 255, 0.4);
+	/* margin-top: 50px; */
+	/* border-radius: 10px; */
+	/* box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.25); */
+	position: relative;
+	width: 1200px;
+}
+
+#slider li {
+	float: left;
+	position: relative;
+	width: 1200px;
+	display: inline-block;
+	height: 200px;
+}
+
+#slider ul {
+	list-style: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 9000px;
+	transition: left .3s linear;
+	-moz-transition: left .3s linear;
+	-o-transition: left .3s linear;
+	-webkit-transition: left .3s linear;
+	margin-left: -25px;
+  font-family: century gothic;
+  color: #666;
+}
+
+/*** Content ***/
+
+.slider-container {
+	margin: 0 auto;
+	padding: 0;
+	width: 72%;
+  min-height: 180px;
+}
+
+.slider-container h5 {
+ 	color: #fff;
+  text-shadow: -1px 0px 0px rgba(0, 0, 0, 0.50);
+}
+
+.slider-container h5:before {
+  content: "";
+  position: absolute;
+  width: 6%;
+  height: 1px;
+  border-bottom: 1.6px solid rgb(255, 255, 255, 0.4);
+  margin-top: 32px;
+}
+
+.slider-container  p {
+	margin: 32px 4px;
+	font-weight: semi-bold;
+	line-height: 150%;
+  text-align: justify;
+  color: #fff;
+}
+
+/*** target hooks ****/
+
+@-webkit-keyframes slide-animation {
+	0% {opacity:0;}
+	2% {opacity:1;}
+	20% {left:0px; opacity:1;}
+	22.5% {opacity:0.6;}
+	25% {left:-1200px; opacity:1;}
+	45% {left:-1200px; opacity:1;}
+	47.5% {opacity:0.6;}
+	50% {left:-2400px; opacity:1;}
+	70% {left:-2400px; opacity:1;}
+	72.5% {opacity:0.6;}
+	75% {left:-3600px; opacity:1;}
+	95% {opacity:1;}
+	98% {left:-3600px; opacity:0;} 
+	100% {left:0px; opacity:0;}
+}
+
+#slider ul
+{
+	-webkit-animation: slide-animation 25s infinite;
+}
+
+/* use to paused the content on mouse over */
+
+#slider ul:hover
+{
+	-moz-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
+
+
+
+/* END OF SLIDER */
