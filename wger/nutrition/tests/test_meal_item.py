@@ -20,39 +20,13 @@ from wger.core.tests.base_testcase import WorkoutManagerAddTestCase
 from wger.core.tests.base_testcase import WorkoutManagerEditTestCase
 from wger.nutrition.models import MealItem
 
-
-# class EditMealItemUnitTestCase(WorkoutManagerEditTestCase):
-#     '''
-#     Tests editing a meal, set the amount using a unit
-#     '''
-#
-#     object_class = MealItem
-#     url = 'nutrition:meal_item:edit'
-#     pk = 4
-#     data = {'amount': 1,
-#             'ingredient': 1,
-#             'weight_unit': 1}
-
-
-# class EditMealItemWeightTestCase(WorkoutManagerEditTestCase):
-#     '''
-#     Tests editing a meal, set the amount using weight
-#     '''
-#
-#     object_class = MealItem
-#     url = 'nutrition:meal_item:edit'
-#     pk = 4
-#     data = {'amount': 100,
-#             'ingredient': 1}
-
-
 class AddMealItemUnitTestCase(WorkoutManagerAddTestCase):
     '''
     Tests adding a meal, set the amount using a unit
     '''
 
     object_class = MealItem
-    url = reverse('nutrition:meal_item:add', kwargs={'meal_id': 3})
+    url = reverse('nutrition:meal_item:add-new', kwargs={'plan_pk': 3})
     data = {'amount': 1,
             'ingredient': 1,
             'weight_unit': 1}
@@ -64,7 +38,7 @@ class AddMealItemWeightTestCase(WorkoutManagerAddTestCase):
     '''
 
     object_class = MealItem
-    url = reverse('nutrition:meal_item:add', kwargs={'meal_id': 3})
+    url = reverse('nutrition:meal_item:add-new', kwargs={'plan_pk': 3})
     data = {'amount': 100,
             'ingredient': 1}
 

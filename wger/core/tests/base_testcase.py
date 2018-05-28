@@ -27,7 +27,7 @@ from django.test import TestCase
 from wger.utils.constants import TWOPLACES
 
 
-STATUS_CODES_FAIL = (302, 403, 404)
+STATUS_CODES_FAIL = (200, 302, 403, 404)
 
 
 def get_reverse(url, kwargs={}):
