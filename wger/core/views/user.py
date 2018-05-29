@@ -82,6 +82,7 @@ def login(request):
                             template_name='user/login.html',
                             authentication_form=UserLoginForm,
                             extra_context=context)
+                            
 
 
 @login_required()
