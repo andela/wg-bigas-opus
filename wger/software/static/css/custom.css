@@ -105,6 +105,8 @@ footer a {
 .navbar {
   height: 96px;
   padding-top: 16px;
+  animation-duration: 4s;
+  animation-delay: 1s;
 }
 
 nav {
@@ -152,16 +154,22 @@ video {
   border: 2px solid;
   padding: 4px 12px;
   margin: 0;
+  animation-duration: 2s;
+  animation-delay: 0s;
 }
 
 .row.heading_content .quote{
   font-size: 56px;
   margin: 0;
+  animation-duration: 2.2s;
+  animation-delay: 0s;
 }
 
 .btn {
   width: 32%;
   background-color: #fe4a74;
+  animation-duration: 2.4s;
+  animation-delay: 0s;
 }
 
 /* DOWN ARROW SVG SECTION */
@@ -392,7 +400,7 @@ h5{
 	72.5% {opacity:0.6;}
 	75% {left:-3600px; opacity:1;}
 	95% {opacity:1;}
-	98% {left:-3600px; opacity:0;} 
+	98% {left:-3600px; opacity:0;}
 	100% {left:0px; opacity:0;}
 }
 
@@ -409,6 +417,8 @@ h5{
 	-webkit-animation-play-state: paused;
 }
 
-
-
 /* END OF SLIDER */
+
+.left.manager {
+
+}
