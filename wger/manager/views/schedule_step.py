@@ -64,6 +64,9 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
             workout = ModelChoiceField(queryset=Workout.objects.filter
                                        (user=self.request.user))
 
+        class StepForm(ModelForm):  # noqa
+            workout = ModelChoiceField(queryset=Workout.objects.filter
+                                       (user=self.request.user))
             cycle = ChoiceField(choices=(
                 ("1", "Microcycle"),
                 ("2", "Mesocycle"),
