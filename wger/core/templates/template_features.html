@@ -61,6 +61,7 @@
     {% compress js %}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <!-- <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> -->
     {% endcompress %}
@@ -127,7 +128,26 @@
         </div>
     </div>
 </footer> -->
+<script>
 
+console.log("Slide animation coming here");
+// Changing the defaults
+window.sr = ScrollReveal({ reset: true });
+
+// Customizing a reveal set
+sr.reveal('.row.heading_content', { duration: 1000 });
+
+sr.reveal('h1.center', { duration: 1000 });
+
+sr.reveal('.card.center', { duration: 1000 });
+
+sr.reveal('.card-panel', { duration: 1000 });
+
+sr.reveal('.grey-text.text-lighten-4', { duration: 1000 });
+
+sr.reveal('.grey-text.text-lighten-4,ul', { duration: 1000 });
+
+</script>
 <script src="{% static 'bower_components/shariff/build/shariff.min.js' %}"></script>
 <!-- <script>
         $(document).ready(function () {
