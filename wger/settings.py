@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/shadowmaster/Desktop/Simulations/wger/wg-bigas-opus/database.sqlite',
+        'NAME': '/Users/PhilSkiiiwalker/Desktop/webapps/wg-bigas-opus/database.sqlite',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
