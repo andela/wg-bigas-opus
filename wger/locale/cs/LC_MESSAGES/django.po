@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: config/models.py:45 core/templates/navigation.html:53
-#: core/templates/.html.py:55
+#: core/templates/navigation.html.py:55
 #: exercises/templates/exercise/overview.html:11
 #: exercises/templates/mobile/exercise/overview.html:11
 #: exercises/templates/muscles/overview.html:79 manager/models.py:529
@@ -1049,7 +1049,7 @@ msgstr "Výživa"
 
 #: core/templates/mobile/index.html:216 core/templates/mobile/index.html:217
 #: core/templates/mobile/template.html:186 core/templates/navigation.html:37
-#: core/templates/.html.py:39 core/templates/user/overview.html:25
+#: core/templates/navigation.html.py:39 core/templates/user/overview.html:25
 #: software/templates/functions.html:80 software/templates/functions.html:89
 msgid "Workouts"
 msgstr "Tréninky"
@@ -1082,7 +1082,7 @@ msgid "Create some demo entries"
 msgstr "Vytvořit nějaké testovací potraviny"
 
 #: core/templates/mobile/template.html:162 core/templates/navigation.html:166
-#: core/templates/.html.py:171 core/templates/template.html:179
+#: core/templates/navigation.html.py:171 core/templates/template.html:179
 #: core/templates/user/login.html:32 core/templates/user/login.html.py:33
 #: core/views/user.py:257 core/views/user.py:260
 #: software/templates/functions.html:47
@@ -1090,13 +1090,13 @@ msgid "Register"
 msgstr "Registrace"
 
 #: core/templates/mobile/template.html:193 core/templates/navigation.html:166
-#: core/templates/.html.py:170 core/templates/user/login.html:4
+#: core/templates/navigation.html.py:170 core/templates/user/login.html:4
 #: core/templates/user/login.html.py:19 software/templates/functions.html:52
 msgid "Login"
 msgstr "Přihlášení"
 
 #: core/templates/mobile/template.html:196 core/templates/navigation.html:21
-#: core/templates/.html.py:124
+#: core/templates/navigation.html.py:124
 #: core/templates/template_features.html:63
 #: software/templates/functions.html:9
 msgid "Features"
@@ -1138,7 +1138,7 @@ msgstr "Přehled přístrojů"
 msgid "Add new exercise"
 msgstr "Přidat nový cvik"
 
-#: core/templates/navigation.html:65 core/templates/.html.py:107
+#: core/templates/navigation.html:65 core/templates/navigation.html.py:107
 #: core/templates/navigation.html:202
 msgid "Administration"
 msgstr "Administrace"
