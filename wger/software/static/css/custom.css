@@ -275,6 +275,8 @@ h1.center{
   font-weight: 500;
   color: #fff;
   font-size: 48px;
+  animation-duration: 4s;
+  animation-delay: 1s;
 }
 
 .card-panel {
