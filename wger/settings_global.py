@@ -30,6 +30,7 @@ import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
+<<<<<<< HEAD
 
 
 if os.environ.get("HEROKU_ENV"): 
@@ -37,8 +38,18 @@ if os.environ.get("HEROKU_ENV"):
         'default': dj_database_url.config()
     }
 
+=======
+DATABASES = {
+    'default': dj_database_url.config()
+}
+>>>>>>> 5b1245677768305fde72fd325fc8ac7a35f889f8
 
-if os.environ.get("DB") == "sqlite":
+if os.environ.get("HEROKU_ENV"):
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+
+if os.environ.get("DB"):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
