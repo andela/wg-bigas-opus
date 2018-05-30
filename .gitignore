@@ -78,5 +78,4 @@ wgervenv/
 wvenv/
 venv-django/
 wg-venv
-
 .DS_Store
