@@ -233,7 +233,8 @@ def fitbitFetch(request):
         data = fitbit.GetWeight(token)
         for log in data['body-weight']:
             weight_entry, created = WeightEntry.objects.get_or_create(date=dateutil.parser.parse(log['dateTime']),
-            user=request.user, defaults={'weight': log['value']})
+                                                                      user=request.user,
+                                                                      defaults={'weight': log['value']})
             weight_entry.weight = log['value']
             weight_entry.save()
     except Exception as e:
