@@ -31,10 +31,12 @@
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">Features</a></li>
                             </ul>
-                            <a href="#!" class="brand-logo center">WGER</a>
+                            <a href="{% url 'software:features' %}" class="brand-logo center">WGER</a>
                             <ul class="right hide-on-med-and-down">
                             <li><a href="#contact">Contact</a></li>
-                            <li><a href="#">Login</a></li>
+                            {% if not user.is_authenticated or user.userprofile.is_temporary %}
+                                <li><a href="{% url 'core:user:login' %}">Login</a></li>
+                            {% endif %}
                             </ul>
                         </div>
                     </nav>
@@ -49,12 +51,16 @@
                         <div class="col s12">
                                 <p class="left quote animated slideInDown">   Fitness has nothing to do with age.
                         </div>
-                        <div class="col s6">
-                            <a class="waves-effect waves-light btn left animated slideInDown">try it out</a>
-                        </div>
-                        <div class="col s6">
-                            <a class="waves-effect waves-light btn left animated slideInDown login">Login</a>
-                        </div>
+                        {% if allow_guest_users and not user.is_authenticated %}
+                            <div class="col s6">
+                                <a href="{% url 'core:user:demo-entries' %}" class="waves-effect waves-light btn left animated slideInDown">try it out</a>
+                            </div>
+                        {% endif %}
+                        {% if not user.is_authenticated or user.userprofile.is_temporary %}
+                            <div class="col s6">
+                                <a href="{% url 'core:user:login' %}" class="waves-effect waves-light btn left animated slideInDown login">Login</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="container svg">
@@ -203,7 +209,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <p class="p-contribute"> want to help build an awesome and flexible fitness manager, along with a comprehensive and complete list of exercises and ingredients</p>
-                    <a class="waves-effect waves-light btn-large contibute">Contribute</a>
+                    <a href="{% url 'software:contribute' %}" class="waves-effect waves-light btn-large contibute">Contribute</a>
                 </div>
             </div>
     </div>
@@ -285,10 +291,10 @@
                     <div class="col l4 s12">
                         <h5 class="feature_title">Quick Links</h5>
                         <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Dashboard</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Features</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Exercise Overview</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Muscle list</a></li>
+                            <li><a href="{% url 'core:dashboard' %}"  class="grey-text text-lighten-3" href="#!">Dashboard</a></li>
+                            <li><a href="{% url 'software:features' %}"  class="grey-text text-lighten-3" href="#!">Features</a></li>
+                            <li><a href="{% url 'exercise:equipment:overview' %}" class="grey-text text-lighten-3" href="#!">Equipment Overview</a></li>
+                            <li><a href="{% url 'exercise:muscle:overview' %}" class="grey-text text-lighten-3" href="#!">Muscle list</a></li>
                         </ul>
                     </div>
                     <div class="col l4 s12">
