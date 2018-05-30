@@ -73,6 +73,12 @@ def login(request):
     '''
     Small wrapper around the django login view
     '''
+    try:
+        if request.user and not request.user.userprofile.is_temporary:
+            return HttpResponseRedirect(reverse('core:index'))
+    except AttributeError as error:
+        pass
+    
 
     context = {'active_tab': USER_TAB}
     if request.GET.get('next'):
