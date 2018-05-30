@@ -16,12 +16,12 @@ body{
 
 section {
   width: 100%;
-  padding: 0;
+  padding: 4% 8%;
   display: table;
   margin: 0;
   max-width: none;
   background-color: #373B44;
-  height: 100vh;
+  height: 80vh;
 }
 section:nth-of-type(2n) {
   background-color: #aa5061;
@@ -32,23 +32,22 @@ section:nth-of-type(2n) {
 
 .intro {
   height: 96vh;
+  padding: 0;
+  height: 100vh;
+
 }
 
 .pre-footer {
   height: 56vh;
   font-size: 16px;
   font-weight: 600;
+  padding: 0 !important;
 }
 
-.pre-footer p {
-  font-size: 16px;
-  font-weight: 600;
-}
 
-/* .content {
-  display: table-cell;
-  vertical-align: middle;
-} */
+.container.footer{
+  margin-top: 12em;
+}
 
 h1 {
   font-size: 3em;
@@ -81,14 +80,18 @@ a:active {
 footer {
   padding: 1% 5%;
   text-align: center;
-  background-color: #aa5061;
+  background-color: #373b44;
   color: white;
 }
 
 footer a {
-  color: #373B44;
+  color: #aa5061;
   font-weight: 500;
   text-decoration: none;
+}
+
+.grey-text.text-lighten-3 {
+  font-size: 16px;
 }
 /* END OF SECTION STYLING */
 .row{
@@ -109,7 +112,7 @@ footer a {
 
 .navbar {
   height: 96px;
-  padding-top: 16px;
+  padding-top: 32px;
   animation-duration: 4s;
   animation-delay: 1s;
 }
@@ -143,10 +146,34 @@ nav ul a {
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
   font-size: 1.4rem;
+  color: #fff;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
 video {
   width: -webkit-fill-available;
+}
+
+.p-contribute {
+  font-size: 2em;
+  margin-top: 4em;
+}
+
+.btn-large.contibute {
+  font-size: 3.8em;
+  margin-top: 0;
+  background: transparent;
+  border: 1px solid rgba(255,255,255, 0.6);
+  height: 2em;
+  padding-top: 0.3em;
+}
+
+.btn-large.contibute:hover {
+  background: #373b44;
+  border: 0;
+  color: #fff;
 }
 
 /* SMOOTH SCROLL */
@@ -273,10 +300,6 @@ footer {
   display: inline-block;
 }
 
-.content {
-  padding-top: 8rem;
-}
-
 section:nth-of-type(2n) {
   padding-top: 0;
 }
@@ -284,6 +307,10 @@ section:nth-of-type(2n) {
 .card {
   background: transparent;
   box-shadow: 0 0 0 0 rgba(134, 65, 65, 0.14), 0 0 0 0 rgba(0,0,0,0.12), 0 0 0 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255, 0.4);
+  border-radius: 2px;
+  padding: 2em;
+  min-height: 35em;
 }
 
 h1.center{
@@ -400,6 +427,7 @@ h5{
 	line-height: 150%;
   text-align: justify;
   color: #fff;
+  font-size: 1.4em;
 }
 
 /*** target hooks ****/
