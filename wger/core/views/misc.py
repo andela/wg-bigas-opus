@@ -40,7 +40,6 @@ from wger.nutrition.models import NutritionPlan
 from wger.weight.models import WeightEntry
 from wger.weight.helpers import get_last_entries
 from .fitbit import FitBit
-from django.db import IntegrityError
 
 
 logger = logging.getLogger(__name__)
@@ -233,7 +232,8 @@ def fitbitFetch(request):
     try:
         data = fitbit.GetWeight(token)
         for log in data['body-weight']:
-            weight_entry, created = WeightEntry.objects.get_or_create(date=dateutil.parser.parse(log['dateTime']), user=request.user, defaults={'weight': log['value']})
+            weight_entry, created = WeightEntry.objects.get_or_create(date=dateutil.parser.parse(log['dateTime']),
+            user=request.user, defaults={'weight': log['value']})
             weight_entry.weight = log['value']
             weight_entry.save()
     except Exception as e:
