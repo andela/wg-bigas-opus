@@ -3,16 +3,6 @@ body{
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
 }
-/* SECTION STYLING */
-/* * {
-  box-sizing: border-box;
-} */
-
-/* body {
-  margin: 0;
-  font-weight: 500;
-  font-family: 'HelveticaNeue';
-} */
 
 section {
   width: 100%;
@@ -161,6 +151,10 @@ video {
   margin-top: 4em;
 }
 
+.btn.login {
+  display: none;
+}
+
 .btn-large.contibute {
   font-size: 3.8em;
   margin-top: 0;
@@ -170,7 +164,7 @@ video {
   padding-top: 0.3em;
 }
 
-.btn-large.contibute:hover {
+.btn, .btn-large.contibute:hover {
   background: #373b44;
   border: 0;
   color: #fff;
@@ -365,12 +359,8 @@ h5{
 #slider {
 	margin: auto;
 	overflow: hidden;
-	/* padding: 20px; */
   border-right: 1px solid rgb(255, 255, 255, 0.4);
   border-left: 1px solid rgb(255, 255, 255, 0.4);
-	/* margin-top: 50px; */
-	/* border-radius: 10px; */
-	/* box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.25); */
 	position: relative;
 	width: 1200px;
 }
@@ -465,5 +455,107 @@ h5{
 /* END OF SLIDER */
 
 .left.manager {
+
+}
+
+@media only screen and ( max-width: 500px){
+  html {
+      font-size: 14px;
+  }
+  video {
+    width: inherit;
+  }
+  .row.heading_content .quote {
+    font-size: 16px;
+    margin: 0;
+    animation-duration: 2.2s;
+    animation-delay: 0s;
+  }
+  .btn {
+    width: 100%;
+    background-color: #aa5061;
+    animation-duration: 2.4s;
+    animation-delay: 0s;
+  }
+
+  .row.heading_content {
+    margin-top: 8%;
+    width: 100%;
+  }
+  .navbar , .container.svg{
+    display: none;
+  }
+  .intro {
+    padding: 0;
+    height: 32vh;
+  }
+  
+  .row.heading_content .manager {
+    font-size: 20px;
+  }
+  
+  section, section:nth-of-type(2n) {
+    padding: 8% 0;
+  }
+  
+  footer {
+    padding: 5% 4%;;
+    height: 4em;
+  }
+
+  .btn.login {
+    display: block;
+  }
+  
+  }
+
+@media only screen and ( max-width: 400px){
+html {
+    font-size: 14px;
+}
+video {
+  width: inherit;
+}
+.row.heading_content .quote {
+  font-size: 16px;
+  margin: 0;
+  animation-duration: 2.2s;
+  animation-delay: 0s;
+}
+.btn {
+  width: 100%;
+  background-color: #aa5061;
+  animation-duration: 2.4s;
+  animation-delay: 0s;
+}
+
+.row.heading_content {
+  margin-top: 8%;
+  width: 100%;
+}
+.navbar , .container.svg{
+  display: none;
+}
+.intro {
+  padding: 0;
+  height: 32vh;
+}
+
+.row.heading_content .manager {
+  font-size: 20px;
+}
+
+section, section:nth-of-type(2n) {
+  padding: 8% 0;
+}
+
+footer {
+  padding: 5% 4%;;
+  height: 4em;
+}
+
+.btn.login {
+  display: block;
+}
 
 }
