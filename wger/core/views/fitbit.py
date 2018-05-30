@@ -30,7 +30,7 @@ class FitBit:
         # encode the parameters
         urlparams = urllib.parse.urlencode(params)
         # construct and return authorization_uri
-        return self.AUTHORIZE_URI + '?' + urlparams
+        return str(self.AUTHORIZE_URI) + "?" + str(urlparams)
 
     def RequestAccessToken(self, code):
         """Method to get exchange access_code with access token from fitbits"""

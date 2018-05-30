@@ -1,21 +1,31 @@
-# !/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from wger.settings_global import * # noqa
-
-# import os
+from wger.settings_global import *  # noqa
 
 # Use 'DEBUG = True' to get more details for server errors
 DEBUG = True
-TEMPLATES[0]['OPTIONS']['debug'] = True # noqa
+TEMPLATES[0]['OPTIONS']['debug'] = True  # noqa
 
 ADMINS = (
     ('Your name', 'your_email@example.com'),
 )
 MANAGERS = ADMINS
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/Users/shadowmaster/Desktop/Simulations/wger/wg-bigas-opus/database.sqlite',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '$c!o!@ea&a3_s-%r=eyovgv&s+@87q+u%^s+3e)j+mpbg2y#g!'
+SECRET_KEY = 'q1s551iop*h1=!rbjd%^%wra^*_fin247*9ss=t$sra3m&i7x^'
 
 # Your reCaptcha keys
 RECAPTCHA_PUBLIC_KEY = ''
@@ -29,7 +39,7 @@ SITE_URL = 'http://localhost:8000'
 
 # Path to uploaded files
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '/Users/PhilSkiiiwalker/.local/share/wger/media'
+MEDIA_ROOT = '/Users/shadowmaster/.local/share/wger/media'
 MEDIA_URL = '/media/'
 
 # Allow all hosts to access the application. Change if used in production.
@@ -43,7 +53,7 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Sender address used for sent emails
-WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>' # noqa
+WGER_SETTINGS['EMAIL_FROM'] = 'wger Workout Manager <wger@example.com>'  # noqa
 
 # Your twitter handle, if you have one for this instance.
 # WGER_SETTINGS['TWITTER'] = ''
