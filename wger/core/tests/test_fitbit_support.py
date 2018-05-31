@@ -42,7 +42,7 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
         r = self.client.get(reverse('core:fitbit-login'))
         status_code = r.status_code # noqa
         self.assertRedirects(r, url, status_code=302, target_status_code=200,
-        msg_prefix='', fetch_redirect_response=False) # noqa
+                             msg_prefix='', fetch_redirect_response=False)  # noqa
 
     def test_app_redirects_to_fitbit(self):
         """

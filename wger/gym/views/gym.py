@@ -108,16 +108,22 @@ class GymUserListView(LoginRequiredMixin,
         '''
         mixed = self.request.GET.get('mixed', None)
         out = {'admins': [],
-               'members': [],
-               'mixed': mixed}
+               'members': []}
+
+        for u in Gym.objects.get_members(self.kwargs['pk'])\
+                .select_related('usercache'):
+            out['members'].append({'obj': u,
+                                   'last_log': u.usercache.last_activity})
+
         # admins list
         for u in Gym.objects.get_admins(self.kwargs['pk']):
-            out['admins'].append({'obj': u,
-                                  'perms': {'manage_gym': u.has_perm('gym.manage_gym'),
-                                            'manage_gyms': u.has_perm('gym.manage_gyms'),
-                                            'gym_trainer': u.has_perm('gym.gym_trainer'),
-                                            'any_admin': is_any_gym_admin(u)}
-                                  })
+            out['admins']\
+                .append({'obj': u,
+                        'perms': {'manage_gym': u.has_perm('gym.manage_gym'),
+                                  'manage_gyms': u.has_perm('gym.manage_gyms'),
+                                  'gym_trainer': u.has_perm('gym.gym_trainer'),
+                                  'any_admin': is_any_gym_admin(u)}})
+
         if mixed == "active":
             for u in Gym.objects.get_active_users(self.kwargs['pk']).select_related('usercache'):
                 out['members'].append({'obj': u,

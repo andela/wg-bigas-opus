@@ -59,11 +59,14 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
         have we access to the current user
         '''
         class StepForm(ModelForm, forms.Form):
-
             weeks = tuple((element, "{} weeks".format(element)) for element in range(1, 53))
 
-            workout = ModelChoiceField(queryset=Workout.objects.filter(user=self.request.user))
+            workout = ModelChoiceField(queryset=Workout.objects.filter
+                                       (user=self.request.user))
 
+        class StepForm(ModelForm):  # noqa
+            workout = ModelChoiceField(queryset=Workout.objects.filter
+                                       (user=self.request.user))
             cycle = ChoiceField(choices=(
                 ("1", "Microcycle"),
                 ("2", "Mesocycle"),
@@ -71,8 +74,9 @@ class StepCreateView(WgerFormMixin, CreateView, PermissionRequiredMixin):
                 ("4", "Custom")
             ), initial="4", widget=forms.Select(attrs={'onchange': 'cycleChange()'}))
 
-            duration = ChoiceField(choices=weeks, initial=1,
-                                   widget=forms.Select(),  help_text=_('The duration in weeks'))
+            duration = ChoiceField(
+                choices=weeks, initial=1,  # noqa
+                widget=forms.Select(),  help_text=_('The duration in weeks'))
 
             class Meta:
                 model = ScheduleStep
