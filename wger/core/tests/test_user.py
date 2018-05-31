@@ -228,3 +228,5 @@ class UserDetailPageTestCase2(WorkoutManagerAccessTestCase):
                  'manager1',
                  'member1',
                  'member2')
+    
+    
