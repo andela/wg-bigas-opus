@@ -62,8 +62,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-    <!-- <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> -->
     {% endcompress %}
 
     <title>wger Workout Manager - {% trans "Features" %}</title>
@@ -79,55 +77,6 @@
     <div id="current-url" data-current-url="{{request_full_path}}"></div>
     <div id="current-language" data-current-language="{{language.short_name}}"></div>
 
-
-
-<!-- <footer class="bg-darkest-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li><a href="{% url 'software:contribute' %}">{% trans "Contribute!" %}</a></li>
-                    <li><a href="{% url 'core:contact' %}">{% trans "Get in touch" %}</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li>
-                        <a href="https://github.com/wger-project/wger" title="Github">
-                            <span class="{% fa_class 'github' %}"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/wger_de" title="Twitter">
-                         <span class="{% fa_class 'twitter' %}"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.transifex.com/rge/wger-workout-manager/" title="{% trans 'Translate' %}">
-                            <span class="{% fa_class 'globe' %}"></span>
-                        </a>
-                    </li>
-                    <li>
-                      {% if show_shariff %}
-                        {% include 'misc/fragments/shariff_modal.html' %}
-                        <a data-toggle="modal" href="#shariffModal" title="Share">
-                          <span class="{% fa_class 'share-alt' %}"></span>
-                        </a>
-                        <div class="clearfix"></div>
-                      {% endif %}
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li><a href="{% url 'core:about' %}">{% trans "About" %}</a></li>
-
-                    <li><a href="{% url 'software:tos' %}">{% trans "Terms of service" %}</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer> -->
 <script>
 
 console.log("Slide animation coming here");
@@ -149,47 +98,6 @@ sr.reveal('.grey-text.text-lighten-4,ul', { duration: 1000 });
 
 </script>
 <script src="{% static 'bower_components/shariff/build/shariff.min.js' %}"></script>
-<!-- <script>
-        $(document).ready(function () {
-            $(document).on("scroll", onScroll);
-            console.log("smooth scroll");
-            //smoothscroll
-            $('a[href^="#"]').on('click', function (e) {
-                e.preventDefault();
-                $(document).off("scroll");
-
-                $('a').each(function () {
-                    $(this).removeClass('active');
-                })
-                $(this).addClass('active');
-
-                var target = this.hash,
-                    menu = target;
-                $target = $(target);
-                $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top+2
-                }, 500, 'swing', function () {
-                    window.location.hash = target;
-                    $(document).on("scroll", onScroll);
-                });
-            });
-        });
-
-        function onScroll(event){
-            var scrollPos = $(document).scrollTop();
-            $('#menu-center a').each(function () {
-                var currLink = $(this);
-                var refElement = $(currLink.attr("href"));
-                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                    $('#menu-center ul li a').removeClass("active");
-                    currLink.addClass("active");
-                }
-                else{
-                    currLink.removeClass("active");
-                }
-            });
-        }
-</script> -->
 </body>
 {% endspaceless_config %}
 </html>
