@@ -232,14 +232,11 @@ def fitbitFetch(request):
     try:
         data = fitbit.GetWeight(token)
         for log in data['body-weight']:
-            weight_entry = WeightEntry()
-            weight_entry.user = request.user
+            weight_entry, created = WeightEntry.objects.get_or_create(date=dateutil.parser.parse(log['dateTime']),
+                                                                      user=request.user,
+                                                                      defaults={'weight': log['value']})
             weight_entry.weight = log['value']
-            weight_entry.date = dateutil.parser.parse(log['dateTime'])
-            try:
-                weight_entry.save()
-            except Exception as e:
-                return e
+            weight_entry.save()
     except Exception as e:
         return e
     return HttpResponseRedirect(reverse('core:dashboard'))

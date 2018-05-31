@@ -86,6 +86,9 @@ class UserApiRegistrationViewset(viewsets.ModelViewSet):
         return User.objects.all()
 
     def create(self, request, *args, **kwargs):
+        user = User.objects.get(username=request.user.username)
+        profile = UserProfile.objects.get(user=user)
+        profile.add_user_rest_api = True
         print(request.user.username)
         if UserProfile.objects.get(user=request.user).add_user_rest_api:
             serializer = UserApiSerializer(data=request.data)

@@ -2,10 +2,10 @@ import os
 import urllib
 from django.core.urlresolvers import reverse
 from wger.core.tests.base_testcase import WorkoutManagerTestCase
-from django.conf import settings
-import requests
-import json
-from wger.core.views.fitbit import FitBit
+from django.conf import settings # noqa
+import requests # noqa
+import json # noqa
+from wger.core.views.fitbit import FitBit # noqa
 
 
 class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
@@ -40,9 +40,9 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
         url = str(self.AUTHORIZE_URI) + "?" + str(urlparams)
         self.user_login()
         r = self.client.get(reverse('core:fitbit-login'))
-        status_code = r.status_code
+        status_code = r.status_code # noqa
         self.assertRedirects(r, url, status_code=302, target_status_code=200,
-        msg_prefix='', fetch_redirect_response=False)
+        msg_prefix='', fetch_redirect_response=False) # noqa
 
     def test_app_redirects_to_fitbit(self):
         """
@@ -50,7 +50,5 @@ class IntegrateWithFitbitTestCase(WorkoutManagerTestCase):
         """
         self.user_login()
         r = self.client.get(reverse('core:fitbit-login'))
-        status_code = r.status_code
+        status_code = r.status_code # noqa
         self.assertEqual(r.status_code, 302)
-
-   
