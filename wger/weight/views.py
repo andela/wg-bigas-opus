@@ -194,6 +194,7 @@ def get_weight_data(request, username=None):
     # Return the results to the client
     return Response(chart_data)
 
+
 @api_view(['GET'])
 def get_logged_user_weight_data(request, username=None):
     '''

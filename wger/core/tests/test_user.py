@@ -80,12 +80,10 @@ class StatusUserTestCase(WorkoutManagerTestCase):
             self.user_logout()
 
     def test_active_user_cannot_access_login_page(self):
-         user = User.objects.get(pk=2)
-         self.user_login(user)
-         response = self.client.get(reverse('core:user:login'))
-         self.assertEqual(response.status_code, 302)
-        
-
+        user = User.objects.get(pk=2)
+        self.user_login(user)
+        response = self.client.get(reverse('core:user:login'))
+        self.assertEqual(response.status_code, 302)
 
     def test_activate_logged_out(self):
         '''

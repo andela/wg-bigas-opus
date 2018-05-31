@@ -151,6 +151,7 @@ def dashboard(request):
 
     return render(request, 'index.html', template_data)
 
+
 def comparison(request, username=None):
     '''
     Analysis view
