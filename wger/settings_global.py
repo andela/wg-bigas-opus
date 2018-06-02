@@ -38,11 +38,6 @@ if os.environ.get("HEROKU_ENV"):
     }
 
 
-if os.environ.get("HEROKU_ENV"):
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
-
 if os.environ.get("DB"):
     DATABASES = {
         'default': {
